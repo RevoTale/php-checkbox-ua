@@ -1,0 +1,18 @@
+{
+    "name": "grisaia/checkboxua",
+    "description": "A library to interact with https://checkbox.ua API.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Grisaia\\CheckboxUA\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Liakhovskyi Vladyslav",
+            "email": "vlad@revotale.com"
+        }
+    ],
+    "require": {}
+}
