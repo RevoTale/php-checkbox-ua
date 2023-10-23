@@ -1,5 +1,5 @@
 {
-    "name": "grisaia/checkboxua",
+    "name": "revotale/checkbox-ua",
     "description": "A library to interact with https://checkbox.ua API.",
     "type": "library",
     "license": "MIT",
