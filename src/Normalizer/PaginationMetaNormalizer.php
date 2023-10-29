@@ -11,6 +11,7 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\PaginationMeta;
 
 class PaginationMetaNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -77,6 +78,6 @@ class PaginationMetaNormalizer implements DenormalizerInterface, NormalizerInter
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\PaginationMeta' => false];
+        return [PaginationMeta::class => false];
     }
 }

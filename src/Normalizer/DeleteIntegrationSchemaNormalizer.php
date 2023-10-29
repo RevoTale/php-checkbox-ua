@@ -11,6 +11,7 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\DeleteIntegrationSchema;
 
 class DeleteIntegrationSchemaNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -72,6 +73,6 @@ class DeleteIntegrationSchemaNormalizer implements DenormalizerInterface, Normal
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\DeleteIntegrationSchema' => false];
+        return [DeleteIntegrationSchema::class => false];
     }
 }

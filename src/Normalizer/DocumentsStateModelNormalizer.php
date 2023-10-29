@@ -11,6 +11,7 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\DocumentsStateModel;
 
 class DocumentsStateModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -82,6 +83,6 @@ class DocumentsStateModelNormalizer implements DenormalizerInterface, Normalizer
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\DocumentsStateModel' => false];
+        return [DocumentsStateModel::class => false];
     }
 }

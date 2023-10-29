@@ -12,6 +12,7 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\IntegrationInfoSchema;
 
 class IntegrationInfoSchemaNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -99,6 +100,6 @@ class IntegrationInfoSchemaNormalizer implements DenormalizerInterface, Normaliz
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\IntegrationInfoSchema' => false];
+        return [IntegrationInfoSchema::class => false];
     }
 }

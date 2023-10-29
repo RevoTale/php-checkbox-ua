@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace RevoTale\CheckboxUA\Endpoint;
 
+use RevoTale\CheckboxUA\Model\HTTPValidationError;
+use RevoTale\CheckboxUA\Model\ReportTaskSchema;
+
 class CreateDailyCashFlowReportApiV1ExtendedReportsDailyCashFlowPost extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
 {
     use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
@@ -70,10 +73,10 @@ class CreateDailyCashFlowReportApiV1ExtendedReportsDailyCashFlowPost extends \Re
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'RevoTale\\CheckboxUA\\Model\\ReportTaskSchema', 'json');
+            return $serializer->deserialize($body, ReportTaskSchema::class, 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \RevoTale\CheckboxUA\Exception\CreateDailyCashFlowReportApiV1ExtendedReportsDailyCashFlowPostUnprocessableEntityException($serializer->deserialize($body, 'RevoTale\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \RevoTale\CheckboxUA\Exception\CreateDailyCashFlowReportApiV1ExtendedReportsDailyCashFlowPostUnprocessableEntityException($serializer->deserialize($body, HTTPValidationError::class, 'json'), $response);
         }
         throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }

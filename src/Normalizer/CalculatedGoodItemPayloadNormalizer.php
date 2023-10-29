@@ -11,6 +11,10 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\CalculatedGoodItemPayload;
+use RevoTale\CheckboxUA\Model\CalculatedDiscountPayload;
+use RevoTale\CheckboxUA\Model\CalculatedGoodTaxPayload;
+use RevoTale\CheckboxUA\Model\CalculatedGoodDetailsPayload;
 
 class CalculatedGoodItemPayloadNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -42,7 +46,7 @@ class CalculatedGoodItemPayloadNormalizer implements DenormalizerInterface, Norm
             return $object;
         }
         if (array_key_exists('good', $data)) {
-            $object->setGood($this->denormalizer->denormalize($data['good'], 'RevoTale\\CheckboxUA\\Model\\CalculatedGoodDetailsPayload', 'json', $context));
+            $object->setGood($this->denormalizer->denormalize($data['good'], CalculatedGoodDetailsPayload::class, 'json', $context));
             unset($data['good']);
         }
         if (array_key_exists('good_id', $data)) {
@@ -68,7 +72,7 @@ class CalculatedGoodItemPayloadNormalizer implements DenormalizerInterface, Norm
         if (array_key_exists('taxes', $data)) {
             $values = [];
             foreach ($data['taxes'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\CalculatedGoodTaxPayload', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, CalculatedGoodTaxPayload::class, 'json', $context);
             }
             $object->setTaxes($values);
             unset($data['taxes']);
@@ -76,7 +80,7 @@ class CalculatedGoodItemPayloadNormalizer implements DenormalizerInterface, Norm
         if (array_key_exists('discounts', $data)) {
             $values_1 = [];
             foreach ($data['discounts'] as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'RevoTale\\CheckboxUA\\Model\\CalculatedDiscountPayload', 'json', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, CalculatedDiscountPayload::class, 'json', $context);
             }
             $object->setDiscounts($values_1);
             unset($data['discounts']);
@@ -131,6 +135,6 @@ class CalculatedGoodItemPayloadNormalizer implements DenormalizerInterface, Norm
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\CalculatedGoodItemPayload' => false];
+        return [CalculatedGoodItemPayload::class => false];
     }
 }

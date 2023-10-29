@@ -12,6 +12,7 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\GoodTax;
 
 class GoodTaxNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -141,6 +142,6 @@ class GoodTaxNormalizer implements DenormalizerInterface, NormalizerInterface, D
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\GoodTax' => false];
+        return [GoodTax::class => false];
     }
 }

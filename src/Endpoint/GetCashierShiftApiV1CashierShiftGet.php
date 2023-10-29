@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace RevoTale\CheckboxUA\Endpoint;
 
+use RevoTale\CheckboxUA\Model\HTTPValidationError;
+use RevoTale\CheckboxUA\Model\ShiftWithCashRegisterModel;
+
 class GetCashierShiftApiV1CashierShiftGet extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
 {
     use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
@@ -69,10 +72,10 @@ class GetCashierShiftApiV1CashierShiftGet extends \RevoTale\CheckboxUA\Runtime\C
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'RevoTale\\CheckboxUA\\Model\\ShiftWithCashRegisterModel', 'json');
+            return $serializer->deserialize($body, ShiftWithCashRegisterModel::class, 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \RevoTale\CheckboxUA\Exception\GetCashierShiftApiV1CashierShiftGetUnprocessableEntityException($serializer->deserialize($body, 'RevoTale\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \RevoTale\CheckboxUA\Exception\GetCashierShiftApiV1CashierShiftGetUnprocessableEntityException($serializer->deserialize($body, HTTPValidationError::class, 'json'), $response);
         }
         throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }

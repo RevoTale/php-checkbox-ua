@@ -13,6 +13,12 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\CashierModel;
+use RevoTale\CheckboxUA\Model\CashRegisterModel;
+use RevoTale\CheckboxUA\Model\ShiftTaxModel;
+use RevoTale\CheckboxUA\Model\BalanceModel;
+use RevoTale\CheckboxUA\Model\ShortTransaction;
+use RevoTale\CheckboxUA\Model\ReportModel;
 
 class ShiftWithCashierAndCashRegisterNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -56,7 +62,7 @@ class ShiftWithCashierAndCashRegisterNormalizer implements DenormalizerInterface
             unset($data['status']);
         }
         if (array_key_exists('z_report', $data)) {
-            $object->setZReport($this->denormalizer->denormalize($data['z_report'], 'RevoTale\\CheckboxUA\\Model\\ReportModel', 'json', $context));
+            $object->setZReport($this->denormalizer->denormalize($data['z_report'], ReportModel::class, 'json', $context));
             unset($data['z_report']);
         }
         if (array_key_exists('opened_at', $data)) {
@@ -68,11 +74,11 @@ class ShiftWithCashierAndCashRegisterNormalizer implements DenormalizerInterface
             unset($data['closed_at']);
         }
         if (array_key_exists('initial_transaction', $data)) {
-            $object->setInitialTransaction($this->denormalizer->denormalize($data['initial_transaction'], 'RevoTale\\CheckboxUA\\Model\\ShortTransaction', 'json', $context));
+            $object->setInitialTransaction($this->denormalizer->denormalize($data['initial_transaction'], ShortTransaction::class, 'json', $context));
             unset($data['initial_transaction']);
         }
         if (array_key_exists('closing_transaction', $data)) {
-            $object->setClosingTransaction($this->denormalizer->denormalize($data['closing_transaction'], 'RevoTale\\CheckboxUA\\Model\\ShortTransaction', 'json', $context));
+            $object->setClosingTransaction($this->denormalizer->denormalize($data['closing_transaction'], ShortTransaction::class, 'json', $context));
             unset($data['closing_transaction']);
         }
         if (array_key_exists('created_at', $data)) {
@@ -84,13 +90,13 @@ class ShiftWithCashierAndCashRegisterNormalizer implements DenormalizerInterface
             unset($data['updated_at']);
         }
         if (array_key_exists('balance', $data)) {
-            $object->setBalance($this->denormalizer->denormalize($data['balance'], 'RevoTale\\CheckboxUA\\Model\\BalanceModel', 'json', $context));
+            $object->setBalance($this->denormalizer->denormalize($data['balance'], BalanceModel::class, 'json', $context));
             unset($data['balance']);
         }
         if (array_key_exists('taxes', $data)) {
             $values = [];
             foreach ($data['taxes'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\ShiftTaxModel', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, ShiftTaxModel::class, 'json', $context);
             }
             $object->setTaxes($values);
             unset($data['taxes']);
@@ -104,11 +110,11 @@ class ShiftWithCashierAndCashRegisterNormalizer implements DenormalizerInterface
             unset($data['emergency_close_details']);
         }
         if (array_key_exists('cash_register', $data)) {
-            $object->setCashRegister($this->denormalizer->denormalize($data['cash_register'], 'RevoTale\\CheckboxUA\\Model\\CashRegisterModel', 'json', $context));
+            $object->setCashRegister($this->denormalizer->denormalize($data['cash_register'], CashRegisterModel::class, 'json', $context));
             unset($data['cash_register']);
         }
         if (array_key_exists('cashier', $data)) {
-            $object->setCashier($this->denormalizer->denormalize($data['cashier'], 'RevoTale\\CheckboxUA\\Model\\CashierModel', 'json', $context));
+            $object->setCashier($this->denormalizer->denormalize($data['cashier'], CashierModel::class, 'json', $context));
             unset($data['cashier']);
         }
         foreach ($data as $key => $value_1) {
@@ -175,6 +181,6 @@ class ShiftWithCashierAndCashRegisterNormalizer implements DenormalizerInterface
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\ShiftWithCashierAndCashRegister' => false];
+        return [ShiftWithCashierAndCashRegister::class => false];
     }
 }

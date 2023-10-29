@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace RevoTale\CheckboxUA\Endpoint;
 
+use RevoTale\CheckboxUA\Model\HTTPValidationError;
+use RevoTale\CheckboxUA\Model\ReceiptModel;
+
 class CreateOfflineReceiptApiV1ReceiptsSellOfflinePost extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
 {
     use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
@@ -74,10 +77,10 @@ class CreateOfflineReceiptApiV1ReceiptsSellOfflinePost extends \RevoTale\Checkbo
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (201 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'RevoTale\\CheckboxUA\\Model\\ReceiptModel', 'json');
+            return $serializer->deserialize($body, ReceiptModel::class, 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \RevoTale\CheckboxUA\Exception\CreateOfflineReceiptApiV1ReceiptsSellOfflinePostUnprocessableEntityException($serializer->deserialize($body, 'RevoTale\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \RevoTale\CheckboxUA\Exception\CreateOfflineReceiptApiV1ReceiptsSellOfflinePostUnprocessableEntityException($serializer->deserialize($body, HTTPValidationError::class, 'json'), $response);
         }
         throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }

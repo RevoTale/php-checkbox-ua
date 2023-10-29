@@ -11,6 +11,9 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\CreateOrderModel;
+use RevoTale\CheckboxUA\Model\OrderDeliveryDetailsModel;
+use RevoTale\CheckboxUA\Model\OrderReceiptModel;
 
 class CreateOrderModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -62,11 +65,11 @@ class CreateOrderModelNormalizer implements DenormalizerInterface, NormalizerInt
             unset($data['payment_method']);
         }
         if (array_key_exists('receipt_draft', $data)) {
-            $object->setReceiptDraft($this->denormalizer->denormalize($data['receipt_draft'], 'RevoTale\\CheckboxUA\\Model\\OrderReceiptModel', 'json', $context));
+            $object->setReceiptDraft($this->denormalizer->denormalize($data['receipt_draft'], OrderReceiptModel::class, 'json', $context));
             unset($data['receipt_draft']);
         }
         if (array_key_exists('delivery_details', $data)) {
-            $object->setDeliveryDetails($this->denormalizer->denormalize($data['delivery_details'], 'RevoTale\\CheckboxUA\\Model\\OrderDeliveryDetailsModel', 'json', $context));
+            $object->setDeliveryDetails($this->denormalizer->denormalize($data['delivery_details'], OrderDeliveryDetailsModel::class, 'json', $context));
             unset($data['delivery_details']);
         }
         if (array_key_exists('not_fiscalize', $data)) {
@@ -128,6 +131,6 @@ class CreateOrderModelNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\CreateOrderModel' => false];
+        return [CreateOrderModel::class => false];
     }
 }

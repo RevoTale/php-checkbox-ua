@@ -12,6 +12,7 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 use function array_key_exists;
 use function is_array;
 use function is_int;
+use RevoTale\CheckboxUA\Model\DiscountModel;
 
 class DiscountModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -119,6 +120,6 @@ class DiscountModelNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\DiscountModel' => false];
+        return [DiscountModel::class => false];
     }
 }

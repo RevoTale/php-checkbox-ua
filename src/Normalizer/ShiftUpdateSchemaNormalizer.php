@@ -11,6 +11,8 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\ShiftUpdateSchema;
+use RevoTale\CheckboxUA\Model\ShiftModel;
 
 class ShiftUpdateSchemaNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -42,7 +44,7 @@ class ShiftUpdateSchemaNormalizer implements DenormalizerInterface, NormalizerIn
             return $object;
         }
         if (array_key_exists('shift', $data)) {
-            $object->setShift($this->denormalizer->denormalize($data['shift'], 'RevoTale\\CheckboxUA\\Model\\ShiftModel', 'json', $context));
+            $object->setShift($this->denormalizer->denormalize($data['shift'], ShiftModel::class, 'json', $context));
             unset($data['shift']);
         }
         foreach ($data as $key => $value) {
@@ -72,6 +74,6 @@ class ShiftUpdateSchemaNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\ShiftUpdateSchema' => false];
+        return [ShiftUpdateSchema::class => false];
     }
 }

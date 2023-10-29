@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace RevoTale\CheckboxUA\Endpoint;
 
+use RevoTale\CheckboxUA\Model\HTTPValidationError;
+use RevoTale\CheckboxUA\Model\CurrencyRateModel;
+
 class GetCurrencyRateApiV1CurrencyRateCurrencyCodeGet extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
 {
     use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
@@ -69,10 +72,10 @@ class GetCurrencyRateApiV1CurrencyRateCurrencyCodeGet extends \RevoTale\Checkbox
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'RevoTale\\CheckboxUA\\Model\\CurrencyRateModel', 'json');
+            return $serializer->deserialize($body, CurrencyRateModel::class, 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \RevoTale\CheckboxUA\Exception\GetCurrencyRateApiV1CurrencyRateCurrencyCodeGetUnprocessableEntityException($serializer->deserialize($body, 'RevoTale\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \RevoTale\CheckboxUA\Exception\GetCurrencyRateApiV1CurrencyRateCurrencyCodeGetUnprocessableEntityException($serializer->deserialize($body, HTTPValidationError::class, 'json'), $response);
         }
         throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }

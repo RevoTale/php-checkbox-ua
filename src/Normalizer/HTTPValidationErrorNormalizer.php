@@ -11,6 +11,8 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\HTTPValidationError;
+use RevoTale\CheckboxUA\Model\ValidationError;
 
 class HTTPValidationErrorNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -44,7 +46,7 @@ class HTTPValidationErrorNormalizer implements DenormalizerInterface, Normalizer
         if (array_key_exists('detail', $data)) {
             $values = [];
             foreach ($data['detail'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\ValidationError', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, ValidationError::class, 'json', $context);
             }
             $object->setDetail($values);
             unset($data['detail']);
@@ -87,6 +89,6 @@ class HTTPValidationErrorNormalizer implements DenormalizerInterface, Normalizer
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\HTTPValidationError' => false];
+        return [HTTPValidationError::class => false];
     }
 }

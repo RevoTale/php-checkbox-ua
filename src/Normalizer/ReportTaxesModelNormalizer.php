@@ -13,6 +13,7 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 use function array_key_exists;
 use function is_array;
 use function is_int;
+use RevoTale\CheckboxUA\Model\ReportTaxesModel;
 
 class ReportTaxesModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -141,6 +142,6 @@ class ReportTaxesModelNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\ReportTaxesModel' => false];
+        return [ReportTaxesModel::class => false];
     }
 }

@@ -12,6 +12,7 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\PublicReportTaskSchema;
 
 class PublicReportTaskSchemaNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -100,6 +101,6 @@ class PublicReportTaskSchemaNormalizer implements DenormalizerInterface, Normali
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\PublicReportTaskSchema' => false];
+        return [PublicReportTaskSchema::class => false];
     }
 }

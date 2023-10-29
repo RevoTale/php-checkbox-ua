@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace RevoTale\CheckboxUA\Endpoint;
 
+use RevoTale\CheckboxUA\Model\HTTPValidationError;
+
 class GetAllTaxesApiV1TaxGet extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
 {
     use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
@@ -71,7 +73,7 @@ class GetAllTaxesApiV1TaxGet extends \RevoTale\CheckboxUA\Runtime\Client\BaseEnd
             return $serializer->deserialize($body, 'RevoTale\\CheckboxUA\\Model\\ExtendedTaxModel[]', 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \RevoTale\CheckboxUA\Exception\GetAllTaxesApiV1TaxGetUnprocessableEntityException($serializer->deserialize($body, 'RevoTale\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \RevoTale\CheckboxUA\Exception\GetAllTaxesApiV1TaxGetUnprocessableEntityException($serializer->deserialize($body, HTTPValidationError::class, 'json'), $response);
         }
         throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }

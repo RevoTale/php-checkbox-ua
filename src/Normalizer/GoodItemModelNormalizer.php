@@ -11,6 +11,10 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\GoodItemModel;
+use RevoTale\CheckboxUA\Model\DiscountModel;
+use RevoTale\CheckboxUA\Model\GoodTax;
+use RevoTale\CheckboxUA\Model\SrsoSchemaReceiptSchemaGoodModel;
 
 class GoodItemModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -42,7 +46,7 @@ class GoodItemModelNormalizer implements DenormalizerInterface, NormalizerInterf
             return $object;
         }
         if (array_key_exists('good', $data)) {
-            $object->setGood($this->denormalizer->denormalize($data['good'], 'RevoTale\\CheckboxUA\\Model\\SrsoSchemaReceiptSchemaGoodModel', 'json', $context));
+            $object->setGood($this->denormalizer->denormalize($data['good'], SrsoSchemaReceiptSchemaGoodModel::class, 'json', $context));
             unset($data['good']);
         }
         if (array_key_exists('good_id', $data)) {
@@ -64,7 +68,7 @@ class GoodItemModelNormalizer implements DenormalizerInterface, NormalizerInterf
         if (array_key_exists('taxes', $data)) {
             $values = [];
             foreach ($data['taxes'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\GoodTax', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, GoodTax::class, 'json', $context);
             }
             $object->setTaxes($values);
             unset($data['taxes']);
@@ -72,7 +76,7 @@ class GoodItemModelNormalizer implements DenormalizerInterface, NormalizerInterf
         if (array_key_exists('discounts', $data)) {
             $values_1 = [];
             foreach ($data['discounts'] as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'RevoTale\\CheckboxUA\\Model\\DiscountModel', 'json', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, DiscountModel::class, 'json', $context);
             }
             $object->setDiscounts($values_1);
             unset($data['discounts']);
@@ -122,6 +126,6 @@ class GoodItemModelNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\GoodItemModel' => false];
+        return [GoodItemModel::class => false];
     }
 }

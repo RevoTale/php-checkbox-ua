@@ -11,6 +11,7 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\ShortOrganizationModel;
 
 class ShortOrganizationModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -87,6 +88,6 @@ class ShortOrganizationModelNormalizer implements DenormalizerInterface, Normali
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\ShortOrganizationModel' => false];
+        return [ShortOrganizationModel::class => false];
     }
 }

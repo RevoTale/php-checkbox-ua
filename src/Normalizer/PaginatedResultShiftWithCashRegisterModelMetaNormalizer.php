@@ -11,6 +11,7 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\PaginatedResultShiftWithCashRegisterModelMeta;
 
 class PaginatedResultShiftWithCashRegisterModelMetaNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -77,6 +78,6 @@ class PaginatedResultShiftWithCashRegisterModelMetaNormalizer implements Denorma
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\PaginatedResultShiftWithCashRegisterModelMeta' => false];
+        return [PaginatedResultShiftWithCashRegisterModelMeta::class => false];
     }
 }

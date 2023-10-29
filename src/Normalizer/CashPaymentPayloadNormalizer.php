@@ -11,6 +11,7 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\CashPaymentPayload;
 
 class CashPaymentPayloadNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -93,6 +94,6 @@ class CashPaymentPayloadNormalizer implements DenormalizerInterface, NormalizerI
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\CashPaymentPayload' => false];
+        return [CashPaymentPayload::class => false];
     }
 }

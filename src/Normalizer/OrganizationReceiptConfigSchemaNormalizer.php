@@ -11,6 +11,8 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\OrganizationReceiptConfigSchema;
+use RevoTale\CheckboxUA\Model\ShortOrganizationModel;
 
 class OrganizationReceiptConfigSchemaNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -82,7 +84,7 @@ class OrganizationReceiptConfigSchemaNormalizer implements DenormalizerInterface
             unset($data['html_light_block_style']);
         }
         if (array_key_exists('organization', $data)) {
-            $object->setOrganization($this->denormalizer->denormalize($data['organization'], 'RevoTale\\CheckboxUA\\Model\\ShortOrganizationModel', 'json', $context));
+            $object->setOrganization($this->denormalizer->denormalize($data['organization'], ShortOrganizationModel::class, 'json', $context));
             unset($data['organization']);
         }
         foreach ($data as $key => $value) {
@@ -142,6 +144,6 @@ class OrganizationReceiptConfigSchemaNormalizer implements DenormalizerInterface
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\OrganizationReceiptConfigSchema' => false];
+        return [OrganizationReceiptConfigSchema::class => false];
     }
 }

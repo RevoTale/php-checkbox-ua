@@ -11,6 +11,7 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\BodyImportGoodsFromFileApiV1GoodsImportUploadPost;
 
 class BodyImportGoodsFromFileApiV1GoodsImportUploadPostNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -72,6 +73,6 @@ class BodyImportGoodsFromFileApiV1GoodsImportUploadPostNormalizer implements Den
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\BodyImportGoodsFromFileApiV1GoodsImportUploadPost' => false];
+        return [BodyImportGoodsFromFileApiV1GoodsImportUploadPost::class => false];
     }
 }

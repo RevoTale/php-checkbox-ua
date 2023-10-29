@@ -12,6 +12,7 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\WebhookInfoResponseSchema;
 
 class WebhookInfoResponseSchemaNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -104,6 +105,6 @@ class WebhookInfoResponseSchemaNormalizer implements DenormalizerInterface, Norm
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\WebhookInfoResponseSchema' => false];
+        return [WebhookInfoResponseSchema::class => false];
     }
 }

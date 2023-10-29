@@ -12,6 +12,9 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\CashWithdrawalReceiptPayload;
+use RevoTale\CheckboxUA\Model\DeliveryPayload;
+use RevoTale\CheckboxUA\Model\CardPaymentPayload;
 
 class CashWithdrawalReceiptPayloadNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -55,7 +58,7 @@ class CashWithdrawalReceiptPayloadNormalizer implements DenormalizerInterface, N
             unset($data['departament']);
         }
         if (array_key_exists('payment', $data)) {
-            $object->setPayment($this->denormalizer->denormalize($data['payment'], 'RevoTale\\CheckboxUA\\Model\\CardPaymentPayload', 'json', $context));
+            $object->setPayment($this->denormalizer->denormalize($data['payment'], CardPaymentPayload::class, 'json', $context));
             unset($data['payment']);
         }
         if (array_key_exists('fiscal_code', $data)) {
@@ -87,7 +90,7 @@ class CashWithdrawalReceiptPayloadNormalizer implements DenormalizerInterface, N
             unset($data['context']);
         }
         if (array_key_exists('delivery', $data)) {
-            $object->setDelivery($this->denormalizer->denormalize($data['delivery'], 'RevoTale\\CheckboxUA\\Model\\DeliveryPayload', 'json', $context));
+            $object->setDelivery($this->denormalizer->denormalize($data['delivery'], DeliveryPayload::class, 'json', $context));
             unset($data['delivery']);
         }
         if (array_key_exists('previous_receipt_id', $data)) {
@@ -158,6 +161,6 @@ class CashWithdrawalReceiptPayloadNormalizer implements DenormalizerInterface, N
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\CashWithdrawalReceiptPayload' => false];
+        return [CashWithdrawalReceiptPayload::class => false];
     }
 }

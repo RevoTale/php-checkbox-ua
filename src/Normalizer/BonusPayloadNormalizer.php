@@ -11,6 +11,7 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\BonusPayload;
 
 class BonusPayloadNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -84,6 +85,6 @@ class BonusPayloadNormalizer implements DenormalizerInterface, NormalizerInterfa
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\BonusPayload' => false];
+        return [BonusPayload::class => false];
     }
 }

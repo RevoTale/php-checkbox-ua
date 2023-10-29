@@ -11,6 +11,9 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\OrderGoodItemModel;
+use RevoTale\CheckboxUA\Model\DiscountPayload;
+use RevoTale\CheckboxUA\Model\OrderGoodItemModelGood;
 
 class OrderGoodItemModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -42,7 +45,7 @@ class OrderGoodItemModelNormalizer implements DenormalizerInterface, NormalizerI
             return $object;
         }
         if (array_key_exists('good', $data)) {
-            $object->setGood($this->denormalizer->denormalize($data['good'], 'RevoTale\\CheckboxUA\\Model\\OrderGoodItemModelGood', 'json', $context));
+            $object->setGood($this->denormalizer->denormalize($data['good'], OrderGoodItemModelGood::class, 'json', $context));
             unset($data['good']);
         }
         if (array_key_exists('good_id', $data)) {
@@ -60,7 +63,7 @@ class OrderGoodItemModelNormalizer implements DenormalizerInterface, NormalizerI
         if (array_key_exists('discounts', $data)) {
             $values = [];
             foreach ($data['discounts'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\DiscountPayload', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, DiscountPayload::class, 'json', $context);
             }
             $object->setDiscounts($values);
             unset($data['discounts']);
@@ -115,6 +118,6 @@ class OrderGoodItemModelNormalizer implements DenormalizerInterface, NormalizerI
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\OrderGoodItemModel' => false];
+        return [OrderGoodItemModel::class => false];
     }
 }

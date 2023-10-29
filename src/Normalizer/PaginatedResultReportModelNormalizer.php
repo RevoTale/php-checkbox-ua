@@ -11,6 +11,9 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\PaginatedResultReportModel;
+use RevoTale\CheckboxUA\Model\ReportModel;
+use RevoTale\CheckboxUA\Model\PaginatedResultReportModelMeta;
 
 class PaginatedResultReportModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -42,13 +45,13 @@ class PaginatedResultReportModelNormalizer implements DenormalizerInterface, Nor
             return $object;
         }
         if (array_key_exists('meta', $data)) {
-            $object->setMeta($this->denormalizer->denormalize($data['meta'], 'RevoTale\\CheckboxUA\\Model\\PaginatedResultReportModelMeta', 'json', $context));
+            $object->setMeta($this->denormalizer->denormalize($data['meta'], PaginatedResultReportModelMeta::class, 'json', $context));
             unset($data['meta']);
         }
         if (array_key_exists('results', $data)) {
             $values = [];
             foreach ($data['results'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\ReportModel', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, ReportModel::class, 'json', $context);
             }
             $object->setResults($values);
             unset($data['results']);
@@ -85,6 +88,6 @@ class PaginatedResultReportModelNormalizer implements DenormalizerInterface, Nor
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\PaginatedResultReportModel' => false];
+        return [PaginatedResultReportModel::class => false];
     }
 }

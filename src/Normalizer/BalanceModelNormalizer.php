@@ -130,6 +130,6 @@ class BalanceModelNormalizer implements DenormalizerInterface, NormalizerInterfa
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\BalanceModel' => false];
+        return [BalanceModel::class => false];
     }
 }

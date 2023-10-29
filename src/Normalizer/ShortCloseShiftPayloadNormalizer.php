@@ -11,6 +11,8 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\ShortCloseShiftPayload;
+use RevoTale\CheckboxUA\Model\ShortCloseShiftPayloadReport;
 
 class ShortCloseShiftPayloadNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -46,7 +48,7 @@ class ShortCloseShiftPayloadNormalizer implements DenormalizerInterface, Normali
             unset($data['skip_client_name_check']);
         }
         if (array_key_exists('report', $data)) {
-            $object->setReport($this->denormalizer->denormalize($data['report'], 'RevoTale\\CheckboxUA\\Model\\ShortCloseShiftPayloadReport', 'json', $context));
+            $object->setReport($this->denormalizer->denormalize($data['report'], ShortCloseShiftPayloadReport::class, 'json', $context));
             unset($data['report']);
         }
         foreach ($data as $key => $value) {
@@ -81,6 +83,6 @@ class ShortCloseShiftPayloadNormalizer implements DenormalizerInterface, Normali
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\ShortCloseShiftPayload' => false];
+        return [ShortCloseShiftPayload::class => false];
     }
 }

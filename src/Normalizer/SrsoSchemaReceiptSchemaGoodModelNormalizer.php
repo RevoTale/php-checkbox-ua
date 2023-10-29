@@ -126,6 +126,6 @@ class SrsoSchemaReceiptSchemaGoodModelNormalizer implements DenormalizerInterfac
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\SrsoSchemaReceiptSchemaGoodModel' => false];
+        return [SrsoSchemaReceiptSchemaGoodModel::class => false];
     }
 }

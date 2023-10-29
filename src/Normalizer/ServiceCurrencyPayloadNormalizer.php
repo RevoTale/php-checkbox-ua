@@ -11,6 +11,8 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\ServiceCurrencyPayload;
+use RevoTale\CheckboxUA\Model\ServiceCurrencyItemPayload;
 
 class ServiceCurrencyPayloadNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -52,7 +54,7 @@ class ServiceCurrencyPayloadNormalizer implements DenormalizerInterface, Normali
         if (array_key_exists('currencies', $data)) {
             $values = [];
             foreach ($data['currencies'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\ServiceCurrencyItemPayload', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, ServiceCurrencyItemPayload::class, 'json', $context);
             }
             $object->setCurrencies($values);
             unset($data['currencies']);
@@ -92,6 +94,6 @@ class ServiceCurrencyPayloadNormalizer implements DenormalizerInterface, Normali
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\ServiceCurrencyPayload' => false];
+        return [ServiceCurrencyPayload::class => false];
     }
 }

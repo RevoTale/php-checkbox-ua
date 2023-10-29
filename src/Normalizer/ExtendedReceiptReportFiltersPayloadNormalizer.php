@@ -12,6 +12,7 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\ExtendedReceiptReportFiltersPayload;
 
 class ExtendedReceiptReportFiltersPayloadNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -112,6 +113,6 @@ class ExtendedReceiptReportFiltersPayloadNormalizer implements DenormalizerInter
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\ExtendedReceiptReportFiltersPayload' => false];
+        return [ExtendedReceiptReportFiltersPayload::class => false];
     }
 }

@@ -11,6 +11,9 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\PaginatedResultOrderModel;
+use RevoTale\CheckboxUA\Model\OrderModel;
+use RevoTale\CheckboxUA\Model\PaginatedResultOrderModelMeta;
 
 class PaginatedResultOrderModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -42,13 +45,13 @@ class PaginatedResultOrderModelNormalizer implements DenormalizerInterface, Norm
             return $object;
         }
         if (array_key_exists('meta', $data)) {
-            $object->setMeta($this->denormalizer->denormalize($data['meta'], 'RevoTale\\CheckboxUA\\Model\\PaginatedResultOrderModelMeta', 'json', $context));
+            $object->setMeta($this->denormalizer->denormalize($data['meta'], PaginatedResultOrderModelMeta::class, 'json', $context));
             unset($data['meta']);
         }
         if (array_key_exists('results', $data)) {
             $values = [];
             foreach ($data['results'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\OrderModel', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, OrderModel::class, 'json', $context);
             }
             $object->setResults($values);
             unset($data['results']);
@@ -85,6 +88,6 @@ class PaginatedResultOrderModelNormalizer implements DenormalizerInterface, Norm
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\PaginatedResultOrderModel' => false];
+        return [PaginatedResultOrderModel::class => false];
     }
 }

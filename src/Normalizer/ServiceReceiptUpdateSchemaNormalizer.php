@@ -11,6 +11,8 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\ServiceReceiptUpdateSchema;
+use RevoTale\CheckboxUA\Model\ShortReceiptModel;
 
 class ServiceReceiptUpdateSchemaNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -42,7 +44,7 @@ class ServiceReceiptUpdateSchemaNormalizer implements DenormalizerInterface, Nor
             return $object;
         }
         if (array_key_exists('service_receipt', $data)) {
-            $object->setServiceReceipt($this->denormalizer->denormalize($data['service_receipt'], 'RevoTale\\CheckboxUA\\Model\\ShortReceiptModel', 'json', $context));
+            $object->setServiceReceipt($this->denormalizer->denormalize($data['service_receipt'], ShortReceiptModel::class, 'json', $context));
             unset($data['service_receipt']);
         }
         foreach ($data as $key => $value) {
@@ -72,6 +74,6 @@ class ServiceReceiptUpdateSchemaNormalizer implements DenormalizerInterface, Nor
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\ServiceReceiptUpdateSchema' => false];
+        return [ServiceReceiptUpdateSchema::class => false];
     }
 }

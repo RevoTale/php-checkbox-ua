@@ -12,6 +12,8 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 use function array_key_exists;
 use function is_array;
 use function is_int;
+use RevoTale\CheckboxUA\Model\CurrencySchema;
+use RevoTale\CheckboxUA\Model\CurrencyRateModel;
 
 class CurrencySchemaNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -54,7 +56,7 @@ class CurrencySchemaNormalizer implements DenormalizerInterface, NormalizerInter
             unset($data['value']);
         }
         if (array_key_exists('rate', $data)) {
-            $object->setRate($this->denormalizer->denormalize($data['rate'], 'RevoTale\\CheckboxUA\\Model\\CurrencyRateModel', 'json', $context));
+            $object->setRate($this->denormalizer->denormalize($data['rate'], CurrencyRateModel::class, 'json', $context));
             unset($data['rate']);
         }
         foreach ($data as $key => $value) {
@@ -88,6 +90,6 @@ class CurrencySchemaNormalizer implements DenormalizerInterface, NormalizerInter
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\CurrencySchema' => false];
+        return [CurrencySchema::class => false];
     }
 }

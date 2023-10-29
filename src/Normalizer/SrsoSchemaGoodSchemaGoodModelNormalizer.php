@@ -12,6 +12,9 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\SrsoSchemaGoodSchemaGoodModel;
+use RevoTale\CheckboxUA\Model\GoodModelBase;
+use RevoTale\CheckboxUA\Model\TaxModel;
 
 class SrsoSchemaGoodSchemaGoodModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -69,7 +72,7 @@ class SrsoSchemaGoodSchemaGoodModelNormalizer implements DenormalizerInterface, 
         if (array_key_exists('taxes', $data)) {
             $values = [];
             foreach ($data['taxes'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\TaxModel', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, TaxModel::class, 'json', $context);
             }
             $object->setTaxes($values);
             unset($data['taxes']);
@@ -97,7 +100,7 @@ class SrsoSchemaGoodSchemaGoodModelNormalizer implements DenormalizerInterface, 
         if (array_key_exists('children', $data)) {
             $values_1 = [];
             foreach ($data['children'] as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'RevoTale\\CheckboxUA\\Model\\GoodModelBase', 'json', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, GoodModelBase::class, 'json', $context);
             }
             $object->setChildren($values_1);
             unset($data['children']);
@@ -170,6 +173,6 @@ class SrsoSchemaGoodSchemaGoodModelNormalizer implements DenormalizerInterface, 
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\SrsoSchemaGoodSchemaGoodModel' => false];
+        return [SrsoSchemaGoodSchemaGoodModel::class => false];
     }
 }

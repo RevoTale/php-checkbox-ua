@@ -12,6 +12,8 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\CloseShiftPayload;
+use RevoTale\CheckboxUA\Model\CloseShiftPayloadReport;
 
 class CloseShiftPayloadNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -47,7 +49,7 @@ class CloseShiftPayloadNormalizer implements DenormalizerInterface, NormalizerIn
             unset($data['skip_client_name_check']);
         }
         if (array_key_exists('report', $data)) {
-            $object->setReport($this->denormalizer->denormalize($data['report'], 'RevoTale\\CheckboxUA\\Model\\CloseShiftPayloadReport', 'json', $context));
+            $object->setReport($this->denormalizer->denormalize($data['report'], CloseShiftPayloadReport::class, 'json', $context));
             unset($data['report']);
         }
         if (array_key_exists('fiscal_code', $data)) {
@@ -96,6 +98,6 @@ class CloseShiftPayloadNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\CloseShiftPayload' => false];
+        return [CloseShiftPayload::class => false];
     }
 }

@@ -194,6 +194,6 @@ class TransactionModelNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\TransactionModel' => false];
+        return [TransactionModel::class => false];
     }
 }

@@ -103,6 +103,6 @@ class CashRegisterModelNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\CashRegisterModel' => false];
+        return [CashRegisterModel::class => false];
     }
 }

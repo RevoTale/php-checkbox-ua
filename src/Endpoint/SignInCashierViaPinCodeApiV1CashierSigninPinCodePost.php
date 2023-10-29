@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 namespace RevoTale\CheckboxUA\Endpoint;
 
+use RevoTale\CheckboxUA\Model\HTTPValidationError;
+use RevoTale\CheckboxUA\Model\HTTPError;
+use RevoTale\CheckboxUA\Model\CashierAccessTokenResponseModel;
+
 class SignInCashierViaPinCodeApiV1CashierSigninPinCodePost extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
 {
     use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
@@ -76,13 +80,13 @@ class SignInCashierViaPinCodeApiV1CashierSigninPinCodePost extends \RevoTale\Che
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'RevoTale\\CheckboxUA\\Model\\CashierAccessTokenResponseModel', 'json');
+            return $serializer->deserialize($body, CashierAccessTokenResponseModel::class, 'json');
         }
         if (false === is_null($contentType) && (403 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \RevoTale\CheckboxUA\Exception\SignInCashierViaPinCodeApiV1CashierSigninPinCodePostForbiddenException($serializer->deserialize($body, 'RevoTale\\CheckboxUA\\Model\\HTTPError', 'json'), $response);
+            throw new \RevoTale\CheckboxUA\Exception\SignInCashierViaPinCodeApiV1CashierSigninPinCodePostForbiddenException($serializer->deserialize($body, HTTPError::class, 'json'), $response);
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \RevoTale\CheckboxUA\Exception\SignInCashierViaPinCodeApiV1CashierSigninPinCodePostUnprocessableEntityException($serializer->deserialize($body, 'RevoTale\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \RevoTale\CheckboxUA\Exception\SignInCashierViaPinCodeApiV1CashierSigninPinCodePostUnprocessableEntityException($serializer->deserialize($body, HTTPValidationError::class, 'json'), $response);
         }
         throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }

@@ -159,6 +159,6 @@ class ShortTransactionNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\ShortTransaction' => false];
+        return [ShortTransaction::class => false];
     }
 }

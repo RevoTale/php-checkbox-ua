@@ -11,6 +11,8 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\OrderUpdateSchema;
+use RevoTale\CheckboxUA\Model\OrderModel;
 
 class OrderUpdateSchemaNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -42,7 +44,7 @@ class OrderUpdateSchemaNormalizer implements DenormalizerInterface, NormalizerIn
             return $object;
         }
         if (array_key_exists('order', $data)) {
-            $object->setOrder($this->denormalizer->denormalize($data['order'], 'RevoTale\\CheckboxUA\\Model\\OrderModel', 'json', $context));
+            $object->setOrder($this->denormalizer->denormalize($data['order'], OrderModel::class, 'json', $context));
             unset($data['order']);
         }
         foreach ($data as $key => $value) {
@@ -72,6 +74,6 @@ class OrderUpdateSchemaNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\OrderUpdateSchema' => false];
+        return [OrderUpdateSchema::class => false];
     }
 }

@@ -12,6 +12,7 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\DetailedOfflineFiscalCodeModel;
 
 class DetailedOfflineFiscalCodeModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -88,6 +89,6 @@ class DetailedOfflineFiscalCodeModelNormalizer implements DenormalizerInterface,
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\DetailedOfflineFiscalCodeModel' => false];
+        return [DetailedOfflineFiscalCodeModel::class => false];
     }
 }

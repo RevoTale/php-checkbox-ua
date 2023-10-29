@@ -12,6 +12,8 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 use function array_key_exists;
 use function is_array;
 use function is_int;
+use RevoTale\CheckboxUA\Model\CurrencyExchangeSchema;
+use RevoTale\CheckboxUA\Model\CurrencySchema;
 
 class CurrencyExchangeSchemaNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -49,11 +51,11 @@ class CurrencyExchangeSchemaNormalizer implements DenormalizerInterface, Normali
             return $object;
         }
         if (array_key_exists('sell', $data)) {
-            $object->setSell($this->denormalizer->denormalize($data['sell'], 'RevoTale\\CheckboxUA\\Model\\CurrencySchema', 'json', $context));
+            $object->setSell($this->denormalizer->denormalize($data['sell'], CurrencySchema::class, 'json', $context));
             unset($data['sell']);
         }
         if (array_key_exists('buy', $data)) {
-            $object->setBuy($this->denormalizer->denormalize($data['buy'], 'RevoTale\\CheckboxUA\\Model\\CurrencySchema', 'json', $context));
+            $object->setBuy($this->denormalizer->denormalize($data['buy'], CurrencySchema::class, 'json', $context));
             unset($data['buy']);
         }
         if (array_key_exists('type', $data)) {
@@ -121,6 +123,6 @@ class CurrencyExchangeSchemaNormalizer implements DenormalizerInterface, Normali
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\CurrencyExchangeSchema' => false];
+        return [CurrencyExchangeSchema::class => false];
     }
 }

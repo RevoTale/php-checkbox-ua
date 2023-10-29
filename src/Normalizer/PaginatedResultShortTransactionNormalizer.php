@@ -11,6 +11,9 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\PaginatedResultShortTransaction;
+use RevoTale\CheckboxUA\Model\ShortTransaction;
+use RevoTale\CheckboxUA\Model\PaginatedResultShortTransactionMeta;
 
 class PaginatedResultShortTransactionNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -42,13 +45,13 @@ class PaginatedResultShortTransactionNormalizer implements DenormalizerInterface
             return $object;
         }
         if (array_key_exists('meta', $data)) {
-            $object->setMeta($this->denormalizer->denormalize($data['meta'], 'RevoTale\\CheckboxUA\\Model\\PaginatedResultShortTransactionMeta', 'json', $context));
+            $object->setMeta($this->denormalizer->denormalize($data['meta'], PaginatedResultShortTransactionMeta::class, 'json', $context));
             unset($data['meta']);
         }
         if (array_key_exists('results', $data)) {
             $values = [];
             foreach ($data['results'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\ShortTransaction', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, ShortTransaction::class, 'json', $context);
             }
             $object->setResults($values);
             unset($data['results']);
@@ -85,6 +88,6 @@ class PaginatedResultShortTransactionNormalizer implements DenormalizerInterface
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\PaginatedResultShortTransaction' => false];
+        return [PaginatedResultShortTransaction::class => false];
     }
 }

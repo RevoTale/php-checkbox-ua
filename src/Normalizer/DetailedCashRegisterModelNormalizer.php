@@ -12,6 +12,9 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\DetailedCashRegisterModel;
+use RevoTale\CheckboxUA\Model\BranchModel;
+use RevoTale\CheckboxUA\Model\ShiftWithCashierModel;
 
 class DetailedCashRegisterModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -67,7 +70,7 @@ class DetailedCashRegisterModelNormalizer implements DenormalizerInterface, Norm
             unset($data['number']);
         }
         if (array_key_exists('shift', $data)) {
-            $object->setShift($this->denormalizer->denormalize($data['shift'], 'RevoTale\\CheckboxUA\\Model\\ShiftWithCashierModel', 'json', $context));
+            $object->setShift($this->denormalizer->denormalize($data['shift'], ShiftWithCashierModel::class, 'json', $context));
             unset($data['shift']);
         }
         if (array_key_exists('offline_mode', $data)) {
@@ -79,7 +82,7 @@ class DetailedCashRegisterModelNormalizer implements DenormalizerInterface, Norm
             unset($data['stay_offline']);
         }
         if (array_key_exists('branch', $data)) {
-            $object->setBranch($this->denormalizer->denormalize($data['branch'], 'RevoTale\\CheckboxUA\\Model\\BranchModel', 'json', $context));
+            $object->setBranch($this->denormalizer->denormalize($data['branch'], BranchModel::class, 'json', $context));
             unset($data['branch']);
         }
         if (array_key_exists('address', $data)) {
@@ -137,6 +140,6 @@ class DetailedCashRegisterModelNormalizer implements DenormalizerInterface, Norm
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\DetailedCashRegisterModel' => false];
+        return [DetailedCashRegisterModel::class => false];
     }
 }

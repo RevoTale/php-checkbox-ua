@@ -132,6 +132,6 @@ class TaxModelNormalizer implements DenormalizerInterface, NormalizerInterface, 
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\TaxModel' => false];
+        return [TaxModel::class => false];
     }
 }

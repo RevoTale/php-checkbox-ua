@@ -13,6 +13,8 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\ReportTaxesPayload;
+use RevoTale\CheckboxUA\Model\ReportPaymentsPayload;
 
 class CloseShiftPayloadReportNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -54,7 +56,7 @@ class CloseShiftPayloadReportNormalizer implements DenormalizerInterface, Normal
         if (array_key_exists('payments', $data)) {
             $values = [];
             foreach ($data['payments'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\ReportPaymentsPayload', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, ReportPaymentsPayload::class, 'json', $context);
             }
             $object->setPayments($values);
             unset($data['payments']);
@@ -62,7 +64,7 @@ class CloseShiftPayloadReportNormalizer implements DenormalizerInterface, Normal
         if (array_key_exists('taxes', $data)) {
             $values_1 = [];
             foreach ($data['taxes'] as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'RevoTale\\CheckboxUA\\Model\\ReportTaxesPayload', 'json', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, ReportTaxesPayload::class, 'json', $context);
             }
             $object->setTaxes($values_1);
             unset($data['taxes']);
@@ -192,6 +194,6 @@ class CloseShiftPayloadReportNormalizer implements DenormalizerInterface, Normal
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\CloseShiftPayloadReport' => false];
+        return [CloseShiftPayloadReport::class => false];
     }
 }

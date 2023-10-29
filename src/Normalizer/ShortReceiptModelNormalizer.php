@@ -11,6 +11,16 @@ use RevoTale\CheckboxUA\Runtime\Normalizer\{CheckArray, ValidatorTrait};
 use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, DenormalizerAwareTrait, DenormalizerInterface, NormalizerAwareInterface, NormalizerAwareTrait, NormalizerInterface};
 
 use function array_key_exists;
+use RevoTale\CheckboxUA\Model\ShortReceiptModel;
+use RevoTale\CheckboxUA\Model\CurrencyExchangeSchema;
+use RevoTale\CheckboxUA\Model\ReceiptConfigPayload;
+use RevoTale\CheckboxUA\Model\DiscountModel;
+use RevoTale\CheckboxUA\Model\GoodTax;
+use RevoTale\CheckboxUA\Model\ObsoleteCardPaymentPayload;
+use RevoTale\CheckboxUA\Model\CardPaymentPayload;
+use RevoTale\CheckboxUA\Model\CashPaymentPayload;
+use RevoTale\CheckboxUA\Model\GoodItemModel;
+use RevoTale\CheckboxUA\Model\ShortTransaction;
 
 class ShortReceiptModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -50,7 +60,7 @@ class ShortReceiptModelNormalizer implements DenormalizerInterface, NormalizerIn
             unset($data['type']);
         }
         if (array_key_exists('transaction', $data)) {
-            $object->setTransaction($this->denormalizer->denormalize($data['transaction'], 'RevoTale\\CheckboxUA\\Model\\ShortTransaction', 'json', $context));
+            $object->setTransaction($this->denormalizer->denormalize($data['transaction'], ShortTransaction::class, 'json', $context));
             unset($data['transaction']);
         }
         if (array_key_exists('serial', $data)) {
@@ -64,7 +74,7 @@ class ShortReceiptModelNormalizer implements DenormalizerInterface, NormalizerIn
         if (array_key_exists('goods', $data)) {
             $values = [];
             foreach ($data['goods'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\GoodItemModel', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, GoodItemModel::class, 'json', $context);
             }
             $object->setGoods($values);
             unset($data['goods']);
@@ -74,11 +84,11 @@ class ShortReceiptModelNormalizer implements DenormalizerInterface, NormalizerIn
             foreach ($data['payments'] as $value_1) {
                 $value_2 = $value_1;
                 if (is_array($value_1) and isset($value_1['value'])) {
-                    $value_2 = $this->denormalizer->denormalize($value_1, 'RevoTale\\CheckboxUA\\Model\\CashPaymentPayload', 'json', $context);
+                    $value_2 = $this->denormalizer->denormalize($value_1, CashPaymentPayload::class, 'json', $context);
                 } elseif (is_array($value_1) and isset($value_1['value'])) {
-                    $value_2 = $this->denormalizer->denormalize($value_1, 'RevoTale\\CheckboxUA\\Model\\CardPaymentPayload', 'json', $context);
+                    $value_2 = $this->denormalizer->denormalize($value_1, CardPaymentPayload::class, 'json', $context);
                 } elseif (is_array($value_1) and isset($value_1['value'])) {
-                    $value_2 = $this->denormalizer->denormalize($value_1, 'RevoTale\\CheckboxUA\\Model\\ObsoleteCardPaymentPayload', 'json', $context);
+                    $value_2 = $this->denormalizer->denormalize($value_1, ObsoleteCardPaymentPayload::class, 'json', $context);
                 }
                 $values_1[] = $value_2;
             }
@@ -124,7 +134,7 @@ class ShortReceiptModelNormalizer implements DenormalizerInterface, NormalizerIn
         if (array_key_exists('taxes', $data)) {
             $values_2 = [];
             foreach ($data['taxes'] as $value_3) {
-                $values_2[] = $this->denormalizer->denormalize($value_3, 'RevoTale\\CheckboxUA\\Model\\GoodTax', 'json', $context);
+                $values_2[] = $this->denormalizer->denormalize($value_3, GoodTax::class, 'json', $context);
             }
             $object->setTaxes($values_2);
             unset($data['taxes']);
@@ -132,7 +142,7 @@ class ShortReceiptModelNormalizer implements DenormalizerInterface, NormalizerIn
         if (array_key_exists('discounts', $data)) {
             $values_3 = [];
             foreach ($data['discounts'] as $value_4) {
-                $values_3[] = $this->denormalizer->denormalize($value_4, 'RevoTale\\CheckboxUA\\Model\\DiscountModel', 'json', $context);
+                $values_3[] = $this->denormalizer->denormalize($value_4, DiscountModel::class, 'json', $context);
             }
             $object->setDiscounts($values_3);
             unset($data['discounts']);
@@ -154,7 +164,7 @@ class ShortReceiptModelNormalizer implements DenormalizerInterface, NormalizerIn
             unset($data['barcode']);
         }
         if (array_key_exists('custom', $data)) {
-            $object->setCustom($this->denormalizer->denormalize($data['custom'], 'RevoTale\\CheckboxUA\\Model\\ReceiptConfigPayload', 'json', $context));
+            $object->setCustom($this->denormalizer->denormalize($data['custom'], ReceiptConfigPayload::class, 'json', $context));
             unset($data['custom']);
         }
         if (array_key_exists('context', $data)) {
@@ -194,7 +204,7 @@ class ShortReceiptModelNormalizer implements DenormalizerInterface, NormalizerIn
             unset($data['stock_code']);
         }
         if (array_key_exists('currency_exchange', $data)) {
-            $object->setCurrencyExchange($this->denormalizer->denormalize($data['currency_exchange'], 'RevoTale\\CheckboxUA\\Model\\CurrencyExchangeSchema', 'json', $context));
+            $object->setCurrencyExchange($this->denormalizer->denormalize($data['currency_exchange'], CurrencyExchangeSchema::class, 'json', $context));
             unset($data['currency_exchange']);
         }
         foreach ($data as $key_1 => $value_6) {
@@ -325,6 +335,6 @@ class ShortReceiptModelNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\ShortReceiptModel' => false];
+        return [ShortReceiptModel::class => false];
     }
 }

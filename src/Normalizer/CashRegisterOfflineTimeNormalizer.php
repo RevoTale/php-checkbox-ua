@@ -11,6 +11,9 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\CashRegisterOfflineTime;
+use RevoTale\CheckboxUA\Model\CashRegisterOfflineTimeSession;
+use RevoTale\CheckboxUA\Model\CashRegisterOfflineTimeStatus;
 
 class CashRegisterOfflineTimeNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -42,13 +45,13 @@ class CashRegisterOfflineTimeNormalizer implements DenormalizerInterface, Normal
             return $object;
         }
         if (array_key_exists('status', $data)) {
-            $object->setStatus($this->denormalizer->denormalize($data['status'], 'RevoTale\\CheckboxUA\\Model\\CashRegisterOfflineTimeStatus', 'json', $context));
+            $object->setStatus($this->denormalizer->denormalize($data['status'], CashRegisterOfflineTimeStatus::class, 'json', $context));
             unset($data['status']);
         }
         if (array_key_exists('sessions', $data)) {
             $values = [];
             foreach ($data['sessions'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\CashRegisterOfflineTimeSession', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, CashRegisterOfflineTimeSession::class, 'json', $context);
             }
             $object->setSessions($values);
             unset($data['sessions']);
@@ -89,6 +92,6 @@ class CashRegisterOfflineTimeNormalizer implements DenormalizerInterface, Normal
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\CashRegisterOfflineTime' => false];
+        return [CashRegisterOfflineTime::class => false];
     }
 }

@@ -12,6 +12,8 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\BranchModel;
+use RevoTale\CheckboxUA\Model\OrganizationModel;
 
 class BranchModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -55,7 +57,7 @@ class BranchModelNormalizer implements DenormalizerInterface, NormalizerInterfac
             unset($data['address']);
         }
         if (array_key_exists('organization', $data)) {
-            $object->setOrganization($this->denormalizer->denormalize($data['organization'], 'RevoTale\\CheckboxUA\\Model\\OrganizationModel', 'json', $context));
+            $object->setOrganization($this->denormalizer->denormalize($data['organization'], OrganizationModel::class, 'json', $context));
             unset($data['organization']);
         }
         if (array_key_exists('created_at', $data)) {
@@ -100,6 +102,6 @@ class BranchModelNormalizer implements DenormalizerInterface, NormalizerInterfac
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\BranchModel' => false];
+        return [BranchModel::class => false];
     }
 }

@@ -152,6 +152,6 @@ class ShiftTaxModelNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\ShiftTaxModel' => false];
+        return [ShiftTaxModel::class => false];
     }
 }

@@ -12,6 +12,8 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\CashRegisterDeviceModel;
+use RevoTale\CheckboxUA\Model\DocumentsStateModel;
 
 class CashRegisterDeviceModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -87,7 +89,7 @@ class CashRegisterDeviceModelNormalizer implements DenormalizerInterface, Normal
             unset($data['has_shift']);
         }
         if (array_key_exists('documents_state', $data)) {
-            $object->setDocumentsState($this->denormalizer->denormalize($data['documents_state'], 'RevoTale\\CheckboxUA\\Model\\DocumentsStateModel', 'json', $context));
+            $object->setDocumentsState($this->denormalizer->denormalize($data['documents_state'], DocumentsStateModel::class, 'json', $context));
             unset($data['documents_state']);
         }
         if (array_key_exists('emergency_date', $data)) {
@@ -158,6 +160,6 @@ class CashRegisterDeviceModelNormalizer implements DenormalizerInterface, Normal
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\CashRegisterDeviceModel' => false];
+        return [CashRegisterDeviceModel::class => false];
     }
 }

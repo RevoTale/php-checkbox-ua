@@ -12,6 +12,8 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\OrderDeliveryDetailsModel;
+use RevoTale\CheckboxUA\Model\AddressModel;
 
 class OrderDeliveryDetailsModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -43,7 +45,7 @@ class OrderDeliveryDetailsModelNormalizer implements DenormalizerInterface, Norm
             return $object;
         }
         if (array_key_exists('address', $data)) {
-            $object->setAddress($this->denormalizer->denormalize($data['address'], 'RevoTale\\CheckboxUA\\Model\\AddressModel', 'json', $context));
+            $object->setAddress($this->denormalizer->denormalize($data['address'], AddressModel::class, 'json', $context));
             unset($data['address']);
         }
         if (array_key_exists('box_id', $data)) {
@@ -111,6 +113,6 @@ class OrderDeliveryDetailsModelNormalizer implements DenormalizerInterface, Norm
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\OrderDeliveryDetailsModel' => false];
+        return [OrderDeliveryDetailsModel::class => false];
     }
 }

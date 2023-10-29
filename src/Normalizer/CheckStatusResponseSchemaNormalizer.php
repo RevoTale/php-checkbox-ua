@@ -11,6 +11,8 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\CheckStatusResponseSchema;
+use RevoTale\CheckboxUA\Model\OperationErrorModel;
 
 class CheckStatusResponseSchemaNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -64,7 +66,7 @@ class CheckStatusResponseSchemaNormalizer implements DenormalizerInterface, Norm
         if (array_key_exists('errors', $data)) {
             $values = [];
             foreach ($data['errors'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\OperationErrorModel', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, OperationErrorModel::class, 'json', $context);
             }
             $object->setErrors($values);
             unset($data['errors']);
@@ -113,6 +115,6 @@ class CheckStatusResponseSchemaNormalizer implements DenormalizerInterface, Norm
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\CheckStatusResponseSchema' => false];
+        return [CheckStatusResponseSchema::class => false];
     }
 }

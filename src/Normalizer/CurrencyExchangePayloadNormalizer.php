@@ -13,6 +13,9 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 use function array_key_exists;
 use function is_array;
 use function is_int;
+use RevoTale\CheckboxUA\Model\CurrencyExchangePayload;
+use RevoTale\CheckboxUA\Model\DeliveryPayload;
+use RevoTale\CheckboxUA\Model\CurrencyPayload;
 
 class CurrencyExchangePayloadNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -51,11 +54,11 @@ class CurrencyExchangePayloadNormalizer implements DenormalizerInterface, Normal
             unset($data['id']);
         }
         if (array_key_exists('sell', $data)) {
-            $object->setSell($this->denormalizer->denormalize($data['sell'], 'RevoTale\\CheckboxUA\\Model\\CurrencyPayload', 'json', $context));
+            $object->setSell($this->denormalizer->denormalize($data['sell'], CurrencyPayload::class, 'json', $context));
             unset($data['sell']);
         }
         if (array_key_exists('buy', $data)) {
-            $object->setBuy($this->denormalizer->denormalize($data['buy'], 'RevoTale\\CheckboxUA\\Model\\CurrencyPayload', 'json', $context));
+            $object->setBuy($this->denormalizer->denormalize($data['buy'], CurrencyPayload::class, 'json', $context));
             unset($data['buy']);
         }
         if (array_key_exists('type', $data)) {
@@ -83,7 +86,7 @@ class CurrencyExchangePayloadNormalizer implements DenormalizerInterface, Normal
             unset($data['commission']);
         }
         if (array_key_exists('delivery', $data)) {
-            $object->setDelivery($this->denormalizer->denormalize($data['delivery'], 'RevoTale\\CheckboxUA\\Model\\DeliveryPayload', 'json', $context));
+            $object->setDelivery($this->denormalizer->denormalize($data['delivery'], DeliveryPayload::class, 'json', $context));
             unset($data['delivery']);
         }
         if (array_key_exists('fiscal_code', $data)) {
@@ -154,6 +157,6 @@ class CurrencyExchangePayloadNormalizer implements DenormalizerInterface, Normal
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\CurrencyExchangePayload' => false];
+        return [CurrencyExchangePayload::class => false];
     }
 }

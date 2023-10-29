@@ -11,6 +11,9 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\PaginatedResultGoodModel;
+use RevoTale\CheckboxUA\Model\SrsoSchemaGoodSchemaGoodModel;
+use RevoTale\CheckboxUA\Model\PaginatedResultGoodModelMeta;
 
 class PaginatedResultGoodModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -42,13 +45,13 @@ class PaginatedResultGoodModelNormalizer implements DenormalizerInterface, Norma
             return $object;
         }
         if (array_key_exists('meta', $data)) {
-            $object->setMeta($this->denormalizer->denormalize($data['meta'], 'RevoTale\\CheckboxUA\\Model\\PaginatedResultGoodModelMeta', 'json', $context));
+            $object->setMeta($this->denormalizer->denormalize($data['meta'], PaginatedResultGoodModelMeta::class, 'json', $context));
             unset($data['meta']);
         }
         if (array_key_exists('results', $data)) {
             $values = [];
             foreach ($data['results'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\SrsoSchemaGoodSchemaGoodModel', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, SrsoSchemaGoodSchemaGoodModel::class, 'json', $context);
             }
             $object->setResults($values);
             unset($data['results']);
@@ -85,6 +88,6 @@ class PaginatedResultGoodModelNormalizer implements DenormalizerInterface, Norma
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\PaginatedResultGoodModel' => false];
+        return [PaginatedResultGoodModel::class => false];
     }
 }

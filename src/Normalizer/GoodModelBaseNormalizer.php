@@ -12,6 +12,8 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\GoodModelBase;
+use RevoTale\CheckboxUA\Model\TaxModel;
 
 class GoodModelBaseNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -69,7 +71,7 @@ class GoodModelBaseNormalizer implements DenormalizerInterface, NormalizerInterf
         if (array_key_exists('taxes', $data)) {
             $values = [];
             foreach ($data['taxes'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\TaxModel', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, TaxModel::class, 'json', $context);
             }
             $object->setTaxes($values);
             unset($data['taxes']);
@@ -148,6 +150,6 @@ class GoodModelBaseNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\GoodModelBase' => false];
+        return [GoodModelBase::class => false];
     }
 }

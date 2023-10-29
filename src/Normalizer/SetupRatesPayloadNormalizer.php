@@ -11,6 +11,8 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\SetupRatesPayload;
+use RevoTale\CheckboxUA\Model\CurrencyRatePayload;
 
 class SetupRatesPayloadNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -44,7 +46,7 @@ class SetupRatesPayloadNormalizer implements DenormalizerInterface, NormalizerIn
         if (array_key_exists('rates', $data)) {
             $values = [];
             foreach ($data['rates'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\CurrencyRatePayload', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, CurrencyRatePayload::class, 'json', $context);
             }
             $object->setRates($values);
             unset($data['rates']);
@@ -80,6 +82,6 @@ class SetupRatesPayloadNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\SetupRatesPayload' => false];
+        return [SetupRatesPayload::class => false];
     }
 }

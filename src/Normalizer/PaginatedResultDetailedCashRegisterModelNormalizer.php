@@ -11,6 +11,9 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\PaginatedResultDetailedCashRegisterModel;
+use RevoTale\CheckboxUA\Model\DetailedCashRegisterModel;
+use RevoTale\CheckboxUA\Model\PaginatedResultDetailedCashRegisterModelMeta;
 
 class PaginatedResultDetailedCashRegisterModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -42,13 +45,13 @@ class PaginatedResultDetailedCashRegisterModelNormalizer implements Denormalizer
             return $object;
         }
         if (array_key_exists('meta', $data)) {
-            $object->setMeta($this->denormalizer->denormalize($data['meta'], 'RevoTale\\CheckboxUA\\Model\\PaginatedResultDetailedCashRegisterModelMeta', 'json', $context));
+            $object->setMeta($this->denormalizer->denormalize($data['meta'], PaginatedResultDetailedCashRegisterModelMeta::class, 'json', $context));
             unset($data['meta']);
         }
         if (array_key_exists('results', $data)) {
             $values = [];
             foreach ($data['results'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\DetailedCashRegisterModel', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, DetailedCashRegisterModel::class, 'json', $context);
             }
             $object->setResults($values);
             unset($data['results']);
@@ -85,6 +88,6 @@ class PaginatedResultDetailedCashRegisterModelNormalizer implements Denormalizer
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\PaginatedResultDetailedCashRegisterModel' => false];
+        return [PaginatedResultDetailedCashRegisterModel::class => false];
     }
 }

@@ -11,6 +11,7 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\OperationBaseResponseSchema;
 
 class OperationBaseResponseSchemaNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -77,6 +78,6 @@ class OperationBaseResponseSchemaNormalizer implements DenormalizerInterface, No
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\OperationBaseResponseSchema' => false];
+        return [OperationBaseResponseSchema::class => false];
     }
 }

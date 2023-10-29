@@ -13,6 +13,8 @@ use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, Denorma
 
 use function array_key_exists;
 use function is_array;
+use RevoTale\CheckboxUA\Model\ReportTaxesModel;
+use RevoTale\CheckboxUA\Model\ReportPaymentsModel;
 
 class ReportModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {
@@ -58,7 +60,7 @@ class ReportModelNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (array_key_exists('payments', $data)) {
             $values = [];
             foreach ($data['payments'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\ReportPaymentsModel', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, ReportPaymentsModel::class, 'json', $context);
             }
             $object->setPayments($values);
             unset($data['payments']);
@@ -66,7 +68,7 @@ class ReportModelNormalizer implements DenormalizerInterface, NormalizerInterfac
         if (array_key_exists('taxes', $data)) {
             $values_1 = [];
             foreach ($data['taxes'] as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'RevoTale\\CheckboxUA\\Model\\ReportTaxesModel', 'json', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, ReportTaxesModel::class, 'json', $context);
             }
             $object->setTaxes($values_1);
             unset($data['taxes']);
@@ -198,6 +200,6 @@ class ReportModelNormalizer implements DenormalizerInterface, NormalizerInterfac
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['RevoTale\\CheckboxUA\\Model\\ReportModel' => false];
+        return [ReportModel::class => false];
     }
 }
