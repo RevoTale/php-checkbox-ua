@@ -1,6 +1,6 @@
 <?php
 
-namespace RevoTale\CheckboxUA\Runtime\Normalizer;
+namespace Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;

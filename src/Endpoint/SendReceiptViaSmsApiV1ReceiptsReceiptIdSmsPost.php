@@ -1,10 +1,10 @@
 <?php
 
-namespace RevoTale\CheckboxUA\Endpoint;
+namespace Vendor\Library\Generated\CheckboxUA\Endpoint;
 
-class SendReceiptViaSmsApiV1ReceiptsReceiptIdSmsPost extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
+class SendReceiptViaSmsApiV1ReceiptsReceiptIdSmsPost extends \Vendor\Library\Generated\CheckboxUA\Runtime\Client\BaseEndpoint implements \Vendor\Library\Generated\CheckboxUA\Runtime\Client\Endpoint
 {
-    use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
+    use \Vendor\Library\Generated\CheckboxUA\Runtime\Client\EndpointTrait;
     protected $receipt_id;
 
     /**
@@ -19,7 +19,7 @@ class SendReceiptViaSmsApiV1ReceiptsReceiptIdSmsPost extends \RevoTale\CheckboxU
      * @var string $X-Access-Key Ключ доступу інтеграції (тільки для авторизованих API інтеграцій)
      *             }
      */
-    public function __construct(string $receiptId, \RevoTale\CheckboxUA\Model\ReceiptDeliverySmsPayload $requestBody, array $headerParameters = [])
+    public function __construct(string $receiptId, \Vendor\Library\Generated\CheckboxUA\Model\ReceiptDeliverySmsPayload $requestBody, array $headerParameters = [])
     {
         $this->receipt_id = $receiptId;
         $this->body = $requestBody;
@@ -38,7 +38,7 @@ class SendReceiptViaSmsApiV1ReceiptsReceiptIdSmsPost extends \RevoTale\CheckboxU
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \RevoTale\CheckboxUA\Model\ReceiptDeliverySmsPayload) {
+        if ($this->body instanceof \Vendor\Library\Generated\CheckboxUA\Model\ReceiptDeliverySmsPayload) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
 
@@ -66,8 +66,8 @@ class SendReceiptViaSmsApiV1ReceiptsReceiptIdSmsPost extends \RevoTale\CheckboxU
     /**
      * @return null
      *
-     * @throws \RevoTale\CheckboxUA\Exception\SendReceiptViaSmsApiV1ReceiptsReceiptIdSmsPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\SendReceiptViaSmsApiV1ReceiptsReceiptIdSmsPostUnprocessableEntityException
+     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
     {
@@ -77,9 +77,9 @@ class SendReceiptViaSmsApiV1ReceiptsReceiptIdSmsPost extends \RevoTale\CheckboxU
             return json_decode($body);
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \RevoTale\CheckboxUA\Exception\SendReceiptViaSmsApiV1ReceiptsReceiptIdSmsPostUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \Vendor\Library\Generated\CheckboxUA\Exception\SendReceiptViaSmsApiV1ReceiptsReceiptIdSmsPostUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
         }
-        throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
+        throw new \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }
 
     public function getAuthenticationScopes(): array

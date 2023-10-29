@@ -1,10 +1,10 @@
 <?php
 
-namespace RevoTale\CheckboxUA\Endpoint;
+namespace Vendor\Library\Generated\CheckboxUA\Endpoint;
 
-class GetShiftApiV1ShiftsShiftIdGet extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
+class GetShiftApiV1ShiftsShiftIdGet extends \Vendor\Library\Generated\CheckboxUA\Runtime\Client\BaseEndpoint implements \Vendor\Library\Generated\CheckboxUA\Runtime\Client\Endpoint
 {
-    use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
+    use \Vendor\Library\Generated\CheckboxUA\Runtime\Client\EndpointTrait;
     protected $shift_id;
 
     /**
@@ -57,10 +57,10 @@ class GetShiftApiV1ShiftsShiftIdGet extends \RevoTale\CheckboxUA\Runtime\Client\
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\ShiftWithCashierAndCashRegister
+     * @return \Vendor\Library\Generated\CheckboxUA\Model\ShiftWithCashierAndCashRegister
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetShiftApiV1ShiftsShiftIdGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\GetShiftApiV1ShiftsShiftIdGetUnprocessableEntityException
+     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
     {
@@ -70,9 +70,9 @@ class GetShiftApiV1ShiftsShiftIdGet extends \RevoTale\CheckboxUA\Runtime\Client\
             return $serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ShiftWithCashierAndCashRegister', 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \RevoTale\CheckboxUA\Exception\GetShiftApiV1ShiftsShiftIdGetUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \Vendor\Library\Generated\CheckboxUA\Exception\GetShiftApiV1ShiftsShiftIdGetUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
         }
-        throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
+        throw new \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }
 
     public function getAuthenticationScopes(): array

@@ -1,10 +1,10 @@
 <?php
 
-namespace RevoTale\CheckboxUA\Endpoint;
+namespace Vendor\Library\Generated\CheckboxUA\Endpoint;
 
-class GetCashRegistersApiV1CashRegistersGet extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
+class GetCashRegistersApiV1CashRegistersGet extends \Vendor\Library\Generated\CheckboxUA\Runtime\Client\BaseEndpoint implements \Vendor\Library\Generated\CheckboxUA\Runtime\Client\Endpoint
 {
-    use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
+    use \Vendor\Library\Generated\CheckboxUA\Runtime\Client\EndpointTrait;
 
     /**
      * Отримання переліку доступних пРРО.
@@ -78,10 +78,10 @@ class GetCashRegistersApiV1CashRegistersGet extends \RevoTale\CheckboxUA\Runtime
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\PaginatedResultDetailedCashRegisterModel
+     * @return \Vendor\Library\Generated\CheckboxUA\Model\PaginatedResultDetailedCashRegisterModel
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetCashRegistersApiV1CashRegistersGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\GetCashRegistersApiV1CashRegistersGetUnprocessableEntityException
+     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
     {
@@ -91,9 +91,9 @@ class GetCashRegistersApiV1CashRegistersGet extends \RevoTale\CheckboxUA\Runtime
             return $serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\PaginatedResultDetailedCashRegisterModel', 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \RevoTale\CheckboxUA\Exception\GetCashRegistersApiV1CashRegistersGetUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \Vendor\Library\Generated\CheckboxUA\Exception\GetCashRegistersApiV1CashRegistersGetUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
         }
-        throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
+        throw new \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }
 
     public function getAuthenticationScopes(): array

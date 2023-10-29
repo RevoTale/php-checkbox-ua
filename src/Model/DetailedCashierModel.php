@@ -1,6 +1,6 @@
 <?php
 
-namespace RevoTale\CheckboxUA\Model;
+namespace Vendor\Library\Generated\CheckboxUA\Model;
 
 use ArrayObject;
 use DateTime;
@@ -173,12 +173,12 @@ class DetailedCashierModel extends ArrayObject
         return $this;
     }
 
-    public function getCertificateEnd(): DateTime
+    public function getCertificateEnd(): ?DateTime
     {
         return $this->certificateEnd;
     }
 
-    public function setCertificateEnd(DateTime $certificateEnd): self
+    public function setCertificateEnd(?DateTime $certificateEnd): self
     {
         $this->initialized['certificateEnd'] = true;
         $this->certificateEnd = $certificateEnd;

@@ -1,10 +1,10 @@
 <?php
 
-namespace RevoTale\CheckboxUA\Endpoint;
+namespace Vendor\Library\Generated\CheckboxUA\Endpoint;
 
-class GetTransactionsApiV1TransactionsGet extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
+class GetTransactionsApiV1TransactionsGet extends \Vendor\Library\Generated\CheckboxUA\Runtime\Client\BaseEndpoint implements \Vendor\Library\Generated\CheckboxUA\Runtime\Client\Endpoint
 {
-    use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
+    use \Vendor\Library\Generated\CheckboxUA\Runtime\Client\EndpointTrait;
 
     /**
      * @param array $queryParameters {
@@ -78,10 +78,10 @@ class GetTransactionsApiV1TransactionsGet extends \RevoTale\CheckboxUA\Runtime\C
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\PaginatedResultShortTransaction
+     * @return \Vendor\Library\Generated\CheckboxUA\Model\PaginatedResultShortTransaction
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetTransactionsApiV1TransactionsGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\GetTransactionsApiV1TransactionsGetUnprocessableEntityException
+     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
     {
@@ -91,9 +91,9 @@ class GetTransactionsApiV1TransactionsGet extends \RevoTale\CheckboxUA\Runtime\C
             return $serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\PaginatedResultShortTransaction', 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \RevoTale\CheckboxUA\Exception\GetTransactionsApiV1TransactionsGetUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \Vendor\Library\Generated\CheckboxUA\Exception\GetTransactionsApiV1TransactionsGetUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
         }
-        throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
+        throw new \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }
 
     public function getAuthenticationScopes(): array

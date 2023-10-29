@@ -1,10 +1,10 @@
 <?php
 
-namespace RevoTale\CheckboxUA\Endpoint;
+namespace Vendor\Library\Generated\CheckboxUA\Endpoint;
 
-class ImportGoodsFromFileApiV1GoodsImportUploadPost extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
+class ImportGoodsFromFileApiV1GoodsImportUploadPost extends \Vendor\Library\Generated\CheckboxUA\Runtime\Client\BaseEndpoint implements \Vendor\Library\Generated\CheckboxUA\Runtime\Client\Endpoint
 {
-    use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
+    use \Vendor\Library\Generated\CheckboxUA\Runtime\Client\EndpointTrait;
 
     /**
      * Імпорт товарів з csv, xlsx або json.
@@ -22,7 +22,7 @@ class ImportGoodsFromFileApiV1GoodsImportUploadPost extends \RevoTale\CheckboxUA
      * @var string $X-Access-Key Ключ доступу інтеграції (тільки для авторизованих API інтеграцій)
      *             }
      */
-    public function __construct(\RevoTale\CheckboxUA\Model\BodyImportGoodsFromFileApiV1GoodsImportUploadPost $requestBody, array $queryParameters = [], array $headerParameters = [])
+    public function __construct(\Vendor\Library\Generated\CheckboxUA\Model\BodyImportGoodsFromFileApiV1GoodsImportUploadPost $requestBody, array $queryParameters = [], array $headerParameters = [])
     {
         $this->body = $requestBody;
         $this->queryParameters = $queryParameters;
@@ -41,7 +41,7 @@ class ImportGoodsFromFileApiV1GoodsImportUploadPost extends \RevoTale\CheckboxUA
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \RevoTale\CheckboxUA\Model\BodyImportGoodsFromFileApiV1GoodsImportUploadPost) {
+        if ($this->body instanceof \Vendor\Library\Generated\CheckboxUA\Model\BodyImportGoodsFromFileApiV1GoodsImportUploadPost) {
             $bodyBuilder = new \Http\Message\MultipartStream\MultipartStreamBuilder($streamFactory);
             $formParameters = $serializer->normalize($this->body, 'json');
             foreach ($formParameters as $key => $value) {
@@ -86,10 +86,10 @@ class ImportGoodsFromFileApiV1GoodsImportUploadPost extends \RevoTale\CheckboxUA
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\OperationBaseResponseSchema
+     * @return \Vendor\Library\Generated\CheckboxUA\Model\OperationBaseResponseSchema
      *
-     * @throws \RevoTale\CheckboxUA\Exception\ImportGoodsFromFileApiV1GoodsImportUploadPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\ImportGoodsFromFileApiV1GoodsImportUploadPostUnprocessableEntityException
+     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
     {
@@ -99,9 +99,9 @@ class ImportGoodsFromFileApiV1GoodsImportUploadPost extends \RevoTale\CheckboxUA
             return $serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\OperationBaseResponseSchema', 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \RevoTale\CheckboxUA\Exception\ImportGoodsFromFileApiV1GoodsImportUploadPostUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \Vendor\Library\Generated\CheckboxUA\Exception\ImportGoodsFromFileApiV1GoodsImportUploadPostUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
         }
-        throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
+        throw new \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }
 
     public function getAuthenticationScopes(): array

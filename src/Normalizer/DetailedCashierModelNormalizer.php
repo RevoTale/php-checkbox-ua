@@ -1,6 +1,6 @@
 <?php
 
-namespace RevoTale\CheckboxUA\Normalizer;
+namespace Vendor\Library\Generated\CheckboxUA\Normalizer;
 
 use ArrayObject;
 use DateTime;
@@ -11,9 +11,9 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use RevoTale\CheckboxUA\Runtime\Normalizer\CheckArray;
-use RevoTale\CheckboxUA\Runtime\Normalizer\ValidatorTrait;
-
+use Vendor\Library\Generated\CheckboxUA\Model\DetailedCashierModel;
+use Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer\CheckArray;
+use Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer\ValidatorTrait;
 use function array_key_exists;
 use function is_array;
 
@@ -42,7 +42,7 @@ class DetailedCashierModelNormalizer implements DenormalizerInterface, Normalize
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\DetailedCashierModel();
+        $object = new DetailedCashierModel();
         if (null === $data || false === is_array($data)) {
             return $object;
         }
@@ -79,7 +79,7 @@ class DetailedCashierModelNormalizer implements DenormalizerInterface, Normalize
             unset($data['updated_at']);
         }
         if (array_key_exists('certificate_end', $data)) {
-            $object->setCertificateEnd(DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['certificate_end']));
+            $object->setCertificateEnd(null === $data['certificate_end'] ? null : new DateTime($data['certificate_end']));
             unset($data['certificate_end']);
         }
         if (array_key_exists('blocked', $data)) {

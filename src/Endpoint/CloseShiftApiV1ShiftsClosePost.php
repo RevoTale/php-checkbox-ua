@@ -1,10 +1,10 @@
 <?php
 
-namespace RevoTale\CheckboxUA\Endpoint;
+namespace Vendor\Library\Generated\CheckboxUA\Endpoint;
 
-class CloseShiftApiV1ShiftsClosePost extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
+class CloseShiftApiV1ShiftsClosePost extends \Vendor\Library\Generated\CheckboxUA\Runtime\Client\BaseEndpoint implements \Vendor\Library\Generated\CheckboxUA\Runtime\Client\Endpoint
 {
-    use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
+    use \Vendor\Library\Generated\CheckboxUA\Runtime\Client\EndpointTrait;
 
     /**
      * Створення Z-Звіту та закриття поточної зміни користувачем (касиром).
@@ -32,7 +32,7 @@ class CloseShiftApiV1ShiftsClosePost extends \RevoTale\CheckboxUA\Runtime\Client
      * @var string $X-Device-ID ID RRO Agent або мобільного пристрою каси (Для блокування дублікатів)
      *             }
      */
-    public function __construct(\RevoTale\CheckboxUA\Model\CloseShiftPayload $requestBody = null, array $headerParameters = [])
+    public function __construct(\Vendor\Library\Generated\CheckboxUA\Model\CloseShiftPayload $requestBody = null, array $headerParameters = [])
     {
         $this->body = $requestBody;
         $this->headerParameters = $headerParameters;
@@ -50,7 +50,7 @@ class CloseShiftApiV1ShiftsClosePost extends \RevoTale\CheckboxUA\Runtime\Client
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \RevoTale\CheckboxUA\Model\CloseShiftPayload) {
+        if ($this->body instanceof \Vendor\Library\Generated\CheckboxUA\Model\CloseShiftPayload) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
 
@@ -77,10 +77,10 @@ class CloseShiftApiV1ShiftsClosePost extends \RevoTale\CheckboxUA\Runtime\Client
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\ShiftWithCashierAndCashRegister
+     * @return \Vendor\Library\Generated\CheckboxUA\Model\ShiftWithCashierAndCashRegister
      *
-     * @throws \RevoTale\CheckboxUA\Exception\CloseShiftApiV1ShiftsClosePostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\CloseShiftApiV1ShiftsClosePostUnprocessableEntityException
+     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
     {
@@ -90,9 +90,9 @@ class CloseShiftApiV1ShiftsClosePost extends \RevoTale\CheckboxUA\Runtime\Client
             return $serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ShiftWithCashierAndCashRegister', 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \RevoTale\CheckboxUA\Exception\CloseShiftApiV1ShiftsClosePostUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \Vendor\Library\Generated\CheckboxUA\Exception\CloseShiftApiV1ShiftsClosePostUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
         }
-        throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
+        throw new \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }
 
     public function getAuthenticationScopes(): array

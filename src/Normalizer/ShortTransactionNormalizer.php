@@ -1,6 +1,6 @@
 <?php
 
-namespace RevoTale\CheckboxUA\Normalizer;
+namespace Vendor\Library\Generated\CheckboxUA\Normalizer;
 
 use ArrayObject;
 use DateTime;
@@ -11,9 +11,9 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use RevoTale\CheckboxUA\Model\ShortTransaction;
-use RevoTale\CheckboxUA\Runtime\Normalizer\CheckArray;
-use RevoTale\CheckboxUA\Runtime\Normalizer\ValidatorTrait;
+use Vendor\Library\Generated\CheckboxUA\Model\ShortTransaction;
+use Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer\CheckArray;
+use Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer\ValidatorTrait;
 use function array_key_exists;
 use function is_array;
 
@@ -75,7 +75,7 @@ class ShortTransactionNormalizer implements DenormalizerInterface, NormalizerInt
             unset($data['response_status']);
         }
         if (array_key_exists('response_error_message', $data)) {
-            $object->setResponseErrorMessage($data['response_error_message'] === null ? null : $data['response_error_message']);
+            $object->setResponseErrorMessage(null === $data['response_error_message'] ? null : $data['response_error_message']);
             unset($data['response_error_message']);
         }
         if (array_key_exists('response_id', $data)) {
@@ -83,7 +83,7 @@ class ShortTransactionNormalizer implements DenormalizerInterface, NormalizerInt
             unset($data['response_id']);
         }
         if (array_key_exists('offline_id', $data)) {
-            $object->setOfflineId($data['offline_id'] === null ? null : $data['offline_id']);//Manualy fixed nullability
+            $object->setOfflineId($data['offline_id']); // Manualy fixed nullability
             unset($data['offline_id']);
         }
         if (array_key_exists('created_at', $data)) {
@@ -91,11 +91,11 @@ class ShortTransactionNormalizer implements DenormalizerInterface, NormalizerInt
             unset($data['created_at']);
         }
         if (array_key_exists('updated_at', $data)) {
-            $object->setUpdatedAt($data['updated_at'] === null ? null : DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['updated_at']));
+            $object->setUpdatedAt(null === $data['updated_at'] ? null : DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['updated_at']));
             unset($data['updated_at']);
         }
         if (array_key_exists('original_datetime', $data)) {
-            $object->setOriginalDatetime(DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['original_datetime']));
+            $object->setOriginalDatetime(null === $data['original_datetime'] ? null : DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['original_datetime']));
             unset($data['original_datetime']);
         }
         if (array_key_exists('previous_hash', $data)) {

@@ -1,6 +1,6 @@
 <?php
 
-namespace RevoTale\CheckboxUA\Exception;
+namespace Vendor\Library\Generated\CheckboxUA\Exception;
 
 interface ClientException extends ApiException
 {

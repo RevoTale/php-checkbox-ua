@@ -1,10 +1,10 @@
 <?php
 
-namespace RevoTale\CheckboxUA\Endpoint;
+namespace Vendor\Library\Generated\CheckboxUA\Endpoint;
 
-class CreateShiftApiV1ShiftsPost extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
+class CreateShiftApiV1ShiftsPost extends \Vendor\Library\Generated\CheckboxUA\Runtime\Client\BaseEndpoint implements \Vendor\Library\Generated\CheckboxUA\Runtime\Client\Endpoint
 {
-    use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
+    use \Vendor\Library\Generated\CheckboxUA\Runtime\Client\EndpointTrait;
 
     /**
      * Відкриття нової зміни касиром.
@@ -36,7 +36,7 @@ class CreateShiftApiV1ShiftsPost extends \RevoTale\CheckboxUA\Runtime\Client\Bas
      * @var string $X-License-Key
      *             }
      */
-    public function __construct(\RevoTale\CheckboxUA\Model\CreateShiftPayload $requestBody = null, array $headerParameters = [])
+    public function __construct(\Vendor\Library\Generated\CheckboxUA\Model\CreateShiftPayload $requestBody = null, array $headerParameters = [])
     {
         $this->body = $requestBody;
         $this->headerParameters = $headerParameters;
@@ -54,7 +54,7 @@ class CreateShiftApiV1ShiftsPost extends \RevoTale\CheckboxUA\Runtime\Client\Bas
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \RevoTale\CheckboxUA\Model\CreateShiftPayload) {
+        if ($this->body instanceof \Vendor\Library\Generated\CheckboxUA\Model\CreateShiftPayload) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
 
@@ -81,10 +81,10 @@ class CreateShiftApiV1ShiftsPost extends \RevoTale\CheckboxUA\Runtime\Client\Bas
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\ShiftWithCashierAndCashRegister
+     * @return \Vendor\Library\Generated\CheckboxUA\Model\ShiftWithCashierAndCashRegister
      *
-     * @throws \RevoTale\CheckboxUA\Exception\CreateShiftApiV1ShiftsPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\CreateShiftApiV1ShiftsPostUnprocessableEntityException
+     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
     {
@@ -94,9 +94,9 @@ class CreateShiftApiV1ShiftsPost extends \RevoTale\CheckboxUA\Runtime\Client\Bas
             return $serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ShiftWithCashierAndCashRegister', 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \RevoTale\CheckboxUA\Exception\CreateShiftApiV1ShiftsPostUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \Vendor\Library\Generated\CheckboxUA\Exception\CreateShiftApiV1ShiftsPostUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
         }
-        throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
+        throw new \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }
 
     public function getAuthenticationScopes(): array

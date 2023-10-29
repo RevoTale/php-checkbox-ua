@@ -1,11 +1,11 @@
 <?php
 
-namespace RevoTale\CheckboxUA\Exception;
+namespace Vendor\Library\Generated\CheckboxUA\Exception;
 
 class SignInCashierViaPinCodeApiV1CashierSigninPinCodePostForbiddenException extends ForbiddenException
 {
     /**
-     * @var \RevoTale\CheckboxUA\Model\HTTPError
+     * @var \Vendor\Library\Generated\CheckboxUA\Model\HTTPError
      */
     private $hTTPError;
     /**
@@ -13,14 +13,14 @@ class SignInCashierViaPinCodeApiV1CashierSigninPinCodePostForbiddenException ext
      */
     private $response;
 
-    public function __construct(\RevoTale\CheckboxUA\Model\HTTPError $hTTPError, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\Vendor\Library\Generated\CheckboxUA\Model\HTTPError $hTTPError, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Invalid credentials');
         $this->hTTPError = $hTTPError;
         $this->response = $response;
     }
 
-    public function getHTTPError(): \RevoTale\CheckboxUA\Model\HTTPError
+    public function getHTTPError(): \Vendor\Library\Generated\CheckboxUA\Model\HTTPError
     {
         return $this->hTTPError;
     }

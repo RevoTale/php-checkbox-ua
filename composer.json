@@ -5,8 +5,18 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Grisaia\\CheckboxUA\\": "src/"
+            "RevoTale\\CheckboxUA\\": "src/"
         }
+    },
+
+    "require": {
+        "php": "^8.2",
+        "jane-php/open-api-runtime": "^7.5",
+        "guzzlehttp/guzzle": "^7.8"
+    },
+    "require-dev": {
+        "jane-php/open-api-3": "^7.5",
+        "phpstan/phpstan": "^1.10"
     },
     "authors": [
         {
@@ -14,5 +24,12 @@
             "email": "vlad@revotale.com"
         }
     ],
-    "require": {}
+    "scripts": {
+        "phpstan": "vendor/bin/phpstan analyse -c phpstan.neon"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": false
+        }
+    }
 }

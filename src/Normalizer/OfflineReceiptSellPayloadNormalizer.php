@@ -1,6 +1,6 @@
 <?php
 
-namespace RevoTale\CheckboxUA\Normalizer;
+namespace Vendor\Library\Generated\CheckboxUA\Normalizer;
 
 use ArrayObject;
 use DateTime;
@@ -11,8 +11,8 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use RevoTale\CheckboxUA\Runtime\Normalizer\CheckArray;
-use RevoTale\CheckboxUA\Runtime\Normalizer\ValidatorTrait;
+use Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer\CheckArray;
+use Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer\ValidatorTrait;
 
 use function array_key_exists;
 
@@ -41,7 +41,7 @@ class OfflineReceiptSellPayloadNormalizer implements DenormalizerInterface, Norm
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\OfflineReceiptSellPayload();
+        $object = new \Vendor\Library\Generated\CheckboxUA\Model\OfflineReceiptSellPayload();
         if (null === $data || false === \is_array($data)) {
             return $object;
         }

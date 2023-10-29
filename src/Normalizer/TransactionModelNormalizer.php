@@ -1,6 +1,6 @@
 <?php
 
-namespace RevoTale\CheckboxUA\Normalizer;
+namespace Vendor\Library\Generated\CheckboxUA\Normalizer;
 
 use ArrayObject;
 use DateTime;
@@ -11,9 +11,9 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use RevoTale\CheckboxUA\Model\TransactionModel;
-use RevoTale\CheckboxUA\Runtime\Normalizer\CheckArray;
-use RevoTale\CheckboxUA\Runtime\Normalizer\ValidatorTrait;
+use Vendor\Library\Generated\CheckboxUA\Model\TransactionModel;
+use Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer\CheckArray;
+use Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer\ValidatorTrait;
 use function array_key_exists;
 use function is_array;
 

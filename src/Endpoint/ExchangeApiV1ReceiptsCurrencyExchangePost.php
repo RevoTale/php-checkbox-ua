@@ -1,10 +1,10 @@
 <?php
 
-namespace RevoTale\CheckboxUA\Endpoint;
+namespace Vendor\Library\Generated\CheckboxUA\Endpoint;
 
-class ExchangeApiV1ReceiptsCurrencyExchangePost extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
+class ExchangeApiV1ReceiptsCurrencyExchangePost extends \Vendor\Library\Generated\CheckboxUA\Runtime\Client\BaseEndpoint implements \Vendor\Library\Generated\CheckboxUA\Runtime\Client\Endpoint
 {
-    use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
+    use \Vendor\Library\Generated\CheckboxUA\Runtime\Client\EndpointTrait;
 
     /**
      * Створення чеку обміну валют, доступно тільки для ПРРО відповідного типу.
@@ -16,7 +16,7 @@ class ExchangeApiV1ReceiptsCurrencyExchangePost extends \RevoTale\CheckboxUA\Run
      * @var string $X-Access-Key Ключ доступу інтеграції (тільки для авторизованих API інтеграцій)
      *             }
      */
-    public function __construct(\RevoTale\CheckboxUA\Model\CurrencyExchangePayload $requestBody, array $headerParameters = [])
+    public function __construct(\Vendor\Library\Generated\CheckboxUA\Model\CurrencyExchangePayload $requestBody, array $headerParameters = [])
     {
         $this->body = $requestBody;
         $this->headerParameters = $headerParameters;
@@ -34,7 +34,7 @@ class ExchangeApiV1ReceiptsCurrencyExchangePost extends \RevoTale\CheckboxUA\Run
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \RevoTale\CheckboxUA\Model\CurrencyExchangePayload) {
+        if ($this->body instanceof \Vendor\Library\Generated\CheckboxUA\Model\CurrencyExchangePayload) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
 
@@ -60,10 +60,10 @@ class ExchangeApiV1ReceiptsCurrencyExchangePost extends \RevoTale\CheckboxUA\Run
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\ReceiptModel
+     * @return \Vendor\Library\Generated\CheckboxUA\Model\ReceiptModel
      *
-     * @throws \RevoTale\CheckboxUA\Exception\ExchangeApiV1ReceiptsCurrencyExchangePostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\ExchangeApiV1ReceiptsCurrencyExchangePostUnprocessableEntityException
+     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
     {
@@ -73,9 +73,9 @@ class ExchangeApiV1ReceiptsCurrencyExchangePost extends \RevoTale\CheckboxUA\Run
             return $serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReceiptModel', 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \RevoTale\CheckboxUA\Exception\ExchangeApiV1ReceiptsCurrencyExchangePostUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \Vendor\Library\Generated\CheckboxUA\Exception\ExchangeApiV1ReceiptsCurrencyExchangePostUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
         }
-        throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
+        throw new \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }
 
     public function getAuthenticationScopes(): array

@@ -1,6 +1,6 @@
 <?php
 
-namespace RevoTale\CheckboxUA\Runtime\Client;
+namespace Vendor\Library\Generated\CheckboxUA\Runtime\Client;
 
 use Jane\Component\OpenApiRuntime\Client\Plugin\AuthenticationRegistry;
 use Psr\Http\Client\ClientInterface;

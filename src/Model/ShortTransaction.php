@@ -1,6 +1,6 @@
 <?php
 
-namespace RevoTale\CheckboxUA\Model;
+namespace Vendor\Library\Generated\CheckboxUA\Model;
 
 use ArrayObject;
 use DateTime;
@@ -97,7 +97,7 @@ class ShortTransaction extends ArrayObject
     /**
      * An enumeration.
      */
-    public function setType($type): self
+    public function setType($type): ?self
     {
         $this->initialized['type'] = true;
         $this->type = $type;
@@ -105,12 +105,12 @@ class ShortTransaction extends ArrayObject
         return $this;
     }
 
-    public function getSerial(): int
+    public function getSerial(): ?int
     {
         return $this->serial;
     }
 
-    public function setSerial(int $serial): self
+    public function setSerial(?int $serial): self
     {
         $this->initialized['serial'] = true;
         $this->serial = $serial;
@@ -241,12 +241,12 @@ class ShortTransaction extends ArrayObject
         return $this;
     }
 
-    public function getOriginalDatetime(): DateTime
+    public function getOriginalDatetime(): ?DateTime
     {
         return $this->originalDatetime;
     }
 
-    public function setOriginalDatetime(DateTime $originalDatetime): self
+    public function setOriginalDatetime(?DateTime $originalDatetime): self
     {
         $this->initialized['originalDatetime'] = true;
         $this->originalDatetime = $originalDatetime;
@@ -254,12 +254,12 @@ class ShortTransaction extends ArrayObject
         return $this;
     }
 
-    public function getPreviousHash(): string
+    public function getPreviousHash(): ?string
     {
         return $this->previousHash;
     }
 
-    public function setPreviousHash(string $previousHash): self
+    public function setPreviousHash(?string $previousHash): self
     {
         $this->initialized['previousHash'] = true;
         $this->previousHash = $previousHash;

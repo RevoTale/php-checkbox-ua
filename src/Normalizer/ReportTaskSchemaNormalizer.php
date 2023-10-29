@@ -1,6 +1,6 @@
 <?php
 
-namespace RevoTale\CheckboxUA\Normalizer;
+namespace Vendor\Library\Generated\CheckboxUA\Normalizer;
 
 use ArrayObject;
 use DateTime;
@@ -11,8 +11,8 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use RevoTale\CheckboxUA\Runtime\Normalizer\CheckArray;
-use RevoTale\CheckboxUA\Runtime\Normalizer\ValidatorTrait;
+use Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer\CheckArray;
+use Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer\ValidatorTrait;
 
 use function array_key_exists;
 use function is_array;
@@ -43,7 +43,7 @@ class ReportTaskSchemaNormalizer implements DenormalizerInterface, NormalizerInt
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\ReportTaskSchema();
+        $object = new \Vendor\Library\Generated\CheckboxUA\Model\ReportTaskSchema();
         if (array_key_exists('execution_time', $data) && is_int($data['execution_time'])) {
             $data['execution_time'] = (float)$data['execution_time'];
         }

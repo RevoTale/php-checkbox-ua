@@ -1,10 +1,10 @@
 <?php
 
-namespace RevoTale\CheckboxUA\Endpoint;
+namespace Vendor\Library\Generated\CheckboxUA\Endpoint;
 
-class CloseNotFiscalizeOrderApiV1OrdersClosePatch extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
+class CloseNotFiscalizeOrderApiV1OrdersClosePatch extends \Vendor\Library\Generated\CheckboxUA\Runtime\Client\BaseEndpoint implements \Vendor\Library\Generated\CheckboxUA\Runtime\Client\Endpoint
 {
-    use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
+    use \Vendor\Library\Generated\CheckboxUA\Runtime\Client\EndpointTrait;
 
     /**
      * Використовуйте цей мотед, щоб перевести статус замовлення з **PENDING** в **SUCCESS**.
@@ -75,10 +75,10 @@ class CloseNotFiscalizeOrderApiV1OrdersClosePatch extends \RevoTale\CheckboxUA\R
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\OrderModel
+     * @return \Vendor\Library\Generated\CheckboxUA\Model\OrderModel
      *
-     * @throws \RevoTale\CheckboxUA\Exception\CloseNotFiscalizeOrderApiV1OrdersClosePatchUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\CloseNotFiscalizeOrderApiV1OrdersClosePatchUnprocessableEntityException
+     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
     {
@@ -88,9 +88,9 @@ class CloseNotFiscalizeOrderApiV1OrdersClosePatch extends \RevoTale\CheckboxUA\R
             return $serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\OrderModel', 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \RevoTale\CheckboxUA\Exception\CloseNotFiscalizeOrderApiV1OrdersClosePatchUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \Vendor\Library\Generated\CheckboxUA\Exception\CloseNotFiscalizeOrderApiV1OrdersClosePatchUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
         }
-        throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
+        throw new \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }
 
     public function getAuthenticationScopes(): array

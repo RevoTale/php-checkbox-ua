@@ -1,10 +1,10 @@
 <?php
 
-namespace RevoTale\CheckboxUA\Endpoint;
+namespace Vendor\Library\Generated\CheckboxUA\Endpoint;
 
-class EditOrderApiV1OrdersIntegrationEditOrderPost extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
+class EditOrderApiV1OrdersIntegrationEditOrderPost extends \Vendor\Library\Generated\CheckboxUA\Runtime\Client\BaseEndpoint implements \Vendor\Library\Generated\CheckboxUA\Runtime\Client\Endpoint
 {
-    use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
+    use \Vendor\Library\Generated\CheckboxUA\Runtime\Client\EndpointTrait;
 
     /**
      * Метод для редагування замовлення на стороні інтеграції.
@@ -16,7 +16,7 @@ class EditOrderApiV1OrdersIntegrationEditOrderPost extends \RevoTale\CheckboxUA\
      * @var string $X-Access-Key Ключ доступу інтеграції (тільки для авторизованих API інтеграцій)
      *             }
      */
-    public function __construct(\RevoTale\CheckboxUA\Model\IntegrationEditOrderReceiptSchema $requestBody, array $headerParameters = [])
+    public function __construct(\Vendor\Library\Generated\CheckboxUA\Model\IntegrationEditOrderReceiptSchema $requestBody, array $headerParameters = [])
     {
         $this->body = $requestBody;
         $this->headerParameters = $headerParameters;
@@ -34,7 +34,7 @@ class EditOrderApiV1OrdersIntegrationEditOrderPost extends \RevoTale\CheckboxUA\
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \RevoTale\CheckboxUA\Model\IntegrationEditOrderReceiptSchema) {
+        if ($this->body instanceof \Vendor\Library\Generated\CheckboxUA\Model\IntegrationEditOrderReceiptSchema) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
 
@@ -60,10 +60,10 @@ class EditOrderApiV1OrdersIntegrationEditOrderPost extends \RevoTale\CheckboxUA\
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\IntegrationEditOrderReceiptSchema
+     * @return \Vendor\Library\Generated\CheckboxUA\Model\IntegrationEditOrderReceiptSchema
      *
-     * @throws \RevoTale\CheckboxUA\Exception\EditOrderApiV1OrdersIntegrationEditOrderPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\EditOrderApiV1OrdersIntegrationEditOrderPostUnprocessableEntityException
+     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
     {
@@ -73,9 +73,9 @@ class EditOrderApiV1OrdersIntegrationEditOrderPost extends \RevoTale\CheckboxUA\
             return $serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\IntegrationEditOrderReceiptSchema', 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \RevoTale\CheckboxUA\Exception\EditOrderApiV1OrdersIntegrationEditOrderPostUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \Vendor\Library\Generated\CheckboxUA\Exception\EditOrderApiV1OrdersIntegrationEditOrderPostUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
         }
-        throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
+        throw new \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }
 
     public function getAuthenticationScopes(): array

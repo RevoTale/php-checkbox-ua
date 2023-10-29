@@ -1,10 +1,10 @@
 <?php
 
-namespace RevoTale\CheckboxUA\Endpoint;
+namespace Vendor\Library\Generated\CheckboxUA\Endpoint;
 
-class SignInCashierApiV1CashierSigninPost extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
+class SignInCashierApiV1CashierSigninPost extends \Vendor\Library\Generated\CheckboxUA\Runtime\Client\BaseEndpoint implements \Vendor\Library\Generated\CheckboxUA\Runtime\Client\Endpoint
 {
-    use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
+    use \Vendor\Library\Generated\CheckboxUA\Runtime\Client\EndpointTrait;
 
     /**
      * Вхід користувача (касира) за допомогою логіна та паролю.
@@ -17,7 +17,7 @@ class SignInCashierApiV1CashierSigninPost extends \RevoTale\CheckboxUA\Runtime\C
      * @var string $X-Device-ID ID RRO Agent або мобільного пристрою каси (Для блокування дублікатів)
      *             }
      */
-    public function __construct(\RevoTale\CheckboxUA\Model\CashierSignIn $requestBody, array $headerParameters = [])
+    public function __construct(\Vendor\Library\Generated\CheckboxUA\Model\CashierSignIn $requestBody, array $headerParameters = [])
     {
         $this->body = $requestBody;
         $this->headerParameters = $headerParameters;
@@ -35,7 +35,7 @@ class SignInCashierApiV1CashierSigninPost extends \RevoTale\CheckboxUA\Runtime\C
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \RevoTale\CheckboxUA\Model\CashierSignIn) {
+        if ($this->body instanceof \Vendor\Library\Generated\CheckboxUA\Model\CashierSignIn) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
 
@@ -62,11 +62,11 @@ class SignInCashierApiV1CashierSigninPost extends \RevoTale\CheckboxUA\Runtime\C
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\CashierAccessTokenResponseModel
+     * @return \Vendor\Library\Generated\CheckboxUA\Model\CashierAccessTokenResponseModel
      *
-     * @throws \RevoTale\CheckboxUA\Exception\SignInCashierApiV1CashierSigninPostForbiddenException
-     * @throws \RevoTale\CheckboxUA\Exception\SignInCashierApiV1CashierSigninPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\SignInCashierApiV1CashierSigninPostForbiddenException
+     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\SignInCashierApiV1CashierSigninPostUnprocessableEntityException
+     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
     {
@@ -76,12 +76,12 @@ class SignInCashierApiV1CashierSigninPost extends \RevoTale\CheckboxUA\Runtime\C
             return $serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CashierAccessTokenResponseModel', 'json');
         }
         if (false === is_null($contentType) && (403 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \RevoTale\CheckboxUA\Exception\SignInCashierApiV1CashierSigninPostForbiddenException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPError', 'json'), $response);
+            throw new \Vendor\Library\Generated\CheckboxUA\Exception\SignInCashierApiV1CashierSigninPostForbiddenException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPError', 'json'), $response);
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \RevoTale\CheckboxUA\Exception\SignInCashierApiV1CashierSigninPostUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \Vendor\Library\Generated\CheckboxUA\Exception\SignInCashierApiV1CashierSigninPostUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
         }
-        throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
+        throw new \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }
 
     public function getAuthenticationScopes(): array

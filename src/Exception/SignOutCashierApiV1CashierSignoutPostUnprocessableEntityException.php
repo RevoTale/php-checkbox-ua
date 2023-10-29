@@ -1,11 +1,11 @@
 <?php
 
-namespace RevoTale\CheckboxUA\Exception;
+namespace Vendor\Library\Generated\CheckboxUA\Exception;
 
 class SignOutCashierApiV1CashierSignoutPostUnprocessableEntityException extends UnprocessableEntityException
 {
     /**
-     * @var \RevoTale\CheckboxUA\Model\HTTPValidationError
+     * @var \Vendor\Library\Generated\CheckboxUA\Model\HTTPValidationError
      */
     private $hTTPValidationError;
     /**
@@ -13,14 +13,14 @@ class SignOutCashierApiV1CashierSignoutPostUnprocessableEntityException extends 
      */
     private $response;
 
-    public function __construct(\RevoTale\CheckboxUA\Model\HTTPValidationError $hTTPValidationError, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\Vendor\Library\Generated\CheckboxUA\Model\HTTPValidationError $hTTPValidationError, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Validation Error');
         $this->hTTPValidationError = $hTTPValidationError;
         $this->response = $response;
     }
 
-    public function getHTTPValidationError(): \RevoTale\CheckboxUA\Model\HTTPValidationError
+    public function getHTTPValidationError(): \Vendor\Library\Generated\CheckboxUA\Model\HTTPValidationError
     {
         return $this->hTTPValidationError;
     }

@@ -1,10 +1,10 @@
 <?php
 
-namespace RevoTale\CheckboxUA\Endpoint;
+namespace Vendor\Library\Generated\CheckboxUA\Endpoint;
 
-class AddExternalReceiptApiV1ReceiptsAddExternalPost extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
+class AddExternalReceiptApiV1ReceiptsAddExternalPost extends \Vendor\Library\Generated\CheckboxUA\Runtime\Client\BaseEndpoint implements \Vendor\Library\Generated\CheckboxUA\Runtime\Client\Endpoint
 {
-    use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
+    use \Vendor\Library\Generated\CheckboxUA\Runtime\Client\EndpointTrait;
 
     /**
      * Додавання чеку, створеного в зовнішній системі в офлайн режимі, на основі повної інформації про чек.
@@ -19,7 +19,7 @@ class AddExternalReceiptApiV1ReceiptsAddExternalPost extends \RevoTale\CheckboxU
      * @var string $X-Device-ID ID RRO Agent або мобільного пристрою каси (Для блокування дублікатів)
      *             }
      */
-    public function __construct(\RevoTale\CheckboxUA\Model\CalculatedReceiptSellPayload $requestBody, array $headerParameters = [])
+    public function __construct(\Vendor\Library\Generated\CheckboxUA\Model\CalculatedReceiptSellPayload $requestBody, array $headerParameters = [])
     {
         $this->body = $requestBody;
         $this->headerParameters = $headerParameters;
@@ -37,7 +37,7 @@ class AddExternalReceiptApiV1ReceiptsAddExternalPost extends \RevoTale\CheckboxU
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \RevoTale\CheckboxUA\Model\CalculatedReceiptSellPayload) {
+        if ($this->body instanceof \Vendor\Library\Generated\CheckboxUA\Model\CalculatedReceiptSellPayload) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
 
@@ -64,10 +64,10 @@ class AddExternalReceiptApiV1ReceiptsAddExternalPost extends \RevoTale\CheckboxU
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\ReceiptModel
+     * @return \Vendor\Library\Generated\CheckboxUA\Model\ReceiptModel
      *
-     * @throws \RevoTale\CheckboxUA\Exception\AddExternalReceiptApiV1ReceiptsAddExternalPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\AddExternalReceiptApiV1ReceiptsAddExternalPostUnprocessableEntityException
+     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
     {
@@ -77,9 +77,9 @@ class AddExternalReceiptApiV1ReceiptsAddExternalPost extends \RevoTale\CheckboxU
             return $serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReceiptModel', 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \RevoTale\CheckboxUA\Exception\AddExternalReceiptApiV1ReceiptsAddExternalPostUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \Vendor\Library\Generated\CheckboxUA\Exception\AddExternalReceiptApiV1ReceiptsAddExternalPostUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
         }
-        throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
+        throw new \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }
 
     public function getAuthenticationScopes(): array

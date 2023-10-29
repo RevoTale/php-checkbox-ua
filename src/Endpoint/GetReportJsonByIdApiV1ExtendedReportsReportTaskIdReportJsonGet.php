@@ -1,10 +1,10 @@
 <?php
 
-namespace RevoTale\CheckboxUA\Endpoint;
+namespace Vendor\Library\Generated\CheckboxUA\Endpoint;
 
-class GetReportJsonByIdApiV1ExtendedReportsReportTaskIdReportJsonGet extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
+class GetReportJsonByIdApiV1ExtendedReportsReportTaskIdReportJsonGet extends \Vendor\Library\Generated\CheckboxUA\Runtime\Client\BaseEndpoint implements \Vendor\Library\Generated\CheckboxUA\Runtime\Client\Endpoint
 {
-    use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
+    use \Vendor\Library\Generated\CheckboxUA\Runtime\Client\EndpointTrait;
     protected $report_task_id;
 
     /**
@@ -55,10 +55,10 @@ class GetReportJsonByIdApiV1ExtendedReportsReportTaskIdReportJsonGet extends \Re
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\PublicReportTaskSchema
+     * @return \Vendor\Library\Generated\CheckboxUA\Model\PublicReportTaskSchema
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetReportJsonByIdApiV1ExtendedReportsReportTaskIdReportJsonGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\GetReportJsonByIdApiV1ExtendedReportsReportTaskIdReportJsonGetUnprocessableEntityException
+     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
     {
@@ -68,9 +68,9 @@ class GetReportJsonByIdApiV1ExtendedReportsReportTaskIdReportJsonGet extends \Re
             return $serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\PublicReportTaskSchema', 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \RevoTale\CheckboxUA\Exception\GetReportJsonByIdApiV1ExtendedReportsReportTaskIdReportJsonGetUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \Vendor\Library\Generated\CheckboxUA\Exception\GetReportJsonByIdApiV1ExtendedReportsReportTaskIdReportJsonGetUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
         }
-        throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
+        throw new \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }
 
     public function getAuthenticationScopes(): array

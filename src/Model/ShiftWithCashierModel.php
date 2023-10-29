@@ -1,6 +1,6 @@
 <?php
 
-namespace RevoTale\CheckboxUA\Model;
+namespace Vendor\Library\Generated\CheckboxUA\Model;
 
 use ArrayObject;
 use DateTime;
