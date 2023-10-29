@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor\Library\Generated\CheckboxUA\Endpoint;
 
 class ExportGoodsTaskStatusApiV1GoodsExportTaskStatusTaskIdGet extends \Vendor\Library\Generated\CheckboxUA\Runtime\Client\BaseEndpoint implements \Vendor\Library\Generated\CheckboxUA\Runtime\Client\Endpoint

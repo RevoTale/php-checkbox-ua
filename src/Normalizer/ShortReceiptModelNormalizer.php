@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor\Library\Generated\CheckboxUA\Normalizer;
 
 use ArrayObject;
@@ -122,7 +124,7 @@ class ShortReceiptModelNormalizer implements DenormalizerInterface, NormalizerIn
             unset($data['created_at']);
         }
         if (array_key_exists('updated_at', $data)) {
-            $object->setUpdatedAt($data['updated_at'] === null ? null : DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['updated_at']));
+            $object->setUpdatedAt(null === $data['updated_at'] ? null : DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['updated_at']));
             unset($data['updated_at']);
         }
         if (array_key_exists('taxes', $data)) {
@@ -202,7 +204,7 @@ class ShortReceiptModelNormalizer implements DenormalizerInterface, NormalizerIn
             unset($data['currency_exchange']);
         }
         foreach ($data as $key_1 => $value_6) {
-            if (preg_match('/.*/', (string)$key_1)) {
+            if (preg_match('/.*/', (string) $key_1)) {
                 $object[$key_1] = $value_6;
             }
         }
@@ -319,7 +321,7 @@ class ShortReceiptModelNormalizer implements DenormalizerInterface, NormalizerIn
             $data['currency_exchange'] = $this->normalizer->normalize($object->getCurrencyExchange(), 'json', $context);
         }
         foreach ($object as $key_1 => $value_6) {
-            if (preg_match('/.*/', (string)$key_1)) {
+            if (preg_match('/.*/', (string) $key_1)) {
                 $data[$key_1] = $value_6;
             }
         }

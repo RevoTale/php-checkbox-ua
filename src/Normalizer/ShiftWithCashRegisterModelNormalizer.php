@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor\Library\Generated\CheckboxUA\Normalizer;
 
 use ArrayObject;
@@ -14,6 +16,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Vendor\Library\Generated\CheckboxUA\Model\ShiftWithCashRegisterModel;
 use Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer\CheckArray;
 use Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer\ValidatorTrait;
+
 use function array_key_exists;
 use function is_array;
 
@@ -67,7 +70,7 @@ class ShiftWithCashRegisterModelNormalizer implements DenormalizerInterface, Nor
             unset($data['opened_at']);
         }
         if (array_key_exists('closed_at', $data)) {
-            $object->setClosedAt(null === $data['closed_at'] ? null : DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['closed_at']));//Manually fixed nullability
+            $object->setClosedAt(null === $data['closed_at'] ? null : DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['closed_at'])); // Manually fixed nullability
             unset($data['closed_at']);
         }
         if (array_key_exists('initial_transaction', $data)) {
@@ -83,7 +86,7 @@ class ShiftWithCashRegisterModelNormalizer implements DenormalizerInterface, Nor
             unset($data['created_at']);
         }
         if (array_key_exists('updated_at', $data)) {
-            $object->setUpdatedAt($data['updated_at'] === null ? null : DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['updated_at']));
+            $object->setUpdatedAt(null === $data['updated_at'] ? null : DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['updated_at']));
             unset($data['updated_at']);
         }
         if (array_key_exists('balance', $data)) {
@@ -111,7 +114,7 @@ class ShiftWithCashRegisterModelNormalizer implements DenormalizerInterface, Nor
             unset($data['cash_register']);
         }
         foreach ($data as $key => $value_1) {
-            if (preg_match('/.*/', (string)$key)) {
+            if (preg_match('/.*/', (string) $key)) {
                 $object[$key] = $value_1;
             }
         }
@@ -163,7 +166,7 @@ class ShiftWithCashRegisterModelNormalizer implements DenormalizerInterface, Nor
         }
         $data['cash_register'] = $this->normalizer->normalize($object->getCashRegister(), 'json', $context);
         foreach ($object as $key => $value_1) {
-            if (preg_match('/.*/', (string)$key)) {
+            if (preg_match('/.*/', (string) $key)) {
                 $data[$key] = $value_1;
             }
         }

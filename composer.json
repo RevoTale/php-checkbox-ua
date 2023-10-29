@@ -27,7 +27,7 @@
     ],
     "scripts": {
         "test": "vendor/bin/phpstan analyse -c phpstan.neon",
-        "fix": "vendor/bin/php-cs-fixer fix src"
+        "fix": "vendor/bin/php-cs-fixer fix src --allow-risky=yes"
     },
     "config": {
         "allow-plugins": {

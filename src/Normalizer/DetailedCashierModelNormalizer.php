@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor\Library\Generated\CheckboxUA\Normalizer;
 
 use ArrayObject;
@@ -14,6 +16,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Vendor\Library\Generated\CheckboxUA\Model\DetailedCashierModel;
 use Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer\CheckArray;
 use Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer\ValidatorTrait;
+
 use function array_key_exists;
 use function is_array;
 
@@ -75,7 +78,7 @@ class DetailedCashierModelNormalizer implements DenormalizerInterface, Normalize
             unset($data['created_at']);
         }
         if (array_key_exists('updated_at', $data)) {
-            $object->setUpdatedAt($data['updated_at'] === null ? null : DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['updated_at']));
+            $object->setUpdatedAt(null === $data['updated_at'] ? null : DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['updated_at']));
             unset($data['updated_at']);
         }
         if (array_key_exists('certificate_end', $data)) {
@@ -91,7 +94,7 @@ class DetailedCashierModelNormalizer implements DenormalizerInterface, Normalize
             unset($data['organization']);
         }
         foreach ($data as $key => $value) {
-            if (preg_match('/.*/', (string)$key)) {
+            if (preg_match('/.*/', (string) $key)) {
                 $object[$key] = $value;
             }
         }
@@ -125,7 +128,7 @@ class DetailedCashierModelNormalizer implements DenormalizerInterface, Normalize
         }
         $data['organization'] = $this->normalizer->normalize($object->getOrganization(), 'json', $context);
         foreach ($object as $key => $value) {
-            if (preg_match('/.*/', (string)$key)) {
+            if (preg_match('/.*/', (string) $key)) {
                 $data[$key] = $value;
             }
         }

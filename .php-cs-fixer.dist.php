@@ -13,5 +13,6 @@ return (new PhpCsFixer\Config())
             'import_constants' => true,
             'import_functions' => true,
         ],
+        "declare_strict_types"=>true
     ])
     ->setFinder($finder);

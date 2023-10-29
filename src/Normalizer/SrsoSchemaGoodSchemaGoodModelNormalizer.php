@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor\Library\Generated\CheckboxUA\Normalizer;
 
 use ArrayObject;
@@ -95,7 +97,7 @@ class SrsoSchemaGoodSchemaGoodModelNormalizer implements DenormalizerInterface, 
             unset($data['created_at']);
         }
         if (array_key_exists('updated_at', $data)) {
-            $object->setUpdatedAt($data['updated_at'] === null ? null : DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['updated_at']));
+            $object->setUpdatedAt(null === $data['updated_at'] ? null : DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['updated_at']));
             unset($data['updated_at']);
         }
         if (array_key_exists('children', $data)) {
@@ -111,7 +113,7 @@ class SrsoSchemaGoodSchemaGoodModelNormalizer implements DenormalizerInterface, 
             unset($data['related_barcodes']);
         }
         foreach ($data as $key => $value_2) {
-            if (preg_match('/.*/', (string)$key)) {
+            if (preg_match('/.*/', (string) $key)) {
                 $object[$key] = $value_2;
             }
         }
@@ -164,7 +166,7 @@ class SrsoSchemaGoodSchemaGoodModelNormalizer implements DenormalizerInterface, 
             $data['related_barcodes'] = $object->getRelatedBarcodes();
         }
         foreach ($object as $key => $value_2) {
-            if (preg_match('/.*/', (string)$key)) {
+            if (preg_match('/.*/', (string) $key)) {
                 $data[$key] = $value_2;
             }
         }

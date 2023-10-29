@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor\Library\Generated\CheckboxUA\Normalizer;
 
 use ArrayObject;
@@ -14,6 +16,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Vendor\Library\Generated\CheckboxUA\Model\CashRegisterModel;
 use Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer\CheckArray;
 use Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer\ValidatorTrait;
+
 use function array_key_exists;
 use function is_array;
 
@@ -59,7 +62,7 @@ class CashRegisterModelNormalizer implements DenormalizerInterface, NormalizerIn
             unset($data['active']);
         }
         if (array_key_exists('created_at', $data)) {
-            $object->setCreatedAt($data['created_at'] === null ? null : DateTime::createFromFormat('Y-m-d\\TH:i:sP', $data['created_at']));
+            $object->setCreatedAt(null === $data['created_at'] ? null : DateTime::createFromFormat('Y-m-d\\TH:i:sP', $data['created_at']));
             unset($data['created_at']);
         }
         if (array_key_exists('updated_at', $data)) {
@@ -71,7 +74,7 @@ class CashRegisterModelNormalizer implements DenormalizerInterface, NormalizerIn
             unset($data['number']);
         }
         foreach ($data as $key => $value) {
-            if (preg_match('/.*/', (string)$key)) {
+            if (preg_match('/.*/', (string) $key)) {
                 $object[$key] = $value;
             }
         }
@@ -96,7 +99,7 @@ class CashRegisterModelNormalizer implements DenormalizerInterface, NormalizerIn
             $data['number'] = $object->getNumber();
         }
         foreach ($object as $key => $value) {
-            if (preg_match('/.*/', (string)$key)) {
+            if (preg_match('/.*/', (string) $key)) {
                 $data[$key] = $value;
             }
         }

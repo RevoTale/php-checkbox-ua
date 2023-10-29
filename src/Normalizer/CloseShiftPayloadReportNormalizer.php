@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor\Library\Generated\CheckboxUA\Normalizer;
 
 use ArrayObject;
@@ -14,6 +16,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Vendor\Library\Generated\CheckboxUA\Model\CloseShiftPayloadReport;
 use Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer\CheckArray;
 use Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer\ValidatorTrait;
+
 use function array_key_exists;
 use function is_array;
 
@@ -111,7 +114,7 @@ class CloseShiftPayloadReportNormalizer implements DenormalizerInterface, Normal
             unset($data['returns_round_down']);
         }
         if (array_key_exists('discounts_sum', $data)) {
-            $object->setDiscountsSum($data['discounts_sum'] === null ? null : $data['discounts_sum']);
+            $object->setDiscountsSum(null === $data['discounts_sum'] ? null : $data['discounts_sum']);
             unset($data['discounts_sum']);
         }
         if (array_key_exists('extra_charge_sum', $data)) {
@@ -123,7 +126,7 @@ class CloseShiftPayloadReportNormalizer implements DenormalizerInterface, Normal
             unset($data['created_at']);
         }
         foreach ($data as $key => $value_2) {
-            if (preg_match('/.*/', (string)$key)) {
+            if (preg_match('/.*/', (string) $key)) {
                 $object[$key] = $value_2;
             }
         }
@@ -185,7 +188,7 @@ class CloseShiftPayloadReportNormalizer implements DenormalizerInterface, Normal
             $data['created_at'] = $object->getCreatedAt()->format('Y-m-d\\TH:i:s.uP');
         }
         foreach ($object as $key => $value_2) {
-            if (preg_match('/.*/', (string)$key)) {
+            if (preg_match('/.*/', (string) $key)) {
                 $data[$key] = $value_2;
             }
         }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor\Library\Generated\CheckboxUA\Model;
 
 use ArrayObject;
@@ -131,7 +133,7 @@ class BalanceModel extends ArrayObject
         return $this->extraChargeSum;
     }
 
-    public function setExtraChargeSum(?int $extraChargeSum): self//Manually fixed nullability
+    public function setExtraChargeSum(?int $extraChargeSum): self// Manually fixed nullability
     {
         $this->initialized['extraChargeSum'] = true;
         $this->extraChargeSum = $extraChargeSum;

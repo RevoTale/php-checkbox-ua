@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor\Library\Generated\CheckboxUA\Normalizer;
 
 use ArrayObject;
@@ -67,7 +69,7 @@ class OrganizationModelNormalizer implements DenormalizerInterface, NormalizerIn
             unset($data['created_at']);
         }
         if (array_key_exists('updated_at', $data)) {
-            $object->setUpdatedAt($data['updated_at'] === null ? null : DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['updated_at']));
+            $object->setUpdatedAt(null === $data['updated_at'] ? null : DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['updated_at']));
             unset($data['updated_at']);
         }
         if (array_key_exists('subscription_exp', $data)) {
@@ -95,7 +97,7 @@ class OrganizationModelNormalizer implements DenormalizerInterface, NormalizerIn
             unset($data['allowed_offline_duration']);
         }
         foreach ($data as $key => $value) {
-            if (preg_match('/.*/', (string)$key)) {
+            if (preg_match('/.*/', (string) $key)) {
                 $object[$key] = $value;
             }
         }
@@ -136,7 +138,7 @@ class OrganizationModelNormalizer implements DenormalizerInterface, NormalizerIn
             $data['allowed_offline_duration'] = $object->getAllowedOfflineDuration();
         }
         foreach ($object as $key => $value) {
-            if (preg_match('/.*/', (string)$key)) {
+            if (preg_match('/.*/', (string) $key)) {
                 $data[$key] = $value;
             }
         }

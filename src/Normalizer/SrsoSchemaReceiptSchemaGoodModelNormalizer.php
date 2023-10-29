@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor\Library\Generated\CheckboxUA\Normalizer;
 
 use ArrayObject;
@@ -13,6 +15,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Vendor\Library\Generated\CheckboxUA\Model\SrsoSchemaReceiptSchemaGoodModel;
 use Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer\CheckArray;
 use Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer\ValidatorTrait;
+
 use function array_key_exists;
 use function is_array;
 
@@ -82,7 +85,7 @@ class SrsoSchemaReceiptSchemaGoodModelNormalizer implements DenormalizerInterfac
             unset($data['price']);
         }
         foreach ($data as $key => $value_1) {
-            if (preg_match('/.*/', (string)$key)) {
+            if (preg_match('/.*/', (string) $key)) {
                 $object[$key] = $value_1;
             }
         }
@@ -119,7 +122,7 @@ class SrsoSchemaReceiptSchemaGoodModelNormalizer implements DenormalizerInterfac
         }
         $data['price'] = $object->getPrice();
         foreach ($object as $key => $value_1) {
-            if (preg_match('/.*/', (string)$key)) {
+            if (preg_match('/.*/', (string) $key)) {
                 $data[$key] = $value_1;
             }
         }

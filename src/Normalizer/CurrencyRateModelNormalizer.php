@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor\Library\Generated\CheckboxUA\Normalizer;
 
 use ArrayObject;
@@ -45,13 +47,13 @@ class CurrencyRateModelNormalizer implements DenormalizerInterface, NormalizerIn
         }
         $object = new \Vendor\Library\Generated\CheckboxUA\Model\CurrencyRateModel();
         if (array_key_exists('sell', $data) && is_int($data['sell'])) {
-            $data['sell'] = (float)$data['sell'];
+            $data['sell'] = (float) $data['sell'];
         }
         if (array_key_exists('buy', $data) && is_int($data['buy'])) {
-            $data['buy'] = (float)$data['buy'];
+            $data['buy'] = (float) $data['buy'];
         }
         if (array_key_exists('regulator', $data) && is_int($data['regulator'])) {
-            $data['regulator'] = (float)$data['regulator'];
+            $data['regulator'] = (float) $data['regulator'];
         }
         if (null === $data || false === is_array($data)) {
             return $object;
@@ -85,7 +87,7 @@ class CurrencyRateModelNormalizer implements DenormalizerInterface, NormalizerIn
             unset($data['created_at']);
         }
         if (array_key_exists('updated_at', $data)) {
-            $object->setUpdatedAt($data['updated_at'] === null ? null : DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['updated_at']));
+            $object->setUpdatedAt(null === $data['updated_at'] ? null : DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['updated_at']));
             unset($data['updated_at']);
         }
         if (array_key_exists('active', $data)) {
@@ -101,7 +103,7 @@ class CurrencyRateModelNormalizer implements DenormalizerInterface, NormalizerIn
             unset($data['buy_sum']);
         }
         foreach ($data as $key => $value) {
-            if (preg_match('/.*/', (string)$key)) {
+            if (preg_match('/.*/', (string) $key)) {
                 $object[$key] = $value;
             }
         }
@@ -133,7 +135,7 @@ class CurrencyRateModelNormalizer implements DenormalizerInterface, NormalizerIn
             $data['buy_sum'] = $object->getBuySum();
         }
         foreach ($object as $key => $value) {
-            if (preg_match('/.*/', (string)$key)) {
+            if (preg_match('/.*/', (string) $key)) {
                 $data[$key] = $value;
             }
         }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor\Library\Generated\CheckboxUA\Normalizer;
 
 use ArrayObject;
@@ -45,16 +47,16 @@ class ExtendedTaxModelNormalizer implements DenormalizerInterface, NormalizerInt
         }
         $object = new \Vendor\Library\Generated\CheckboxUA\Model\ExtendedTaxModel();
         if (array_key_exists('rate', $data) && is_int($data['rate'])) {
-            $data['rate'] = (float)$data['rate'];
+            $data['rate'] = (float) $data['rate'];
         }
         if (array_key_exists('extra_rate', $data) && is_int($data['extra_rate'])) {
-            $data['extra_rate'] = (float)$data['extra_rate'];
+            $data['extra_rate'] = (float) $data['extra_rate'];
         }
         if (array_key_exists('decimal_rate', $data) && is_int($data['decimal_rate'])) {
-            $data['decimal_rate'] = (float)$data['decimal_rate'];
+            $data['decimal_rate'] = (float) $data['decimal_rate'];
         }
         if (array_key_exists('decimal_extra_rate', $data) && is_int($data['decimal_extra_rate'])) {
-            $data['decimal_extra_rate'] = (float)$data['decimal_extra_rate'];
+            $data['decimal_extra_rate'] = (float) $data['decimal_extra_rate'];
         }
         if (null === $data || false === is_array($data)) {
             return $object;
@@ -92,7 +94,7 @@ class ExtendedTaxModelNormalizer implements DenormalizerInterface, NormalizerInt
             unset($data['created_at']);
         }
         if (array_key_exists('updated_at', $data)) {
-            $object->setUpdatedAt($data['updated_at'] === null ? null : DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['updated_at']));
+            $object->setUpdatedAt(null === $data['updated_at'] ? null : DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['updated_at']));
             unset($data['updated_at']);
         }
         if (array_key_exists('no_vat', $data)) {
@@ -112,7 +114,7 @@ class ExtendedTaxModelNormalizer implements DenormalizerInterface, NormalizerInt
             unset($data['decimal_extra_rate']);
         }
         foreach ($data as $key => $value) {
-            if (preg_match('/.*/', (string)$key)) {
+            if (preg_match('/.*/', (string) $key)) {
                 $object[$key] = $value;
             }
         }
@@ -152,7 +154,7 @@ class ExtendedTaxModelNormalizer implements DenormalizerInterface, NormalizerInt
             $data['decimal_extra_rate'] = $object->getDecimalExtraRate();
         }
         foreach ($object as $key => $value) {
-            if (preg_match('/.*/', (string)$key)) {
+            if (preg_match('/.*/', (string) $key)) {
                 $data[$key] = $value;
             }
         }

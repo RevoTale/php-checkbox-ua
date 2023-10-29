@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor\Library\Generated\CheckboxUA\Model;
 
 use ArrayObject;
@@ -279,7 +281,7 @@ class ShortCloseShiftPayloadReport extends ArrayObject
         return $this;
     }
 
-    public function getDiscountsSum(): ?int//Manually fixed nulllability
+    public function getDiscountsSum(): ?int// Manually fixed nulllability
     {
         return $this->discountsSum;
     }

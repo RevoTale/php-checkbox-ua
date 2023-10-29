@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor\Library\Generated\CheckboxUA\Normalizer;
 
 use ArrayObject;
@@ -45,7 +47,7 @@ class ReportTaskSchemaNormalizer implements DenormalizerInterface, NormalizerInt
         }
         $object = new \Vendor\Library\Generated\CheckboxUA\Model\ReportTaskSchema();
         if (array_key_exists('execution_time', $data) && is_int($data['execution_time'])) {
-            $data['execution_time'] = (float)$data['execution_time'];
+            $data['execution_time'] = (float) $data['execution_time'];
         }
         if (null === $data || false === is_array($data)) {
             return $object;
@@ -71,7 +73,7 @@ class ReportTaskSchemaNormalizer implements DenormalizerInterface, NormalizerInt
             unset($data['created_at']);
         }
         if (array_key_exists('updated_at', $data)) {
-            $object->setUpdatedAt($data['updated_at'] === null ? null : DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['updated_at']));
+            $object->setUpdatedAt(null === $data['updated_at'] ? null : DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['updated_at']));
             unset($data['updated_at']);
         }
         if (array_key_exists('error_message', $data)) {
@@ -91,7 +93,7 @@ class ReportTaskSchemaNormalizer implements DenormalizerInterface, NormalizerInt
             unset($data['execution_time']);
         }
         foreach ($data as $key_1 => $value_1) {
-            if (preg_match('/.*/', (string)$key_1)) {
+            if (preg_match('/.*/', (string) $key_1)) {
                 $object[$key_1] = $value_1;
             }
         }
@@ -125,7 +127,7 @@ class ReportTaskSchemaNormalizer implements DenormalizerInterface, NormalizerInt
             $data['execution_time'] = $object->getExecutionTime();
         }
         foreach ($object as $key_1 => $value_1) {
-            if (preg_match('/.*/', (string)$key_1)) {
+            if (preg_match('/.*/', (string) $key_1)) {
                 $data[$key_1] = $value_1;
             }
         }

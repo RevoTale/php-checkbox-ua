@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor\Library\Generated\CheckboxUA\Exception;
 
 class GetReceiptPngApiV1ReceiptsReceiptIdPngGetUnprocessableEntityException extends UnprocessableEntityException

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor\Library\Generated\CheckboxUA\Normalizer;
 
 use ArrayObject;
@@ -14,6 +16,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Vendor\Library\Generated\CheckboxUA\Model\TransactionModel;
 use Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer\CheckArray;
 use Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer\ValidatorTrait;
+
 use function array_key_exists;
 use function is_array;
 
@@ -75,7 +78,7 @@ class TransactionModelNormalizer implements DenormalizerInterface, NormalizerInt
             unset($data['response_status']);
         }
         if (array_key_exists('response_error_message', $data)) {
-            $object->setResponseErrorMessage($data['response_error_message'] === null ? null : $data['response_error_message']);
+            $object->setResponseErrorMessage(null === $data['response_error_message'] ? null : $data['response_error_message']);
             unset($data['response_error_message']);
         }
         if (array_key_exists('response_id', $data)) {
@@ -83,7 +86,7 @@ class TransactionModelNormalizer implements DenormalizerInterface, NormalizerInt
             unset($data['response_id']);
         }
         if (array_key_exists('offline_id', $data)) {
-            $object->setOfflineId($data['offline_id'] === null ? null : $data['offline_id']);//Manualy fixed nullability
+            $object->setOfflineId(null === $data['offline_id'] ? null : $data['offline_id']); // Manualy fixed nullability
             unset($data['offline_id']);
         }
         if (array_key_exists('created_at', $data)) {
@@ -91,7 +94,7 @@ class TransactionModelNormalizer implements DenormalizerInterface, NormalizerInt
             unset($data['created_at']);
         }
         if (array_key_exists('updated_at', $data)) {
-            $object->setUpdatedAt($data['updated_at'] === null ? null : DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['updated_at']));
+            $object->setUpdatedAt(null === $data['updated_at'] ? null : DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['updated_at']));
             unset($data['updated_at']);
         }
         if (array_key_exists('original_datetime', $data)) {
@@ -123,7 +126,7 @@ class TransactionModelNormalizer implements DenormalizerInterface, NormalizerInt
             unset($data['response_data']);
         }
         foreach ($data as $key => $value) {
-            if (preg_match('/.*/', (string)$key)) {
+            if (preg_match('/.*/', (string) $key)) {
                 $object[$key] = $value;
             }
         }
@@ -187,7 +190,7 @@ class TransactionModelNormalizer implements DenormalizerInterface, NormalizerInt
             $data['response_data'] = $object->getResponseData();
         }
         foreach ($object as $key => $value) {
-            if (preg_match('/.*/', (string)$key)) {
+            if (preg_match('/.*/', (string) $key)) {
                 $data[$key] = $value;
             }
         }

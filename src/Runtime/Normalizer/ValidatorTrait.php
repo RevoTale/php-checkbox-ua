@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer;
 
 use Symfony\Component\Validator\Constraint;

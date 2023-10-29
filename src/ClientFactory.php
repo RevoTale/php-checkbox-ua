@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace RevoTale\CheckboxUA;
 
 use GuzzleHttp\Psr7\Uri;

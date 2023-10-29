@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor\Library\Generated\CheckboxUA\Model;
 
 use ArrayObject;
@@ -207,7 +209,7 @@ class ShortTransaction extends ArrayObject
         return $this->offlineId;
     }
 
-    public function setOfflineId(?string $offlineId): self//Manualy fixed nullability
+    public function setOfflineId(?string $offlineId): self// Manualy fixed nullability
     {
         $this->initialized['offlineId'] = true;
         $this->offlineId = $offlineId;

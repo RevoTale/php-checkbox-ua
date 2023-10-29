@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor\Library\Generated\CheckboxUA\Model;
 
 use ArrayObject;
@@ -153,7 +155,7 @@ class ShiftWithCashRegisterModel extends ArrayObject
         return $this->closedAt;
     }
 
-    public function setClosedAt(?DateTime $closedAt): self//Manually fixed nullability
+    public function setClosedAt(?DateTime $closedAt): self// Manually fixed nullability
     {
         $this->initialized['closedAt'] = true;
         $this->closedAt = $closedAt;

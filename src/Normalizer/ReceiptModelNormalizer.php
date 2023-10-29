@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Vendor\Library\Generated\CheckboxUA\Normalizer;
 
 use ArrayObject;
@@ -14,6 +16,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Vendor\Library\Generated\CheckboxUA\Model\ReceiptModel;
 use Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer\CheckArray;
 use Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer\ValidatorTrait;
+
 use function array_key_exists;
 use function is_array;
 
@@ -123,7 +126,7 @@ class ReceiptModelNormalizer implements DenormalizerInterface, NormalizerInterfa
             unset($data['created_at']);
         }
         if (array_key_exists('updated_at', $data)) {
-            $object->setUpdatedAt($data['updated_at'] === null ? null : DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['updated_at']));
+            $object->setUpdatedAt(null === $data['updated_at'] ? null : DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['updated_at']));
             unset($data['updated_at']);
         }
         if (array_key_exists('taxes', $data)) {
@@ -211,7 +214,7 @@ class ReceiptModelNormalizer implements DenormalizerInterface, NormalizerInterfa
             unset($data['control_number']);
         }
         foreach ($data as $key_1 => $value_6) {
-            if (preg_match('/.*/', (string)$key_1)) {
+            if (preg_match('/.*/', (string) $key_1)) {
                 $object[$key_1] = $value_6;
             }
         }
@@ -332,7 +335,7 @@ class ReceiptModelNormalizer implements DenormalizerInterface, NormalizerInterfa
             $data['control_number'] = $object->getControlNumber();
         }
         foreach ($object as $key_1 => $value_6) {
-            if (preg_match('/.*/', (string)$key_1)) {
+            if (preg_match('/.*/', (string) $key_1)) {
                 $data[$key_1] = $value_6;
             }
         }
