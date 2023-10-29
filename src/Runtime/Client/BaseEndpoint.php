@@ -55,12 +55,17 @@ abstract class BaseEndpoint implements Endpoint
 
     // ----------------------------------------------------------------------------------------------------
     // Used for OpenApi2 compatibility
-    protected function getFormBody(): array
+    /*
+     * It is removed because unused and PHPStan fails
+     protected function getFormBody(): array
     {
         return [['Content-Type' => ['application/x-www-form-urlencoded']], http_build_query($this->getFormOptionsResolver()->resolve($this->formParameters))];
     }
+    */
 
-    protected function getMultipartBody($streamFactory = null): array
+    /*
+     * It is removed because unused and PHPStan fails
+     * protected function getMultipartBody($streamFactory = null): array
     {
         $bodyBuilder = new MultipartStreamBuilder($streamFactory);
         $formParameters = $this->getFormOptionsResolver()->resolve($this->formParameters);
@@ -69,7 +74,7 @@ abstract class BaseEndpoint implements Endpoint
         }
 
         return [['Content-Type' => ['multipart/form-data; boundary="'.($bodyBuilder->getBoundary().'"')]], $bodyBuilder->build()];
-    }
+    }*/
 
     protected function getFormOptionsResolver(): OptionsResolver
     {
