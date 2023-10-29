@@ -6,18 +6,11 @@ namespace RevoTale\CheckboxUA\Normalizer;
 
 use ArrayObject;
 use Jane\Component\JsonSchemaRuntime\Reference;
+use RevoTale\CheckboxUA\Model\{BonusPayload, CardPaymentPayload, CashPaymentPayload, DeliveryPayload, DiscountPayload, ObsoleteCardPaymentPayload, OrderGoodItemModel, OrderReceiptModel};
 use RevoTale\CheckboxUA\Runtime\Normalizer\{CheckArray, ValidatorTrait};
 use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, DenormalizerAwareTrait, DenormalizerInterface, NormalizerAwareInterface, NormalizerAwareTrait, NormalizerInterface};
 
 use function array_key_exists;
-use RevoTale\CheckboxUA\Model\OrderReceiptModel;
-use RevoTale\CheckboxUA\Model\DeliveryPayload;
-use RevoTale\CheckboxUA\Model\BonusPayload;
-use RevoTale\CheckboxUA\Model\ObsoleteCardPaymentPayload;
-use RevoTale\CheckboxUA\Model\CardPaymentPayload;
-use RevoTale\CheckboxUA\Model\CashPaymentPayload;
-use RevoTale\CheckboxUA\Model\DiscountPayload;
-use RevoTale\CheckboxUA\Model\OrderGoodItemModel;
 
 class OrderReceiptModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {

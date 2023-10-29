@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace RevoTale\CheckboxUA\Endpoint;
 
-use RevoTale\CheckboxUA\Model\HTTPValidationError;
-use RevoTale\CheckboxUA\Model\HTTPError;
-use RevoTale\CheckboxUA\Model\CashierAccessTokenResponseModel;
+use RevoTale\CheckboxUA\Model\{CashierAccessTokenResponseModel, HTTPError, HTTPValidationError};
 
 class SignInCashierViaPinCodeApiV1CashierSigninPinCodePost extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
 {

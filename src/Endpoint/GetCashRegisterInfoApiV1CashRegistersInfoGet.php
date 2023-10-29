@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace RevoTale\CheckboxUA\Endpoint;
 
-use RevoTale\CheckboxUA\Model\HTTPValidationError;
-use RevoTale\CheckboxUA\Model\CashRegisterDeviceModel;
+use RevoTale\CheckboxUA\Model\{CashRegisterDeviceModel, HTTPValidationError};
 
 class GetCashRegisterInfoApiV1CashRegistersInfoGet extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
 {

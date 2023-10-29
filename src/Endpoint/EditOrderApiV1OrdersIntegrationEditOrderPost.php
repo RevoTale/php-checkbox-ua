@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace RevoTale\CheckboxUA\Endpoint;
 
-use RevoTale\CheckboxUA\Model\HTTPValidationError;
-use RevoTale\CheckboxUA\Model\IntegrationEditOrderReceiptSchema;
+use RevoTale\CheckboxUA\Model\{HTTPValidationError, IntegrationEditOrderReceiptSchema};
 
 class EditOrderApiV1OrdersIntegrationEditOrderPost extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
 {
@@ -21,7 +20,7 @@ class EditOrderApiV1OrdersIntegrationEditOrderPost extends \RevoTale\CheckboxUA\
      * @var string $X-Access-Key Ключ доступу інтеграції (тільки для авторизованих API інтеграцій)
      *             }
      */
-    public function __construct(\RevoTale\CheckboxUA\Model\IntegrationEditOrderReceiptSchema $requestBody, array $headerParameters = [])
+    public function __construct(IntegrationEditOrderReceiptSchema $requestBody, array $headerParameters = [])
     {
         $this->body = $requestBody;
         $this->headerParameters = $headerParameters;

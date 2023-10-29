@@ -6,13 +6,12 @@ namespace RevoTale\CheckboxUA\Normalizer;
 
 use ArrayObject;
 use Jane\Component\JsonSchemaRuntime\Reference;
+use RevoTale\CheckboxUA\Model\{OrganizationReceiptConfigSchema, ShortOrganizationModel};
 use RevoTale\CheckboxUA\Runtime\Normalizer\{CheckArray, ValidatorTrait};
 use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, DenormalizerAwareTrait, DenormalizerInterface, NormalizerAwareInterface, NormalizerAwareTrait, NormalizerInterface};
 
 use function array_key_exists;
 use function is_array;
-use RevoTale\CheckboxUA\Model\OrganizationReceiptConfigSchema;
-use RevoTale\CheckboxUA\Model\ShortOrganizationModel;
 
 class OrganizationReceiptConfigSchemaNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {

@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace RevoTale\CheckboxUA\Endpoint;
 
-use RevoTale\CheckboxUA\Model\HTTPValidationError;
-use RevoTale\CheckboxUA\Model\ShiftWithCashierAndCashRegister;
+use RevoTale\CheckboxUA\Model\{HTTPValidationError, ShiftWithCashierAndCashRegister};
 
 class GetShiftApiV1ShiftsShiftIdGet extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
 {

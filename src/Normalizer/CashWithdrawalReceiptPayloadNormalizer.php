@@ -7,14 +7,12 @@ namespace RevoTale\CheckboxUA\Normalizer;
 use ArrayObject;
 use DateTime;
 use Jane\Component\JsonSchemaRuntime\Reference;
+use RevoTale\CheckboxUA\Model\{CardPaymentPayload, CashWithdrawalReceiptPayload, DeliveryPayload};
 use RevoTale\CheckboxUA\Runtime\Normalizer\{CheckArray, ValidatorTrait};
 use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, DenormalizerAwareTrait, DenormalizerInterface, NormalizerAwareInterface, NormalizerAwareTrait, NormalizerInterface};
 
 use function array_key_exists;
 use function is_array;
-use RevoTale\CheckboxUA\Model\CashWithdrawalReceiptPayload;
-use RevoTale\CheckboxUA\Model\DeliveryPayload;
-use RevoTale\CheckboxUA\Model\CardPaymentPayload;
 
 class CashWithdrawalReceiptPayloadNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {

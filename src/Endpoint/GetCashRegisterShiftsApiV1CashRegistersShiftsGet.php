@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace RevoTale\CheckboxUA\Endpoint;
 
-use RevoTale\CheckboxUA\Model\HTTPValidationError;
-use RevoTale\CheckboxUA\Model\PaginatedResultShiftModel;
+use RevoTale\CheckboxUA\Model\{HTTPValidationError, PaginatedResultShiftModel};
 
 class GetCashRegisterShiftsApiV1CashRegistersShiftsGet extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
 {

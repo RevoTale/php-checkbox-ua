@@ -6,14 +6,13 @@ namespace RevoTale\CheckboxUA\Normalizer;
 
 use ArrayObject;
 use Jane\Component\JsonSchemaRuntime\Reference;
+use RevoTale\CheckboxUA\Model\{CurrencyExchangeSchema, CurrencySchema};
 use RevoTale\CheckboxUA\Runtime\Normalizer\{CheckArray, ValidatorTrait};
 use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, DenormalizerAwareTrait, DenormalizerInterface, NormalizerAwareInterface, NormalizerAwareTrait, NormalizerInterface};
 
 use function array_key_exists;
 use function is_array;
 use function is_int;
-use RevoTale\CheckboxUA\Model\CurrencyExchangeSchema;
-use RevoTale\CheckboxUA\Model\CurrencySchema;
 
 class CurrencyExchangeSchemaNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {

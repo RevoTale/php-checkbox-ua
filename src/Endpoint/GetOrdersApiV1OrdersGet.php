@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace RevoTale\CheckboxUA\Endpoint;
 
-use RevoTale\CheckboxUA\Model\HTTPValidationError;
-use RevoTale\CheckboxUA\Model\PaginatedResultOrderModel;
+use RevoTale\CheckboxUA\Model\{HTTPValidationError, PaginatedResultOrderModel};
 
 class GetOrdersApiV1OrdersGet extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
 {

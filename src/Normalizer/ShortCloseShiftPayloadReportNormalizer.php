@@ -7,14 +7,12 @@ namespace RevoTale\CheckboxUA\Normalizer;
 use ArrayObject;
 use DateTime;
 use Jane\Component\JsonSchemaRuntime\Reference;
+use RevoTale\CheckboxUA\Model\{ReportPaymentsPayload, ReportTaxesPayload, ShortCloseShiftPayloadReport};
 use RevoTale\CheckboxUA\Runtime\Normalizer\{CheckArray, ValidatorTrait};
 use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, DenormalizerAwareTrait, DenormalizerInterface, NormalizerAwareInterface, NormalizerAwareTrait, NormalizerInterface};
 
 use function array_key_exists;
 use function is_array;
-use RevoTale\CheckboxUA\Model\ShortCloseShiftPayloadReport;
-use RevoTale\CheckboxUA\Model\ReportTaxesPayload;
-use RevoTale\CheckboxUA\Model\ReportPaymentsPayload;
 
 class ShortCloseShiftPayloadReportNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {

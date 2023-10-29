@@ -6,15 +6,12 @@ namespace RevoTale\CheckboxUA\Normalizer;
 
 use ArrayObject;
 use Jane\Component\JsonSchemaRuntime\Reference;
+use RevoTale\CheckboxUA\Model\{DiscountModel, GoodItemModel, GoodTax, SrsoSchemaReceiptSchemaGoodModel};
 use RevoTale\CheckboxUA\Runtime\Normalizer\{CheckArray, ValidatorTrait};
 use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, DenormalizerAwareTrait, DenormalizerInterface, NormalizerAwareInterface, NormalizerAwareTrait, NormalizerInterface};
 
 use function array_key_exists;
 use function is_array;
-use RevoTale\CheckboxUA\Model\GoodItemModel;
-use RevoTale\CheckboxUA\Model\DiscountModel;
-use RevoTale\CheckboxUA\Model\GoodTax;
-use RevoTale\CheckboxUA\Model\SrsoSchemaReceiptSchemaGoodModel;
 
 class GoodItemModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {

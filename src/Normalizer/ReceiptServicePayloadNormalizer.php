@@ -7,15 +7,11 @@ namespace RevoTale\CheckboxUA\Normalizer;
 use ArrayObject;
 use DateTime;
 use Jane\Component\JsonSchemaRuntime\Reference;
+use RevoTale\CheckboxUA\Model\{CardPaymentPayload, CashPaymentPayload, ObsoleteCardPaymentPayload, ReceiptConfigPayload, ReceiptServicePayload};
 use RevoTale\CheckboxUA\Runtime\Normalizer\{CheckArray, ValidatorTrait};
 use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, DenormalizerAwareTrait, DenormalizerInterface, NormalizerAwareInterface, NormalizerAwareTrait, NormalizerInterface};
 
 use function array_key_exists;
-use RevoTale\CheckboxUA\Model\ReceiptServicePayload;
-use RevoTale\CheckboxUA\Model\ReceiptConfigPayload;
-use RevoTale\CheckboxUA\Model\ObsoleteCardPaymentPayload;
-use RevoTale\CheckboxUA\Model\CardPaymentPayload;
-use RevoTale\CheckboxUA\Model\CashPaymentPayload;
 
 class ReceiptServicePayloadNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {

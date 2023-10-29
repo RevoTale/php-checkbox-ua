@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace RevoTale\CheckboxUA\Endpoint;
 
-use RevoTale\CheckboxUA\Model\HTTPValidationError;
-use RevoTale\CheckboxUA\Model\OrderModel;
+use RevoTale\CheckboxUA\Model\{HTTPValidationError, OrderModel};
 
 class UpdateCustomOrderStatusApiV1OrdersCustomStatusOrderIdPatch extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
 {

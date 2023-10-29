@@ -7,20 +7,11 @@ namespace RevoTale\CheckboxUA\Normalizer;
 use ArrayObject;
 use DateTime;
 use Jane\Component\JsonSchemaRuntime\Reference;
+use RevoTale\CheckboxUA\Model\{CardPaymentPayload, CashPaymentPayload, CurrencyExchangeSchema, DiscountModel, GoodItemModel, GoodTax, ObsoleteCardPaymentPayload, ReceiptConfigPayload, ShortReceiptModel, ShortTransaction};
 use RevoTale\CheckboxUA\Runtime\Normalizer\{CheckArray, ValidatorTrait};
 use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, DenormalizerAwareTrait, DenormalizerInterface, NormalizerAwareInterface, NormalizerAwareTrait, NormalizerInterface};
 
 use function array_key_exists;
-use RevoTale\CheckboxUA\Model\ShortReceiptModel;
-use RevoTale\CheckboxUA\Model\CurrencyExchangeSchema;
-use RevoTale\CheckboxUA\Model\ReceiptConfigPayload;
-use RevoTale\CheckboxUA\Model\DiscountModel;
-use RevoTale\CheckboxUA\Model\GoodTax;
-use RevoTale\CheckboxUA\Model\ObsoleteCardPaymentPayload;
-use RevoTale\CheckboxUA\Model\CardPaymentPayload;
-use RevoTale\CheckboxUA\Model\CashPaymentPayload;
-use RevoTale\CheckboxUA\Model\GoodItemModel;
-use RevoTale\CheckboxUA\Model\ShortTransaction;
 
 class ShortReceiptModelNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {

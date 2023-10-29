@@ -7,21 +7,12 @@ namespace RevoTale\CheckboxUA\Normalizer;
 use ArrayObject;
 use DateTime;
 use Jane\Component\JsonSchemaRuntime\Reference;
+use RevoTale\CheckboxUA\Model\{BonusPayload, CalculatedDiscountPayload, CalculatedGoodItemPayload, CalculatedReceiptSellPayload, CalculatedReceiptTaxPayload, CardPaymentPayload, CashPaymentPayload, DeliveryPayload, ObsoleteCardPaymentPayload, ReceiptConfigPayload};
 use RevoTale\CheckboxUA\Runtime\Normalizer\{CheckArray, ValidatorTrait};
 use Symfony\Component\Serializer\Normalizer\{DenormalizerAwareInterface, DenormalizerAwareTrait, DenormalizerInterface, NormalizerAwareInterface, NormalizerAwareTrait, NormalizerInterface};
 
 use function array_key_exists;
 use function is_int;
-use RevoTale\CheckboxUA\Model\CalculatedReceiptSellPayload;
-use RevoTale\CheckboxUA\Model\ReceiptConfigPayload;
-use RevoTale\CheckboxUA\Model\DeliveryPayload;
-use RevoTale\CheckboxUA\Model\CalculatedReceiptTaxPayload;
-use RevoTale\CheckboxUA\Model\BonusPayload;
-use RevoTale\CheckboxUA\Model\CalculatedDiscountPayload;
-use RevoTale\CheckboxUA\Model\ObsoleteCardPaymentPayload;
-use RevoTale\CheckboxUA\Model\CardPaymentPayload;
-use RevoTale\CheckboxUA\Model\CashPaymentPayload;
-use RevoTale\CheckboxUA\Model\CalculatedGoodItemPayload;
 
 class CalculatedReceiptSellPayloadNormalizer implements DenormalizerInterface, NormalizerInterface, DenormalizerAwareInterface, NormalizerAwareInterface
 {

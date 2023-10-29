@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace RevoTale\CheckboxUA\Endpoint;
 
-use RevoTale\CheckboxUA\Model\HTTPValidationError;
-use RevoTale\CheckboxUA\Model\IntegrationInfoSchema;
+use RevoTale\CheckboxUA\Model\{HTTPValidationError, IntegrationInfoSchema};
 
 class GetIntegrationApiV1OrdersIntegrationGet extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
 {
