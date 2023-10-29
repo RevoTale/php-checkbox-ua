@@ -3,7 +3,10 @@ declare(strict_types=1);
 
 $finder = (new PhpCsFixer\Finder())
     ->in(__DIR__)
-    ->exclude('var');
+
+    ->exclude('var')
+    ->exclude('vendor')
+;
 
 return (new PhpCsFixer\Config())
     ->setRules([
@@ -13,6 +16,10 @@ return (new PhpCsFixer\Config())
             'import_constants' => true,
             'import_functions' => true,
         ],
-        "declare_strict_types"=>true
+        "single_import_per_statement" => false,
+        'group_import' => true,
+        "declare_strict_types" => true,
+        'no_unused_imports'=>true,
+        'no_unneeded_import_alias'=>true
     ])
     ->setFinder($finder);
