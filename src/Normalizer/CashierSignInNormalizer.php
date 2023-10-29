@@ -27,7 +27,7 @@ class CashierSignInNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\CashierSignIn' === get_class($data);
+        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\CashierSignIn;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

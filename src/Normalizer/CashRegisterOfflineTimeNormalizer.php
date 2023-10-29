@@ -29,7 +29,7 @@ class CashRegisterOfflineTimeNormalizer implements DenormalizerInterface, Normal
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\CashRegisterOfflineTime' === get_class($data);
+        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\CashRegisterOfflineTime;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

@@ -29,7 +29,7 @@ class CurrencyExchangeSchemaNormalizer implements DenormalizerInterface, Normali
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\CurrencyExchangeSchema' === get_class($data);
+        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\CurrencyExchangeSchema;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

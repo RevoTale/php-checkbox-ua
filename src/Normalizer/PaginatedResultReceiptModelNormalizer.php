@@ -29,7 +29,7 @@ class PaginatedResultReceiptModelNormalizer implements DenormalizerInterface, No
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\PaginatedResultReceiptModel' === get_class($data);
+        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\PaginatedResultReceiptModel;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

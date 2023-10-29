@@ -29,7 +29,7 @@ class BranchModelNormalizer implements DenormalizerInterface, NormalizerInterfac
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\BranchModel' === get_class($data);
+        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\BranchModel;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

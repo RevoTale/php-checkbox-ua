@@ -27,7 +27,7 @@ class DeliveryPayloadNormalizer implements DenormalizerInterface, NormalizerInte
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\DeliveryPayload' === get_class($data);
+        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\DeliveryPayload;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

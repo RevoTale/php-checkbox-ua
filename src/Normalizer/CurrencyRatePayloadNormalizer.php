@@ -29,7 +29,7 @@ class CurrencyRatePayloadNormalizer implements DenormalizerInterface, Normalizer
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\CurrencyRatePayload' === get_class($data);
+        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\CurrencyRatePayload;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

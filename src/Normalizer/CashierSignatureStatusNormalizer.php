@@ -27,7 +27,7 @@ class CashierSignatureStatusNormalizer implements DenormalizerInterface, Normali
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\CashierSignatureStatus' === get_class($data);
+        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\CashierSignatureStatus;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

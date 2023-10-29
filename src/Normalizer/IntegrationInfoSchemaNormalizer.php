@@ -28,7 +28,7 @@ class IntegrationInfoSchemaNormalizer implements DenormalizerInterface, Normaliz
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\IntegrationInfoSchema' === get_class($data);
+        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\IntegrationInfoSchema;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

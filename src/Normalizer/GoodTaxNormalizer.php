@@ -28,7 +28,7 @@ class GoodTaxNormalizer implements DenormalizerInterface, NormalizerInterface, D
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\GoodTax' === get_class($data);
+        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\GoodTax;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

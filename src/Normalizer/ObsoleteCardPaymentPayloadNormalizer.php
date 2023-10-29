@@ -27,7 +27,7 @@ class ObsoleteCardPaymentPayloadNormalizer implements DenormalizerInterface, Nor
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\ObsoleteCardPaymentPayload' === get_class($data);
+        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\ObsoleteCardPaymentPayload;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

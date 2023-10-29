@@ -28,7 +28,7 @@ class ReceiptUpdateSchemaNormalizer implements DenormalizerInterface, Normalizer
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\ReceiptUpdateSchema' === get_class($data);
+        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\ReceiptUpdateSchema;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

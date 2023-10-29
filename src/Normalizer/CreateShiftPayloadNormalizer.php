@@ -28,7 +28,7 @@ class CreateShiftPayloadNormalizer implements DenormalizerInterface, NormalizerI
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\CreateShiftPayload' === get_class($data);
+        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\CreateShiftPayload;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

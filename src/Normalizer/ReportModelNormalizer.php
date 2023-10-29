@@ -30,7 +30,7 @@ class ReportModelNormalizer implements DenormalizerInterface, NormalizerInterfac
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\ReportModel' === get_class($data);
+        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\ReportModel;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

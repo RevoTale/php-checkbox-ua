@@ -29,7 +29,7 @@ class ExtendedTaxModelNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\ExtendedTaxModel' === get_class($data);
+        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\ExtendedTaxModel;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

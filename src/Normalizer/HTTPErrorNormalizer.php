@@ -27,7 +27,7 @@ class HTTPErrorNormalizer implements DenormalizerInterface, NormalizerInterface,
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\HTTPError' === get_class($data);
+        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\HTTPError;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

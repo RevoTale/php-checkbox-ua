@@ -27,7 +27,7 @@ class PaginationMetaNormalizer implements DenormalizerInterface, NormalizerInter
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\PaginationMeta' === get_class($data);
+        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\PaginationMeta;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

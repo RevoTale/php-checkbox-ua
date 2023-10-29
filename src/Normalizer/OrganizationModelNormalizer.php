@@ -28,7 +28,7 @@ class OrganizationModelNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\OrganizationModel' === get_class($data);
+        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\OrganizationModel;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

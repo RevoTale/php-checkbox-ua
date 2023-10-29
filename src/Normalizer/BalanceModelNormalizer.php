@@ -28,7 +28,7 @@ class BalanceModelNormalizer implements DenormalizerInterface, NormalizerInterfa
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\BalanceModel' === get_class($data);
+        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\BalanceModel;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

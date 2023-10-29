@@ -28,7 +28,7 @@ class PublicReportTaskSchemaNormalizer implements DenormalizerInterface, Normali
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\PublicReportTaskSchema' === get_class($data);
+        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\PublicReportTaskSchema;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

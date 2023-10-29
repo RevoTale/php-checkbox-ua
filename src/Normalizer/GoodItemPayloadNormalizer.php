@@ -29,7 +29,7 @@ class GoodItemPayloadNormalizer implements DenormalizerInterface, NormalizerInte
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\GoodItemPayload' === get_class($data);
+        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\GoodItemPayload;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

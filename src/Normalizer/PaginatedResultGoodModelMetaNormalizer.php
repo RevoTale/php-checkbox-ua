@@ -27,7 +27,7 @@ class PaginatedResultGoodModelMetaNormalizer implements DenormalizerInterface, N
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\PaginatedResultGoodModelMeta' === get_class($data);
+        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\PaginatedResultGoodModelMeta;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])

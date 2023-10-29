@@ -29,7 +29,7 @@ class PaginatedResultGoodModelNormalizer implements DenormalizerInterface, Norma
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\PaginatedResultGoodModel' === get_class($data);
+        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\PaginatedResultGoodModel;
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
