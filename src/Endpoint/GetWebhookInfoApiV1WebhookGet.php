@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Vendor\Library\Generated\CheckboxUA\Endpoint;
+namespace RevoTale\CheckboxUA\Endpoint;
 
-class GetWebhookInfoApiV1WebhookGet extends \Vendor\Library\Generated\CheckboxUA\Runtime\Client\BaseEndpoint implements \Vendor\Library\Generated\CheckboxUA\Runtime\Client\Endpoint
+class GetWebhookInfoApiV1WebhookGet extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
 {
-    use \Vendor\Library\Generated\CheckboxUA\Runtime\Client\EndpointTrait;
+    use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
 
     /**
      * Даним методом можна перевірити стан налаштувань вебхуків.
@@ -58,10 +58,10 @@ class GetWebhookInfoApiV1WebhookGet extends \Vendor\Library\Generated\CheckboxUA
     }
 
     /**
-     * @return \Vendor\Library\Generated\CheckboxUA\Model\WebhookInfoSchema
+     * @return \RevoTale\CheckboxUA\Model\WebhookInfoSchema
      *
-     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\GetWebhookInfoApiV1WebhookGetUnprocessableEntityException
-     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws \RevoTale\CheckboxUA\Exception\GetWebhookInfoApiV1WebhookGetUnprocessableEntityException
+     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
     {
@@ -71,9 +71,9 @@ class GetWebhookInfoApiV1WebhookGet extends \Vendor\Library\Generated\CheckboxUA
             return $serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\WebhookInfoSchema', 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Vendor\Library\Generated\CheckboxUA\Exception\GetWebhookInfoApiV1WebhookGetUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \RevoTale\CheckboxUA\Exception\GetWebhookInfoApiV1WebhookGetUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
         }
-        throw new \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
+        throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }
 
     public function getAuthenticationScopes(): array

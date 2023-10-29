@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Vendor\Library\Generated\CheckboxUA\Endpoint;
+namespace RevoTale\CheckboxUA\Endpoint;
 
-class CheckSignatureApiV1CashierCheckSignatureGet extends \Vendor\Library\Generated\CheckboxUA\Runtime\Client\BaseEndpoint implements \Vendor\Library\Generated\CheckboxUA\Runtime\Client\Endpoint
+class CheckSignatureApiV1CashierCheckSignatureGet extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
 {
-    use \Vendor\Library\Generated\CheckboxUA\Runtime\Client\EndpointTrait;
+    use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
 
     /**
      * @param array $headerParameters {
@@ -55,10 +55,10 @@ class CheckSignatureApiV1CashierCheckSignatureGet extends \Vendor\Library\Genera
     }
 
     /**
-     * @return \Vendor\Library\Generated\CheckboxUA\Model\CashierSignatureStatus
+     * @return \RevoTale\CheckboxUA\Model\CashierSignatureStatus
      *
-     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\CheckSignatureApiV1CashierCheckSignatureGetUnprocessableEntityException
-     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws \RevoTale\CheckboxUA\Exception\CheckSignatureApiV1CashierCheckSignatureGetUnprocessableEntityException
+     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
     {
@@ -68,9 +68,9 @@ class CheckSignatureApiV1CashierCheckSignatureGet extends \Vendor\Library\Genera
             return $serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CashierSignatureStatus', 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Vendor\Library\Generated\CheckboxUA\Exception\CheckSignatureApiV1CashierCheckSignatureGetUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \RevoTale\CheckboxUA\Exception\CheckSignatureApiV1CashierCheckSignatureGetUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
         }
-        throw new \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
+        throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }
 
     public function getAuthenticationScopes(): array

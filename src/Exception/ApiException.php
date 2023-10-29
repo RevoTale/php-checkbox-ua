@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vendor\Library\Generated\CheckboxUA\Exception;
+namespace RevoTale\CheckboxUA\Exception;
 
 use Throwable;
 

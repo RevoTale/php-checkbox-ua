@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Vendor\Library\Generated\CheckboxUA\Endpoint;
+namespace RevoTale\CheckboxUA\Endpoint;
 
-class GetCurrentOrganizationReceiptSettingsApiV1OrganizationReceiptConfigGet extends \Vendor\Library\Generated\CheckboxUA\Runtime\Client\BaseEndpoint implements \Vendor\Library\Generated\CheckboxUA\Runtime\Client\Endpoint
+class GetCurrentOrganizationReceiptSettingsApiV1OrganizationReceiptConfigGet extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
 {
-    use \Vendor\Library\Generated\CheckboxUA\Runtime\Client\EndpointTrait;
+    use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
 
     /**
      * @param array $headerParameters {
@@ -55,10 +55,10 @@ class GetCurrentOrganizationReceiptSettingsApiV1OrganizationReceiptConfigGet ext
     }
 
     /**
-     * @return \Vendor\Library\Generated\CheckboxUA\Model\OrganizationReceiptConfigSchema
+     * @return \RevoTale\CheckboxUA\Model\OrganizationReceiptConfigSchema
      *
-     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\GetCurrentOrganizationReceiptSettingsApiV1OrganizationReceiptConfigGetUnprocessableEntityException
-     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws \RevoTale\CheckboxUA\Exception\GetCurrentOrganizationReceiptSettingsApiV1OrganizationReceiptConfigGetUnprocessableEntityException
+     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
     {
@@ -68,9 +68,9 @@ class GetCurrentOrganizationReceiptSettingsApiV1OrganizationReceiptConfigGet ext
             return $serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\OrganizationReceiptConfigSchema', 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Vendor\Library\Generated\CheckboxUA\Exception\GetCurrentOrganizationReceiptSettingsApiV1OrganizationReceiptConfigGetUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \RevoTale\CheckboxUA\Exception\GetCurrentOrganizationReceiptSettingsApiV1OrganizationReceiptConfigGetUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
         }
-        throw new \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
+        throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }
 
     public function getAuthenticationScopes(): array

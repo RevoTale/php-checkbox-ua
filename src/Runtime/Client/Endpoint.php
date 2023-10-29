@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vendor\Library\Generated\CheckboxUA\Runtime\Client;
+namespace RevoTale\CheckboxUA\Runtime\Client;
 
 use Psr\Http\Message\ResponseInterface;
 use Symfony\Component\Serializer\SerializerInterface;

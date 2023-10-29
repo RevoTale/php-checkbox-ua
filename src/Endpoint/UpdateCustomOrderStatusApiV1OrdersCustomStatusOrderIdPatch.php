@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Vendor\Library\Generated\CheckboxUA\Endpoint;
+namespace RevoTale\CheckboxUA\Endpoint;
 
-class UpdateCustomOrderStatusApiV1OrdersCustomStatusOrderIdPatch extends \Vendor\Library\Generated\CheckboxUA\Runtime\Client\BaseEndpoint implements \Vendor\Library\Generated\CheckboxUA\Runtime\Client\Endpoint
+class UpdateCustomOrderStatusApiV1OrdersCustomStatusOrderIdPatch extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
 {
-    use \Vendor\Library\Generated\CheckboxUA\Runtime\Client\EndpointTrait;
+    use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
     protected $order_id;
 
     /**
@@ -73,10 +73,10 @@ class UpdateCustomOrderStatusApiV1OrdersCustomStatusOrderIdPatch extends \Vendor
     }
 
     /**
-     * @return \Vendor\Library\Generated\CheckboxUA\Model\OrderModel
+     * @return \RevoTale\CheckboxUA\Model\OrderModel
      *
-     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\UpdateCustomOrderStatusApiV1OrdersCustomStatusOrderIdPatchUnprocessableEntityException
-     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws \RevoTale\CheckboxUA\Exception\UpdateCustomOrderStatusApiV1OrdersCustomStatusOrderIdPatchUnprocessableEntityException
+     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
     {
@@ -86,9 +86,9 @@ class UpdateCustomOrderStatusApiV1OrdersCustomStatusOrderIdPatch extends \Vendor
             return $serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\OrderModel', 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Vendor\Library\Generated\CheckboxUA\Exception\UpdateCustomOrderStatusApiV1OrdersCustomStatusOrderIdPatchUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \RevoTale\CheckboxUA\Exception\UpdateCustomOrderStatusApiV1OrdersCustomStatusOrderIdPatchUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
         }
-        throw new \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
+        throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }
 
     public function getAuthenticationScopes(): array

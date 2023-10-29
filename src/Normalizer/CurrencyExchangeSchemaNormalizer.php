@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vendor\Library\Generated\CheckboxUA\Normalizer;
+namespace RevoTale\CheckboxUA\Normalizer;
 
 use ArrayObject;
 use Jane\Component\JsonSchemaRuntime\Reference;
@@ -12,8 +12,8 @@ use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
-use Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer\CheckArray;
-use Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer\ValidatorTrait;
+use RevoTale\CheckboxUA\Runtime\Normalizer\CheckArray;
+use RevoTale\CheckboxUA\Runtime\Normalizer\ValidatorTrait;
 
 use function array_key_exists;
 use function is_array;
@@ -44,7 +44,7 @@ class CurrencyExchangeSchemaNormalizer implements DenormalizerInterface, Normali
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \Vendor\Library\Generated\CheckboxUA\Model\CurrencyExchangeSchema();
+        $object = new \RevoTale\CheckboxUA\Model\CurrencyExchangeSchema();
         if (array_key_exists('commission', $data) && is_int($data['commission'])) {
             $data['commission'] = (float) $data['commission'];
         }

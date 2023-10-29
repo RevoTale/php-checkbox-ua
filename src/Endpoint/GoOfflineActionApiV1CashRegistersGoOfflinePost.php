@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Vendor\Library\Generated\CheckboxUA\Endpoint;
+namespace RevoTale\CheckboxUA\Endpoint;
 
-class GoOfflineActionApiV1CashRegistersGoOfflinePost extends \Vendor\Library\Generated\CheckboxUA\Runtime\Client\BaseEndpoint implements \Vendor\Library\Generated\CheckboxUA\Runtime\Client\Endpoint
+class GoOfflineActionApiV1CashRegistersGoOfflinePost extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
 {
-    use \Vendor\Library\Generated\CheckboxUA\Runtime\Client\EndpointTrait;
+    use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
 
     /**
      * Ручне переведення поточної каси в офлайн. Після виклику цього методу при наступній відправці чеків спроби перевірки
@@ -22,7 +22,7 @@ class GoOfflineActionApiV1CashRegistersGoOfflinePost extends \Vendor\Library\Gen
      * @var string $X-License-Key
      *             }
      */
-    public function __construct(\Vendor\Library\Generated\CheckboxUA\Model\GoOfflinePayload $requestBody = null, array $headerParameters = [])
+    public function __construct(\RevoTale\CheckboxUA\Model\GoOfflinePayload $requestBody = null, array $headerParameters = [])
     {
         $this->body = $requestBody;
         $this->headerParameters = $headerParameters;
@@ -40,7 +40,7 @@ class GoOfflineActionApiV1CashRegistersGoOfflinePost extends \Vendor\Library\Gen
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \Vendor\Library\Generated\CheckboxUA\Model\GoOfflinePayload) {
+        if ($this->body instanceof \RevoTale\CheckboxUA\Model\GoOfflinePayload) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
 
@@ -69,8 +69,8 @@ class GoOfflineActionApiV1CashRegistersGoOfflinePost extends \Vendor\Library\Gen
     /**
      * @return null
      *
-     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\GoOfflineActionApiV1CashRegistersGoOfflinePostUnprocessableEntityException
-     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws \RevoTale\CheckboxUA\Exception\GoOfflineActionApiV1CashRegistersGoOfflinePostUnprocessableEntityException
+     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
     {
@@ -80,9 +80,9 @@ class GoOfflineActionApiV1CashRegistersGoOfflinePost extends \Vendor\Library\Gen
             return json_decode($body);
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Vendor\Library\Generated\CheckboxUA\Exception\GoOfflineActionApiV1CashRegistersGoOfflinePostUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \RevoTale\CheckboxUA\Exception\GoOfflineActionApiV1CashRegistersGoOfflinePostUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
         }
-        throw new \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
+        throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }
 
     public function getAuthenticationScopes(): array

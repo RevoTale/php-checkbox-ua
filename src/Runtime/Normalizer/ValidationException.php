@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vendor\Library\Generated\CheckboxUA\Runtime\Normalizer;
+namespace RevoTale\CheckboxUA\Runtime\Normalizer;
 
 use RuntimeException;
 use Symfony\Component\Validator\ConstraintViolationListInterface;

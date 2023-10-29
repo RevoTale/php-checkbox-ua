@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Vendor\Library\Generated\CheckboxUA\Exception;
+namespace RevoTale\CheckboxUA\Exception;
 
 class CloseShiftApiV1ShiftsClosePostUnprocessableEntityException extends UnprocessableEntityException
 {
     /**
-     * @var \Vendor\Library\Generated\CheckboxUA\Model\HTTPValidationError
+     * @var \RevoTale\CheckboxUA\Model\HTTPValidationError
      */
     private $hTTPValidationError;
     /**
@@ -15,14 +15,14 @@ class CloseShiftApiV1ShiftsClosePostUnprocessableEntityException extends Unproce
      */
     private $response;
 
-    public function __construct(\Vendor\Library\Generated\CheckboxUA\Model\HTTPValidationError $hTTPValidationError, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\RevoTale\CheckboxUA\Model\HTTPValidationError $hTTPValidationError, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('Validation Error');
         $this->hTTPValidationError = $hTTPValidationError;
         $this->response = $response;
     }
 
-    public function getHTTPValidationError(): \Vendor\Library\Generated\CheckboxUA\Model\HTTPValidationError
+    public function getHTTPValidationError(): \RevoTale\CheckboxUA\Model\HTTPValidationError
     {
         return $this->hTTPValidationError;
     }

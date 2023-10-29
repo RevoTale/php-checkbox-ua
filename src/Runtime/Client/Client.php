@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vendor\Library\Generated\CheckboxUA\Runtime\Client;
+namespace RevoTale\CheckboxUA\Runtime\Client;
 
 use Jane\Component\OpenApiRuntime\Client\Plugin\AuthenticationRegistry;
 use Psr\Http\Client\ClientInterface;

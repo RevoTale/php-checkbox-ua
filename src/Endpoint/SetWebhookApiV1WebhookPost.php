@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Vendor\Library\Generated\CheckboxUA\Endpoint;
+namespace RevoTale\CheckboxUA\Endpoint;
 
-class SetWebhookApiV1WebhookPost extends \Vendor\Library\Generated\CheckboxUA\Runtime\Client\BaseEndpoint implements \Vendor\Library\Generated\CheckboxUA\Runtime\Client\Endpoint
+class SetWebhookApiV1WebhookPost extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
 {
-    use \Vendor\Library\Generated\CheckboxUA\Runtime\Client\EndpointTrait;
+    use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
 
     /**
      * Даним методом встановлюється URL адреса куди при фіскалізації чеків, відкритті та закритті змін
@@ -51,7 +51,7 @@ class SetWebhookApiV1WebhookPost extends \Vendor\Library\Generated\CheckboxUA\Ru
      * @var string $X-License-Key
      *             }
      */
-    public function __construct(\Vendor\Library\Generated\CheckboxUA\Model\SetWebhookPayload $requestBody, array $headerParameters = [])
+    public function __construct(\RevoTale\CheckboxUA\Model\SetWebhookPayload $requestBody, array $headerParameters = [])
     {
         $this->body = $requestBody;
         $this->headerParameters = $headerParameters;
@@ -69,7 +69,7 @@ class SetWebhookApiV1WebhookPost extends \Vendor\Library\Generated\CheckboxUA\Ru
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \Vendor\Library\Generated\CheckboxUA\Model\SetWebhookPayload) {
+        if ($this->body instanceof \RevoTale\CheckboxUA\Model\SetWebhookPayload) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
 
@@ -95,10 +95,10 @@ class SetWebhookApiV1WebhookPost extends \Vendor\Library\Generated\CheckboxUA\Ru
     }
 
     /**
-     * @return \Vendor\Library\Generated\CheckboxUA\Model\WebhookInfoResponseSchema
+     * @return \RevoTale\CheckboxUA\Model\WebhookInfoResponseSchema
      *
-     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\SetWebhookApiV1WebhookPostUnprocessableEntityException
-     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws \RevoTale\CheckboxUA\Exception\SetWebhookApiV1WebhookPostUnprocessableEntityException
+     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
     {
@@ -108,9 +108,9 @@ class SetWebhookApiV1WebhookPost extends \Vendor\Library\Generated\CheckboxUA\Ru
             return $serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\WebhookInfoResponseSchema', 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Vendor\Library\Generated\CheckboxUA\Exception\SetWebhookApiV1WebhookPostUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \RevoTale\CheckboxUA\Exception\SetWebhookApiV1WebhookPostUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
         }
-        throw new \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
+        throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }
 
     public function getAuthenticationScopes(): array

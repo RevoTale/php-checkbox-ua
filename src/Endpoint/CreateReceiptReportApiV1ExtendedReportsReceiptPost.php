@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Vendor\Library\Generated\CheckboxUA\Endpoint;
+namespace RevoTale\CheckboxUA\Endpoint;
 
-class CreateReceiptReportApiV1ExtendedReportsReceiptPost extends \Vendor\Library\Generated\CheckboxUA\Runtime\Client\BaseEndpoint implements \Vendor\Library\Generated\CheckboxUA\Runtime\Client\Endpoint
+class CreateReceiptReportApiV1ExtendedReportsReceiptPost extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
 {
-    use \Vendor\Library\Generated\CheckboxUA\Runtime\Client\EndpointTrait;
+    use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
 
     /**
      * @param array $headerParameters {
@@ -16,7 +16,7 @@ class CreateReceiptReportApiV1ExtendedReportsReceiptPost extends \Vendor\Library
      * @var string $X-Access-Key Ключ доступу інтеграції (тільки для авторизованих API інтеграцій)
      *             }
      */
-    public function __construct(\Vendor\Library\Generated\CheckboxUA\Model\ExtendedReceiptReportFiltersPayload $requestBody, array $headerParameters = [])
+    public function __construct(\RevoTale\CheckboxUA\Model\ExtendedReceiptReportFiltersPayload $requestBody, array $headerParameters = [])
     {
         $this->body = $requestBody;
         $this->headerParameters = $headerParameters;
@@ -34,7 +34,7 @@ class CreateReceiptReportApiV1ExtendedReportsReceiptPost extends \Vendor\Library
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \Vendor\Library\Generated\CheckboxUA\Model\ExtendedReceiptReportFiltersPayload) {
+        if ($this->body instanceof \RevoTale\CheckboxUA\Model\ExtendedReceiptReportFiltersPayload) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
 
@@ -60,10 +60,10 @@ class CreateReceiptReportApiV1ExtendedReportsReceiptPost extends \Vendor\Library
     }
 
     /**
-     * @return \Vendor\Library\Generated\CheckboxUA\Model\ReportTaskSchema
+     * @return \RevoTale\CheckboxUA\Model\ReportTaskSchema
      *
-     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\CreateReceiptReportApiV1ExtendedReportsReceiptPostUnprocessableEntityException
-     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws \RevoTale\CheckboxUA\Exception\CreateReceiptReportApiV1ExtendedReportsReceiptPostUnprocessableEntityException
+     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
     {
@@ -73,9 +73,9 @@ class CreateReceiptReportApiV1ExtendedReportsReceiptPost extends \Vendor\Library
             return $serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReportTaskSchema', 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Vendor\Library\Generated\CheckboxUA\Exception\CreateReceiptReportApiV1ExtendedReportsReceiptPostUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \RevoTale\CheckboxUA\Exception\CreateReceiptReportApiV1ExtendedReportsReceiptPostUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
         }
-        throw new \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
+        throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }
 
     public function getAuthenticationScopes(): array

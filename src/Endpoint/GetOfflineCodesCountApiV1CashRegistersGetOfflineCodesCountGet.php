@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Vendor\Library\Generated\CheckboxUA\Endpoint;
+namespace RevoTale\CheckboxUA\Endpoint;
 
-class GetOfflineCodesCountApiV1CashRegistersGetOfflineCodesCountGet extends \Vendor\Library\Generated\CheckboxUA\Runtime\Client\BaseEndpoint implements \Vendor\Library\Generated\CheckboxUA\Runtime\Client\Endpoint
+class GetOfflineCodesCountApiV1CashRegistersGetOfflineCodesCountGet extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
 {
-    use \Vendor\Library\Generated\CheckboxUA\Runtime\Client\EndpointTrait;
+    use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
 
     /**
      * Отримання кількості офлайн кодів.
@@ -58,10 +58,10 @@ class GetOfflineCodesCountApiV1CashRegistersGetOfflineCodesCountGet extends \Ven
     }
 
     /**
-     * @return \Vendor\Library\Generated\CheckboxUA\Model\OfflineCodesCountSchema
+     * @return \RevoTale\CheckboxUA\Model\OfflineCodesCountSchema
      *
-     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\GetOfflineCodesCountApiV1CashRegistersGetOfflineCodesCountGetUnprocessableEntityException
-     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws \RevoTale\CheckboxUA\Exception\GetOfflineCodesCountApiV1CashRegistersGetOfflineCodesCountGetUnprocessableEntityException
+     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
     {
@@ -71,9 +71,9 @@ class GetOfflineCodesCountApiV1CashRegistersGetOfflineCodesCountGet extends \Ven
             return $serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\OfflineCodesCountSchema', 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Vendor\Library\Generated\CheckboxUA\Exception\GetOfflineCodesCountApiV1CashRegistersGetOfflineCodesCountGetUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \RevoTale\CheckboxUA\Exception\GetOfflineCodesCountApiV1CashRegistersGetOfflineCodesCountGetUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
         }
-        throw new \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
+        throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }
 
     public function getAuthenticationScopes(): array

@@ -9,7 +9,7 @@ use Http\Client\Common\Plugin\AddHostPlugin;
 use Http\Client\Common\PluginClient;
 use Http\Discovery\Psr18ClientDiscovery;
 use Jane\Component\OpenApiRuntime\Client\Plugin\AuthenticationRegistry;
-use Vendor\Library\Generated\CheckboxUA\Client;
+use RevoTale\CheckboxUA\Client;
 
 final readonly class ClientFactory
 {

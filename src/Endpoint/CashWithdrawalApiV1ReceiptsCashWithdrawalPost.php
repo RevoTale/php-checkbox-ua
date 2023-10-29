@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Vendor\Library\Generated\CheckboxUA\Endpoint;
+namespace RevoTale\CheckboxUA\Endpoint;
 
-class CashWithdrawalApiV1ReceiptsCashWithdrawalPost extends \Vendor\Library\Generated\CheckboxUA\Runtime\Client\BaseEndpoint implements \Vendor\Library\Generated\CheckboxUA\Runtime\Client\Endpoint
+class CashWithdrawalApiV1ReceiptsCashWithdrawalPost extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndpoint implements \RevoTale\CheckboxUA\Runtime\Client\Endpoint
 {
-    use \Vendor\Library\Generated\CheckboxUA\Runtime\Client\EndpointTrait;
+    use \RevoTale\CheckboxUA\Runtime\Client\EndpointTrait;
 
     /**
      * Створення чека видачі готівки утримувачеві ЕПЗ.
@@ -19,7 +19,7 @@ class CashWithdrawalApiV1ReceiptsCashWithdrawalPost extends \Vendor\Library\Gene
      * @var string $X-Device-ID ID RRO Agent або мобільного пристрою каси (Для блокування дублікатів)
      *             }
      */
-    public function __construct(\Vendor\Library\Generated\CheckboxUA\Model\CashWithdrawalReceiptPayload $requestBody, array $headerParameters = [])
+    public function __construct(\RevoTale\CheckboxUA\Model\CashWithdrawalReceiptPayload $requestBody, array $headerParameters = [])
     {
         $this->body = $requestBody;
         $this->headerParameters = $headerParameters;
@@ -37,7 +37,7 @@ class CashWithdrawalApiV1ReceiptsCashWithdrawalPost extends \Vendor\Library\Gene
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \Vendor\Library\Generated\CheckboxUA\Model\CashWithdrawalReceiptPayload) {
+        if ($this->body instanceof \RevoTale\CheckboxUA\Model\CashWithdrawalReceiptPayload) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
 
@@ -64,10 +64,10 @@ class CashWithdrawalApiV1ReceiptsCashWithdrawalPost extends \Vendor\Library\Gene
     }
 
     /**
-     * @return \Vendor\Library\Generated\CheckboxUA\Model\ReceiptModel
+     * @return \RevoTale\CheckboxUA\Model\ReceiptModel
      *
-     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\CashWithdrawalApiV1ReceiptsCashWithdrawalPostUnprocessableEntityException
-     * @throws \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws \RevoTale\CheckboxUA\Exception\CashWithdrawalApiV1ReceiptsCashWithdrawalPostUnprocessableEntityException
+     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
     protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
     {
@@ -77,9 +77,9 @@ class CashWithdrawalApiV1ReceiptsCashWithdrawalPost extends \Vendor\Library\Gene
             return $serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReceiptModel', 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Vendor\Library\Generated\CheckboxUA\Exception\CashWithdrawalApiV1ReceiptsCashWithdrawalPostUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \RevoTale\CheckboxUA\Exception\CashWithdrawalApiV1ReceiptsCashWithdrawalPostUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
         }
-        throw new \Vendor\Library\Generated\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
+        throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }
 
     public function getAuthenticationScopes(): array
