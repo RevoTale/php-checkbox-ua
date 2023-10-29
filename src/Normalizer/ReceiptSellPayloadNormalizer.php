@@ -20,12 +20,12 @@ class ReceiptSellPayloadNormalizer implements DenormalizerInterface, NormalizerI
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReceiptSellPayload' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\ReceiptSellPayload' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReceiptSellPayload' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\ReceiptSellPayload' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -55,19 +55,19 @@ class ReceiptSellPayloadNormalizer implements DenormalizerInterface, NormalizerI
         if (array_key_exists('goods', $data)) {
             $values = [];
             foreach ($data['goods'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\GoodItemPayload', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\GoodItemPayload', 'json', $context);
             }
             $object->setGoods($values);
             unset($data['goods']);
         }
         if (array_key_exists('delivery', $data)) {
-            $object->setDelivery($this->denormalizer->denormalize($data['delivery'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\DeliveryPayload', 'json', $context));
+            $object->setDelivery($this->denormalizer->denormalize($data['delivery'], 'RevoTale\\CheckboxUA\\Model\\DeliveryPayload', 'json', $context));
             unset($data['delivery']);
         }
         if (array_key_exists('discounts', $data)) {
             $values_1 = [];
             foreach ($data['discounts'] as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\DiscountPayload', 'json', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'RevoTale\\CheckboxUA\\Model\\DiscountPayload', 'json', $context);
             }
             $object->setDiscounts($values_1);
             unset($data['discounts']);
@@ -75,7 +75,7 @@ class ReceiptSellPayloadNormalizer implements DenormalizerInterface, NormalizerI
         if (array_key_exists('bonuses', $data)) {
             $values_2 = [];
             foreach ($data['bonuses'] as $value_2) {
-                $values_2[] = $this->denormalizer->denormalize($value_2, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\BonusPayload', 'json', $context);
+                $values_2[] = $this->denormalizer->denormalize($value_2, 'RevoTale\\CheckboxUA\\Model\\BonusPayload', 'json', $context);
             }
             $object->setBonuses($values_2);
             unset($data['bonuses']);
@@ -85,11 +85,11 @@ class ReceiptSellPayloadNormalizer implements DenormalizerInterface, NormalizerI
             foreach ($data['payments'] as $value_3) {
                 $value_4 = $value_3;
                 if (is_array($value_3) and isset($value_3['value'])) {
-                    $value_4 = $this->denormalizer->denormalize($value_3, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CashPaymentPayload', 'json', $context);
+                    $value_4 = $this->denormalizer->denormalize($value_3, 'RevoTale\\CheckboxUA\\Model\\CashPaymentPayload', 'json', $context);
                 } elseif (is_array($value_3) and isset($value_3['value'])) {
-                    $value_4 = $this->denormalizer->denormalize($value_3, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CardPaymentPayload', 'json', $context);
+                    $value_4 = $this->denormalizer->denormalize($value_3, 'RevoTale\\CheckboxUA\\Model\\CardPaymentPayload', 'json', $context);
                 } elseif (is_array($value_3) and isset($value_3['value'])) {
-                    $value_4 = $this->denormalizer->denormalize($value_3, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ObsoleteCardPaymentPayload', 'json', $context);
+                    $value_4 = $this->denormalizer->denormalize($value_3, 'RevoTale\\CheckboxUA\\Model\\ObsoleteCardPaymentPayload', 'json', $context);
                 }
                 $values_3[] = $value_4;
             }
@@ -145,7 +145,7 @@ class ReceiptSellPayloadNormalizer implements DenormalizerInterface, NormalizerI
             unset($data['is_pawnshop']);
         }
         if (array_key_exists('custom', $data)) {
-            $object->setCustom($this->denormalizer->denormalize($data['custom'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReceiptConfigPayload', 'json', $context));
+            $object->setCustom($this->denormalizer->denormalize($data['custom'], 'RevoTale\\CheckboxUA\\Model\\ReceiptConfigPayload', 'json', $context));
             unset($data['custom']);
         }
         foreach ($data as $key_1 => $value_6) {
@@ -260,6 +260,6 @@ class ReceiptSellPayloadNormalizer implements DenormalizerInterface, NormalizerI
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReceiptSellPayload' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\ReceiptSellPayload' => false];
     }
 }

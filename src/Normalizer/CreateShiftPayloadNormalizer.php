@@ -22,12 +22,12 @@ class CreateShiftPayloadNormalizer implements DenormalizerInterface, NormalizerI
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CreateShiftPayload' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\CreateShiftPayload' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CreateShiftPayload' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\CreateShiftPayload' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -89,6 +89,6 @@ class CreateShiftPayloadNormalizer implements DenormalizerInterface, NormalizerI
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\CreateShiftPayload' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\CreateShiftPayload' => false];
     }
 }

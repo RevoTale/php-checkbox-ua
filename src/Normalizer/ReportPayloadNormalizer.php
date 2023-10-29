@@ -22,12 +22,12 @@ class ReportPayloadNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReportPayload' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\ReportPayload' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReportPayload' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\ReportPayload' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -53,7 +53,7 @@ class ReportPayloadNormalizer implements DenormalizerInterface, NormalizerInterf
         if (array_key_exists('payments', $data)) {
             $values = [];
             foreach ($data['payments'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReportPaymentsPayload', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\ReportPaymentsPayload', 'json', $context);
             }
             $object->setPayments($values);
             unset($data['payments']);
@@ -61,7 +61,7 @@ class ReportPayloadNormalizer implements DenormalizerInterface, NormalizerInterf
         if (array_key_exists('taxes', $data)) {
             $values_1 = [];
             foreach ($data['taxes'] as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReportTaxesPayload', 'json', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'RevoTale\\CheckboxUA\\Model\\ReportTaxesPayload', 'json', $context);
             }
             $object->setTaxes($values_1);
             unset($data['taxes']);
@@ -191,6 +191,6 @@ class ReportPayloadNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReportPayload' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\ReportPayload' => false];
     }
 }

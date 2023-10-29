@@ -69,10 +69,10 @@ class ExportGoodsTaskStatusApiV1GoodsExportTaskStatusTaskIdGet extends \RevoTale
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CheckStatusResponseSchema', 'json');
+            return $serializer->deserialize($body, 'RevoTale\\CheckboxUA\\Model\\CheckStatusResponseSchema', 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \RevoTale\CheckboxUA\Exception\ExportGoodsTaskStatusApiV1GoodsExportTaskStatusTaskIdGetUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \RevoTale\CheckboxUA\Exception\ExportGoodsTaskStatusApiV1GoodsExportTaskStatusTaskIdGetUnprocessableEntityException($serializer->deserialize($body, 'RevoTale\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
         }
         throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }

@@ -21,12 +21,12 @@ class CheckStatusResponseSchemaNormalizer implements DenormalizerInterface, Norm
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CheckStatusResponseSchema' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\CheckStatusResponseSchema' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CheckStatusResponseSchema' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\CheckStatusResponseSchema' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -64,7 +64,7 @@ class CheckStatusResponseSchemaNormalizer implements DenormalizerInterface, Norm
         if (array_key_exists('errors', $data)) {
             $values = [];
             foreach ($data['errors'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\OperationErrorModel', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\OperationErrorModel', 'json', $context);
             }
             $object->setErrors($values);
             unset($data['errors']);
@@ -113,6 +113,6 @@ class CheckStatusResponseSchemaNormalizer implements DenormalizerInterface, Norm
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\CheckStatusResponseSchema' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\CheckStatusResponseSchema' => false];
     }
 }

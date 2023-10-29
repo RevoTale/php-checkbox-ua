@@ -95,10 +95,10 @@ class GetOrdersApiV1OrdersGet extends \RevoTale\CheckboxUA\Runtime\Client\BaseEn
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\PaginatedResultOrderModel', 'json');
+            return $serializer->deserialize($body, 'RevoTale\\CheckboxUA\\Model\\PaginatedResultOrderModel', 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \RevoTale\CheckboxUA\Exception\GetOrdersApiV1OrdersGetUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \RevoTale\CheckboxUA\Exception\GetOrdersApiV1OrdersGetUnprocessableEntityException($serializer->deserialize($body, 'RevoTale\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
         }
         throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }

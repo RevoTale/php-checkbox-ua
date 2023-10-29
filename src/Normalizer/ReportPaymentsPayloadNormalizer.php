@@ -21,12 +21,12 @@ class ReportPaymentsPayloadNormalizer implements DenormalizerInterface, Normaliz
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReportPaymentsPayload' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\ReportPaymentsPayload' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReportPaymentsPayload' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\ReportPaymentsPayload' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -125,6 +125,6 @@ class ReportPaymentsPayloadNormalizer implements DenormalizerInterface, Normaliz
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReportPaymentsPayload' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\ReportPaymentsPayload' => false];
     }
 }

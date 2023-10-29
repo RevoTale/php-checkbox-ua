@@ -72,7 +72,7 @@ class SignOutCashierApiV1CashierSignoutPost extends \RevoTale\CheckboxUA\Runtime
             return json_decode($body);
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \RevoTale\CheckboxUA\Exception\SignOutCashierApiV1CashierSignoutPostUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \RevoTale\CheckboxUA\Exception\SignOutCashierApiV1CashierSignoutPostUnprocessableEntityException($serializer->deserialize($body, 'RevoTale\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
         }
         throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }

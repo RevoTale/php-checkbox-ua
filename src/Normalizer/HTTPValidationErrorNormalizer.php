@@ -21,12 +21,12 @@ class HTTPValidationErrorNormalizer implements DenormalizerInterface, Normalizer
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\HTTPValidationError' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\HTTPValidationError' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -44,7 +44,7 @@ class HTTPValidationErrorNormalizer implements DenormalizerInterface, Normalizer
         if (array_key_exists('detail', $data)) {
             $values = [];
             foreach ($data['detail'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ValidationError', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\ValidationError', 'json', $context);
             }
             $object->setDetail($values);
             unset($data['detail']);
@@ -87,6 +87,6 @@ class HTTPValidationErrorNormalizer implements DenormalizerInterface, Normalizer
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\HTTPValidationError' => false];
     }
 }

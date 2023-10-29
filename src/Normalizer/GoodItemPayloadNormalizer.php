@@ -21,12 +21,12 @@ class GoodItemPayloadNormalizer implements DenormalizerInterface, NormalizerInte
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\GoodItemPayload' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\GoodItemPayload' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\GoodItemPayload' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\GoodItemPayload' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -42,7 +42,7 @@ class GoodItemPayloadNormalizer implements DenormalizerInterface, NormalizerInte
             return $object;
         }
         if (array_key_exists('good', $data)) {
-            $object->setGood($this->denormalizer->denormalize($data['good'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\GoodItemPayloadGood', 'json', $context));
+            $object->setGood($this->denormalizer->denormalize($data['good'], 'RevoTale\\CheckboxUA\\Model\\GoodItemPayloadGood', 'json', $context));
             unset($data['good']);
         }
         if (array_key_exists('good_id', $data)) {
@@ -64,7 +64,7 @@ class GoodItemPayloadNormalizer implements DenormalizerInterface, NormalizerInte
         if (array_key_exists('discounts', $data)) {
             $values = [];
             foreach ($data['discounts'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\DiscountPayload', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\DiscountPayload', 'json', $context);
             }
             $object->setDiscounts($values);
             unset($data['discounts']);
@@ -120,6 +120,6 @@ class GoodItemPayloadNormalizer implements DenormalizerInterface, NormalizerInte
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\GoodItemPayload' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\GoodItemPayload' => false];
     }
 }

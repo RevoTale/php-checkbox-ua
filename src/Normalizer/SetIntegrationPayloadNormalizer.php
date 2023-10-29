@@ -21,12 +21,12 @@ class SetIntegrationPayloadNormalizer implements DenormalizerInterface, Normaliz
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\SetIntegrationPayload' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\SetIntegrationPayload' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\SetIntegrationPayload' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\SetIntegrationPayload' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -72,6 +72,6 @@ class SetIntegrationPayloadNormalizer implements DenormalizerInterface, Normaliz
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\SetIntegrationPayload' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\SetIntegrationPayload' => false];
     }
 }

@@ -23,12 +23,12 @@ class CurrencyRatePayloadNormalizer implements DenormalizerInterface, Normalizer
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CurrencyRatePayload' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\CurrencyRatePayload' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CurrencyRatePayload' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\CurrencyRatePayload' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -119,6 +119,6 @@ class CurrencyRatePayloadNormalizer implements DenormalizerInterface, Normalizer
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\CurrencyRatePayload' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\CurrencyRatePayload' => false];
     }
 }

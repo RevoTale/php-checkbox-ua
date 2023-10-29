@@ -21,12 +21,12 @@ class PaginatedResultShiftModelMetaNormalizer implements DenormalizerInterface, 
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\PaginatedResultShiftModelMeta' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\PaginatedResultShiftModelMeta' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\PaginatedResultShiftModelMeta' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\PaginatedResultShiftModelMeta' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -77,6 +77,6 @@ class PaginatedResultShiftModelMetaNormalizer implements DenormalizerInterface, 
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\PaginatedResultShiftModelMeta' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\PaginatedResultShiftModelMeta' => false];
     }
 }

@@ -22,12 +22,12 @@ class GoodTaxNormalizer implements DenormalizerInterface, NormalizerInterface, D
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\GoodTax' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\GoodTax' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\GoodTax' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\GoodTax' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -141,6 +141,6 @@ class GoodTaxNormalizer implements DenormalizerInterface, NormalizerInterface, D
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\GoodTax' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\GoodTax' => false];
     }
 }

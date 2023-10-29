@@ -21,12 +21,12 @@ class GoodItemPayloadGoodNormalizer implements DenormalizerInterface, Normalizer
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\GoodItemPayloadGood' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\GoodItemPayloadGood' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\GoodItemPayloadGood' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\GoodItemPayloadGood' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -139,6 +139,6 @@ class GoodItemPayloadGoodNormalizer implements DenormalizerInterface, Normalizer
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\GoodItemPayloadGood' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\GoodItemPayloadGood' => false];
     }
 }

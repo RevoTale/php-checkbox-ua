@@ -22,12 +22,12 @@ class CashRegisterOfflineTimeStatusNormalizer implements DenormalizerInterface, 
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CashRegisterOfflineTimeStatus' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\CashRegisterOfflineTimeStatus' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CashRegisterOfflineTimeStatus' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\CashRegisterOfflineTimeStatus' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -88,6 +88,6 @@ class CashRegisterOfflineTimeStatusNormalizer implements DenormalizerInterface, 
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\CashRegisterOfflineTimeStatus' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\CashRegisterOfflineTimeStatus' => false];
     }
 }

@@ -22,12 +22,12 @@ class CalculatedDiscountPayloadNormalizer implements DenormalizerInterface, Norm
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CalculatedDiscountPayload' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\CalculatedDiscountPayload' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CalculatedDiscountPayload' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\CalculatedDiscountPayload' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -122,6 +122,6 @@ class CalculatedDiscountPayloadNormalizer implements DenormalizerInterface, Norm
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\CalculatedDiscountPayload' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\CalculatedDiscountPayload' => false];
     }
 }

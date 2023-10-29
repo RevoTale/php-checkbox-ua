@@ -22,12 +22,12 @@ class ExtendedReceiptReportFiltersPayloadNormalizer implements DenormalizerInter
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ExtendedReceiptReportFiltersPayload' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\ExtendedReceiptReportFiltersPayload' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ExtendedReceiptReportFiltersPayload' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\ExtendedReceiptReportFiltersPayload' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -112,6 +112,6 @@ class ExtendedReceiptReportFiltersPayloadNormalizer implements DenormalizerInter
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\ExtendedReceiptReportFiltersPayload' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\ExtendedReceiptReportFiltersPayload' => false];
     }
 }

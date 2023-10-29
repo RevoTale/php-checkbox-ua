@@ -22,12 +22,12 @@ class DailyCashFlowPayloadNormalizer implements DenormalizerInterface, Normalize
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\DailyCashFlowPayload' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\DailyCashFlowPayload' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\DailyCashFlowPayload' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\DailyCashFlowPayload' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -101,6 +101,6 @@ class DailyCashFlowPayloadNormalizer implements DenormalizerInterface, Normalize
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\DailyCashFlowPayload' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\DailyCashFlowPayload' => false];
     }
 }

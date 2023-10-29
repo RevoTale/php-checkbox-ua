@@ -69,10 +69,10 @@ class GetCashierProfileApiV1CashierMeGet extends \RevoTale\CheckboxUA\Runtime\Cl
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\DetailedCashierModel', 'json');
+            return $serializer->deserialize($body, 'RevoTale\\CheckboxUA\\Model\\DetailedCashierModel', 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \RevoTale\CheckboxUA\Exception\GetCashierProfileApiV1CashierMeGetUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \RevoTale\CheckboxUA\Exception\GetCashierProfileApiV1CashierMeGetUnprocessableEntityException($serializer->deserialize($body, 'RevoTale\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
         }
         throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }

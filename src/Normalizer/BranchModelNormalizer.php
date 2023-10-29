@@ -22,12 +22,12 @@ class BranchModelNormalizer implements DenormalizerInterface, NormalizerInterfac
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\BranchModel' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\BranchModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\BranchModel' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\BranchModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -55,7 +55,7 @@ class BranchModelNormalizer implements DenormalizerInterface, NormalizerInterfac
             unset($data['address']);
         }
         if (array_key_exists('organization', $data)) {
-            $object->setOrganization($this->denormalizer->denormalize($data['organization'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\OrganizationModel', 'json', $context));
+            $object->setOrganization($this->denormalizer->denormalize($data['organization'], 'RevoTale\\CheckboxUA\\Model\\OrganizationModel', 'json', $context));
             unset($data['organization']);
         }
         if (array_key_exists('created_at', $data)) {
@@ -100,6 +100,6 @@ class BranchModelNormalizer implements DenormalizerInterface, NormalizerInterfac
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\BranchModel' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\BranchModel' => false];
     }
 }

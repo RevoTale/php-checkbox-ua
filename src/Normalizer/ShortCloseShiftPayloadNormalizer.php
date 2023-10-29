@@ -21,12 +21,12 @@ class ShortCloseShiftPayloadNormalizer implements DenormalizerInterface, Normali
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ShortCloseShiftPayload' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\ShortCloseShiftPayload' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ShortCloseShiftPayload' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\ShortCloseShiftPayload' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -46,7 +46,7 @@ class ShortCloseShiftPayloadNormalizer implements DenormalizerInterface, Normali
             unset($data['skip_client_name_check']);
         }
         if (array_key_exists('report', $data)) {
-            $object->setReport($this->denormalizer->denormalize($data['report'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ShortCloseShiftPayloadReport', 'json', $context));
+            $object->setReport($this->denormalizer->denormalize($data['report'], 'RevoTale\\CheckboxUA\\Model\\ShortCloseShiftPayloadReport', 'json', $context));
             unset($data['report']);
         }
         foreach ($data as $key => $value) {
@@ -81,6 +81,6 @@ class ShortCloseShiftPayloadNormalizer implements DenormalizerInterface, Normali
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\ShortCloseShiftPayload' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\ShortCloseShiftPayload' => false];
     }
 }

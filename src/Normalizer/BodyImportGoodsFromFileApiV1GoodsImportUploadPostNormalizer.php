@@ -21,12 +21,12 @@ class BodyImportGoodsFromFileApiV1GoodsImportUploadPostNormalizer implements Den
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\BodyImportGoodsFromFileApiV1GoodsImportUploadPost' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\BodyImportGoodsFromFileApiV1GoodsImportUploadPost' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\BodyImportGoodsFromFileApiV1GoodsImportUploadPost' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\BodyImportGoodsFromFileApiV1GoodsImportUploadPost' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -72,6 +72,6 @@ class BodyImportGoodsFromFileApiV1GoodsImportUploadPostNormalizer implements Den
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\BodyImportGoodsFromFileApiV1GoodsImportUploadPost' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\BodyImportGoodsFromFileApiV1GoodsImportUploadPost' => false];
     }
 }

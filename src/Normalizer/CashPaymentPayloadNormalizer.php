@@ -21,12 +21,12 @@ class CashPaymentPayloadNormalizer implements DenormalizerInterface, NormalizerI
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CashPaymentPayload' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\CashPaymentPayload' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CashPaymentPayload' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\CashPaymentPayload' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -93,6 +93,6 @@ class CashPaymentPayloadNormalizer implements DenormalizerInterface, NormalizerI
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\CashPaymentPayload' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\CashPaymentPayload' => false];
     }
 }

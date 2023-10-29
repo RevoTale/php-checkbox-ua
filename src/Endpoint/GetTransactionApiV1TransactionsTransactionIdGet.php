@@ -67,10 +67,10 @@ class GetTransactionApiV1TransactionsTransactionIdGet extends \RevoTale\Checkbox
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
         if (false === is_null($contentType) && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\TransactionModel', 'json');
+            return $serializer->deserialize($body, 'RevoTale\\CheckboxUA\\Model\\TransactionModel', 'json');
         }
         if (false === is_null($contentType) && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \RevoTale\CheckboxUA\Exception\GetTransactionApiV1TransactionsTransactionIdGetUnprocessableEntityException($serializer->deserialize($body, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
+            throw new \RevoTale\CheckboxUA\Exception\GetTransactionApiV1TransactionsTransactionIdGetUnprocessableEntityException($serializer->deserialize($body, 'RevoTale\\CheckboxUA\\Model\\HTTPValidationError', 'json'), $response);
         }
         throw new \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException($status, $body);
     }

@@ -22,12 +22,12 @@ class CashWithdrawalReceiptPayloadNormalizer implements DenormalizerInterface, N
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CashWithdrawalReceiptPayload' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\CashWithdrawalReceiptPayload' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CashWithdrawalReceiptPayload' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\CashWithdrawalReceiptPayload' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -55,7 +55,7 @@ class CashWithdrawalReceiptPayloadNormalizer implements DenormalizerInterface, N
             unset($data['departament']);
         }
         if (array_key_exists('payment', $data)) {
-            $object->setPayment($this->denormalizer->denormalize($data['payment'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CardPaymentPayload', 'json', $context));
+            $object->setPayment($this->denormalizer->denormalize($data['payment'], 'RevoTale\\CheckboxUA\\Model\\CardPaymentPayload', 'json', $context));
             unset($data['payment']);
         }
         if (array_key_exists('fiscal_code', $data)) {
@@ -87,7 +87,7 @@ class CashWithdrawalReceiptPayloadNormalizer implements DenormalizerInterface, N
             unset($data['context']);
         }
         if (array_key_exists('delivery', $data)) {
-            $object->setDelivery($this->denormalizer->denormalize($data['delivery'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\DeliveryPayload', 'json', $context));
+            $object->setDelivery($this->denormalizer->denormalize($data['delivery'], 'RevoTale\\CheckboxUA\\Model\\DeliveryPayload', 'json', $context));
             unset($data['delivery']);
         }
         if (array_key_exists('previous_receipt_id', $data)) {
@@ -158,6 +158,6 @@ class CashWithdrawalReceiptPayloadNormalizer implements DenormalizerInterface, N
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\CashWithdrawalReceiptPayload' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\CashWithdrawalReceiptPayload' => false];
     }
 }

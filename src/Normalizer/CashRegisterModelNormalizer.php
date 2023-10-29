@@ -23,12 +23,12 @@ class CashRegisterModelNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CashRegisterModel' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\CashRegisterModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CashRegisterModel' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\CashRegisterModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -103,6 +103,6 @@ class CashRegisterModelNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\CashRegisterModel' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\CashRegisterModel' => false];
     }
 }

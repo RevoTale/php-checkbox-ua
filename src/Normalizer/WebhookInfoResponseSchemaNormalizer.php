@@ -22,12 +22,12 @@ class WebhookInfoResponseSchemaNormalizer implements DenormalizerInterface, Norm
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\WebhookInfoResponseSchema' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\WebhookInfoResponseSchema' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\WebhookInfoResponseSchema' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\WebhookInfoResponseSchema' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -104,6 +104,6 @@ class WebhookInfoResponseSchemaNormalizer implements DenormalizerInterface, Norm
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\WebhookInfoResponseSchema' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\WebhookInfoResponseSchema' => false];
     }
 }

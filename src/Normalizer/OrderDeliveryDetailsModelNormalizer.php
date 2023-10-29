@@ -22,12 +22,12 @@ class OrderDeliveryDetailsModelNormalizer implements DenormalizerInterface, Norm
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\OrderDeliveryDetailsModel' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\OrderDeliveryDetailsModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\OrderDeliveryDetailsModel' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\OrderDeliveryDetailsModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -43,7 +43,7 @@ class OrderDeliveryDetailsModelNormalizer implements DenormalizerInterface, Norm
             return $object;
         }
         if (array_key_exists('address', $data)) {
-            $object->setAddress($this->denormalizer->denormalize($data['address'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\AddressModel', 'json', $context));
+            $object->setAddress($this->denormalizer->denormalize($data['address'], 'RevoTale\\CheckboxUA\\Model\\AddressModel', 'json', $context));
             unset($data['address']);
         }
         if (array_key_exists('box_id', $data)) {
@@ -111,6 +111,6 @@ class OrderDeliveryDetailsModelNormalizer implements DenormalizerInterface, Norm
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\OrderDeliveryDetailsModel' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\OrderDeliveryDetailsModel' => false];
     }
 }

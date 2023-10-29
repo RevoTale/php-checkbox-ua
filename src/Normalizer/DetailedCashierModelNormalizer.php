@@ -23,12 +23,12 @@ class DetailedCashierModelNormalizer implements DenormalizerInterface, Normalize
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\DetailedCashierModel' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\DetailedCashierModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\DetailedCashierModel' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\DetailedCashierModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -64,7 +64,7 @@ class DetailedCashierModelNormalizer implements DenormalizerInterface, Normalize
             unset($data['signature_type']);
         }
         if (array_key_exists('permissions', $data)) {
-            $object->setPermissions($this->denormalizer->denormalize($data['permissions'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CashierPermissionsModel', 'json', $context));
+            $object->setPermissions($this->denormalizer->denormalize($data['permissions'], 'RevoTale\\CheckboxUA\\Model\\CashierPermissionsModel', 'json', $context));
             unset($data['permissions']);
         }
         if (array_key_exists('created_at', $data)) {
@@ -84,7 +84,7 @@ class DetailedCashierModelNormalizer implements DenormalizerInterface, Normalize
             unset($data['blocked']);
         }
         if (array_key_exists('organization', $data)) {
-            $object->setOrganization($this->denormalizer->denormalize($data['organization'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\OrganizationModel', 'json', $context));
+            $object->setOrganization($this->denormalizer->denormalize($data['organization'], 'RevoTale\\CheckboxUA\\Model\\OrganizationModel', 'json', $context));
             unset($data['organization']);
         }
         foreach ($data as $key => $value) {
@@ -132,6 +132,6 @@ class DetailedCashierModelNormalizer implements DenormalizerInterface, Normalize
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\DetailedCashierModel' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\DetailedCashierModel' => false];
     }
 }

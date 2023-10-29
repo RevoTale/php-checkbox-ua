@@ -22,12 +22,12 @@ class ReportWithExtensionPayloadShortNormalizer implements DenormalizerInterface
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReportWithExtensionPayloadShort' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\ReportWithExtensionPayloadShort' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReportWithExtensionPayloadShort' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\ReportWithExtensionPayloadShort' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -121,6 +121,6 @@ class ReportWithExtensionPayloadShortNormalizer implements DenormalizerInterface
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReportWithExtensionPayloadShort' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\ReportWithExtensionPayloadShort' => false];
     }
 }

@@ -21,12 +21,12 @@ class ServiceCurrencyPayloadNormalizer implements DenormalizerInterface, Normali
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ServiceCurrencyPayload' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\ServiceCurrencyPayload' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ServiceCurrencyPayload' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\ServiceCurrencyPayload' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -52,7 +52,7 @@ class ServiceCurrencyPayloadNormalizer implements DenormalizerInterface, Normali
         if (array_key_exists('currencies', $data)) {
             $values = [];
             foreach ($data['currencies'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ServiceCurrencyItemPayload', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\ServiceCurrencyItemPayload', 'json', $context);
             }
             $object->setCurrencies($values);
             unset($data['currencies']);
@@ -92,6 +92,6 @@ class ServiceCurrencyPayloadNormalizer implements DenormalizerInterface, Normali
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\ServiceCurrencyPayload' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\ServiceCurrencyPayload' => false];
     }
 }

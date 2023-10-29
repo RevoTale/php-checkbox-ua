@@ -21,12 +21,12 @@ class DocumentsStateModelNormalizer implements DenormalizerInterface, Normalizer
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\DocumentsStateModel' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\DocumentsStateModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\DocumentsStateModel' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\DocumentsStateModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -82,6 +82,6 @@ class DocumentsStateModelNormalizer implements DenormalizerInterface, Normalizer
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\DocumentsStateModel' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\DocumentsStateModel' => false];
     }
 }

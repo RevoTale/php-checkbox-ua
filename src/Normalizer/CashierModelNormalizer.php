@@ -23,12 +23,12 @@ class CashierModelNormalizer implements DenormalizerInterface, NormalizerInterfa
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CashierModel' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\CashierModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CashierModel' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\CashierModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -64,7 +64,7 @@ class CashierModelNormalizer implements DenormalizerInterface, NormalizerInterfa
             unset($data['signature_type']);
         }
         if (array_key_exists('permissions', $data)) {
-            $object->setPermissions($this->denormalizer->denormalize($data['permissions'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CashierPermissionsModel', 'json', $context));
+            $object->setPermissions($this->denormalizer->denormalize($data['permissions'], 'RevoTale\\CheckboxUA\\Model\\CashierPermissionsModel', 'json', $context));
             unset($data['permissions']);
         }
         if (array_key_exists('created_at', $data)) {
@@ -127,6 +127,6 @@ class CashierModelNormalizer implements DenormalizerInterface, NormalizerInterfa
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\CashierModel' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\CashierModel' => false];
     }
 }

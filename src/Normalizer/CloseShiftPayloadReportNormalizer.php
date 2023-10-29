@@ -23,12 +23,12 @@ class CloseShiftPayloadReportNormalizer implements DenormalizerInterface, Normal
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CloseShiftPayloadReport' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\CloseShiftPayloadReport' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CloseShiftPayloadReport' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\CloseShiftPayloadReport' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -54,7 +54,7 @@ class CloseShiftPayloadReportNormalizer implements DenormalizerInterface, Normal
         if (array_key_exists('payments', $data)) {
             $values = [];
             foreach ($data['payments'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReportPaymentsPayload', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\ReportPaymentsPayload', 'json', $context);
             }
             $object->setPayments($values);
             unset($data['payments']);
@@ -62,7 +62,7 @@ class CloseShiftPayloadReportNormalizer implements DenormalizerInterface, Normal
         if (array_key_exists('taxes', $data)) {
             $values_1 = [];
             foreach ($data['taxes'] as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReportTaxesPayload', 'json', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'RevoTale\\CheckboxUA\\Model\\ReportTaxesPayload', 'json', $context);
             }
             $object->setTaxes($values_1);
             unset($data['taxes']);
@@ -192,6 +192,6 @@ class CloseShiftPayloadReportNormalizer implements DenormalizerInterface, Normal
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\CloseShiftPayloadReport' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\CloseShiftPayloadReport' => false];
     }
 }

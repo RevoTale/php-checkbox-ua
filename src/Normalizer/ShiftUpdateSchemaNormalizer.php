@@ -21,12 +21,12 @@ class ShiftUpdateSchemaNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ShiftUpdateSchema' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\ShiftUpdateSchema' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ShiftUpdateSchema' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\ShiftUpdateSchema' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -42,7 +42,7 @@ class ShiftUpdateSchemaNormalizer implements DenormalizerInterface, NormalizerIn
             return $object;
         }
         if (array_key_exists('shift', $data)) {
-            $object->setShift($this->denormalizer->denormalize($data['shift'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ShiftModel', 'json', $context));
+            $object->setShift($this->denormalizer->denormalize($data['shift'], 'RevoTale\\CheckboxUA\\Model\\ShiftModel', 'json', $context));
             unset($data['shift']);
         }
         foreach ($data as $key => $value) {
@@ -72,6 +72,6 @@ class ShiftUpdateSchemaNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\ShiftUpdateSchema' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\ShiftUpdateSchema' => false];
     }
 }

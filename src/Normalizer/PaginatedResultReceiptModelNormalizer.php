@@ -21,12 +21,12 @@ class PaginatedResultReceiptModelNormalizer implements DenormalizerInterface, No
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\PaginatedResultReceiptModel' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\PaginatedResultReceiptModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\PaginatedResultReceiptModel' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\PaginatedResultReceiptModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -42,13 +42,13 @@ class PaginatedResultReceiptModelNormalizer implements DenormalizerInterface, No
             return $object;
         }
         if (array_key_exists('meta', $data)) {
-            $object->setMeta($this->denormalizer->denormalize($data['meta'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\PaginatedResultReceiptModelMeta', 'json', $context));
+            $object->setMeta($this->denormalizer->denormalize($data['meta'], 'RevoTale\\CheckboxUA\\Model\\PaginatedResultReceiptModelMeta', 'json', $context));
             unset($data['meta']);
         }
         if (array_key_exists('results', $data)) {
             $values = [];
             foreach ($data['results'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReceiptModel', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\ReceiptModel', 'json', $context);
             }
             $object->setResults($values);
             unset($data['results']);
@@ -85,6 +85,6 @@ class PaginatedResultReceiptModelNormalizer implements DenormalizerInterface, No
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\PaginatedResultReceiptModel' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\PaginatedResultReceiptModel' => false];
     }
 }

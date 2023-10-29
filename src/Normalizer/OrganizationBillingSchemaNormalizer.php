@@ -21,12 +21,12 @@ class OrganizationBillingSchemaNormalizer implements DenormalizerInterface, Norm
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\OrganizationBillingSchema' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\OrganizationBillingSchema' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\OrganizationBillingSchema' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\OrganizationBillingSchema' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -84,6 +84,6 @@ class OrganizationBillingSchemaNormalizer implements DenormalizerInterface, Norm
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\OrganizationBillingSchema' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\OrganizationBillingSchema' => false];
     }
 }

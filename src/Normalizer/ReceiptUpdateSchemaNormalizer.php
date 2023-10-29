@@ -21,12 +21,12 @@ class ReceiptUpdateSchemaNormalizer implements DenormalizerInterface, Normalizer
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReceiptUpdateSchema' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\ReceiptUpdateSchema' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReceiptUpdateSchema' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\ReceiptUpdateSchema' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -42,7 +42,7 @@ class ReceiptUpdateSchemaNormalizer implements DenormalizerInterface, Normalizer
             return $object;
         }
         if (array_key_exists('receipt', $data)) {
-            $object->setReceipt($this->denormalizer->denormalize($data['receipt'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ShortReceiptModel', 'json', $context));
+            $object->setReceipt($this->denormalizer->denormalize($data['receipt'], 'RevoTale\\CheckboxUA\\Model\\ShortReceiptModel', 'json', $context));
             unset($data['receipt']);
         }
         foreach ($data as $key => $value) {
@@ -72,6 +72,6 @@ class ReceiptUpdateSchemaNormalizer implements DenormalizerInterface, Normalizer
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReceiptUpdateSchema' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\ReceiptUpdateSchema' => false];
     }
 }

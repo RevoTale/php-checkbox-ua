@@ -23,12 +23,12 @@ class BalanceModelNormalizer implements DenormalizerInterface, NormalizerInterfa
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\BalanceModel' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\BalanceModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\BalanceModel' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\BalanceModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -130,6 +130,6 @@ class BalanceModelNormalizer implements DenormalizerInterface, NormalizerInterfa
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\BalanceModel' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\BalanceModel' => false];
     }
 }

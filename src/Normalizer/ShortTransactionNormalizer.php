@@ -23,12 +23,12 @@ class ShortTransactionNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ShortTransaction' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\ShortTransaction' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ShortTransaction' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\ShortTransaction' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -159,6 +159,6 @@ class ShortTransactionNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\ShortTransaction' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\ShortTransaction' => false];
     }
 }

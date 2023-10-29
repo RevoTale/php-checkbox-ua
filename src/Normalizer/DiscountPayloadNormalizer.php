@@ -22,12 +22,12 @@ class DiscountPayloadNormalizer implements DenormalizerInterface, NormalizerInte
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\DiscountPayload' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\DiscountPayload' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\DiscountPayload' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\DiscountPayload' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -114,6 +114,6 @@ class DiscountPayloadNormalizer implements DenormalizerInterface, NormalizerInte
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\DiscountPayload' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\DiscountPayload' => false];
     }
 }

@@ -21,12 +21,12 @@ class CashierSignInPinCodeNormalizer implements DenormalizerInterface, Normalize
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CashierSignInPinCode' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\CashierSignInPinCode' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CashierSignInPinCode' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\CashierSignInPinCode' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -72,6 +72,6 @@ class CashierSignInPinCodeNormalizer implements DenormalizerInterface, Normalize
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\CashierSignInPinCode' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\CashierSignInPinCode' => false];
     }
 }

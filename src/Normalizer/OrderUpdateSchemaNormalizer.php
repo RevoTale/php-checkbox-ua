@@ -21,12 +21,12 @@ class OrderUpdateSchemaNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\OrderUpdateSchema' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\OrderUpdateSchema' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\OrderUpdateSchema' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\OrderUpdateSchema' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -42,7 +42,7 @@ class OrderUpdateSchemaNormalizer implements DenormalizerInterface, NormalizerIn
             return $object;
         }
         if (array_key_exists('order', $data)) {
-            $object->setOrder($this->denormalizer->denormalize($data['order'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\OrderModel', 'json', $context));
+            $object->setOrder($this->denormalizer->denormalize($data['order'], 'RevoTale\\CheckboxUA\\Model\\OrderModel', 'json', $context));
             unset($data['order']);
         }
         foreach ($data as $key => $value) {
@@ -72,6 +72,6 @@ class OrderUpdateSchemaNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\OrderUpdateSchema' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\OrderUpdateSchema' => false];
     }
 }

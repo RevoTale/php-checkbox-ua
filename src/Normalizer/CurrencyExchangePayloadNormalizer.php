@@ -23,12 +23,12 @@ class CurrencyExchangePayloadNormalizer implements DenormalizerInterface, Normal
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CurrencyExchangePayload' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\CurrencyExchangePayload' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CurrencyExchangePayload' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\CurrencyExchangePayload' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -51,11 +51,11 @@ class CurrencyExchangePayloadNormalizer implements DenormalizerInterface, Normal
             unset($data['id']);
         }
         if (array_key_exists('sell', $data)) {
-            $object->setSell($this->denormalizer->denormalize($data['sell'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CurrencyPayload', 'json', $context));
+            $object->setSell($this->denormalizer->denormalize($data['sell'], 'RevoTale\\CheckboxUA\\Model\\CurrencyPayload', 'json', $context));
             unset($data['sell']);
         }
         if (array_key_exists('buy', $data)) {
-            $object->setBuy($this->denormalizer->denormalize($data['buy'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CurrencyPayload', 'json', $context));
+            $object->setBuy($this->denormalizer->denormalize($data['buy'], 'RevoTale\\CheckboxUA\\Model\\CurrencyPayload', 'json', $context));
             unset($data['buy']);
         }
         if (array_key_exists('type', $data)) {
@@ -83,7 +83,7 @@ class CurrencyExchangePayloadNormalizer implements DenormalizerInterface, Normal
             unset($data['commission']);
         }
         if (array_key_exists('delivery', $data)) {
-            $object->setDelivery($this->denormalizer->denormalize($data['delivery'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\DeliveryPayload', 'json', $context));
+            $object->setDelivery($this->denormalizer->denormalize($data['delivery'], 'RevoTale\\CheckboxUA\\Model\\DeliveryPayload', 'json', $context));
             unset($data['delivery']);
         }
         if (array_key_exists('fiscal_code', $data)) {
@@ -154,6 +154,6 @@ class CurrencyExchangePayloadNormalizer implements DenormalizerInterface, Normal
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\CurrencyExchangePayload' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\CurrencyExchangePayload' => false];
     }
 }

@@ -23,12 +23,12 @@ class TransactionModelNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\TransactionModel' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\TransactionModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\TransactionModel' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\TransactionModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -194,6 +194,6 @@ class TransactionModelNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\TransactionModel' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\TransactionModel' => false];
     }
 }

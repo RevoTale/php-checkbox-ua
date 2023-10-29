@@ -22,12 +22,12 @@ class SrsoSchemaGoodSchemaGoodModelNormalizer implements DenormalizerInterface, 
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\SrsoSchemaGoodSchemaGoodModel' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\SrsoSchemaGoodSchemaGoodModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\SrsoSchemaGoodSchemaGoodModel' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\SrsoSchemaGoodSchemaGoodModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -69,7 +69,7 @@ class SrsoSchemaGoodSchemaGoodModelNormalizer implements DenormalizerInterface, 
         if (array_key_exists('taxes', $data)) {
             $values = [];
             foreach ($data['taxes'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\TaxModel', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\TaxModel', 'json', $context);
             }
             $object->setTaxes($values);
             unset($data['taxes']);
@@ -97,7 +97,7 @@ class SrsoSchemaGoodSchemaGoodModelNormalizer implements DenormalizerInterface, 
         if (array_key_exists('children', $data)) {
             $values_1 = [];
             foreach ($data['children'] as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\GoodModelBase', 'json', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'RevoTale\\CheckboxUA\\Model\\GoodModelBase', 'json', $context);
             }
             $object->setChildren($values_1);
             unset($data['children']);
@@ -170,6 +170,6 @@ class SrsoSchemaGoodSchemaGoodModelNormalizer implements DenormalizerInterface, 
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\SrsoSchemaGoodSchemaGoodModel' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\SrsoSchemaGoodSchemaGoodModel' => false];
     }
 }

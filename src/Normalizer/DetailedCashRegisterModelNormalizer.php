@@ -22,12 +22,12 @@ class DetailedCashRegisterModelNormalizer implements DenormalizerInterface, Norm
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\DetailedCashRegisterModel' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\DetailedCashRegisterModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\DetailedCashRegisterModel' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\DetailedCashRegisterModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -67,7 +67,7 @@ class DetailedCashRegisterModelNormalizer implements DenormalizerInterface, Norm
             unset($data['number']);
         }
         if (array_key_exists('shift', $data)) {
-            $object->setShift($this->denormalizer->denormalize($data['shift'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ShiftWithCashierModel', 'json', $context));
+            $object->setShift($this->denormalizer->denormalize($data['shift'], 'RevoTale\\CheckboxUA\\Model\\ShiftWithCashierModel', 'json', $context));
             unset($data['shift']);
         }
         if (array_key_exists('offline_mode', $data)) {
@@ -79,7 +79,7 @@ class DetailedCashRegisterModelNormalizer implements DenormalizerInterface, Norm
             unset($data['stay_offline']);
         }
         if (array_key_exists('branch', $data)) {
-            $object->setBranch($this->denormalizer->denormalize($data['branch'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\BranchModel', 'json', $context));
+            $object->setBranch($this->denormalizer->denormalize($data['branch'], 'RevoTale\\CheckboxUA\\Model\\BranchModel', 'json', $context));
             unset($data['branch']);
         }
         if (array_key_exists('address', $data)) {
@@ -137,6 +137,6 @@ class DetailedCashRegisterModelNormalizer implements DenormalizerInterface, Norm
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\DetailedCashRegisterModel' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\DetailedCashRegisterModel' => false];
     }
 }

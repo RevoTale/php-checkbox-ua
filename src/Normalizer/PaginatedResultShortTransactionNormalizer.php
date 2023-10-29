@@ -21,12 +21,12 @@ class PaginatedResultShortTransactionNormalizer implements DenormalizerInterface
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\PaginatedResultShortTransaction' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\PaginatedResultShortTransaction' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\PaginatedResultShortTransaction' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\PaginatedResultShortTransaction' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -42,13 +42,13 @@ class PaginatedResultShortTransactionNormalizer implements DenormalizerInterface
             return $object;
         }
         if (array_key_exists('meta', $data)) {
-            $object->setMeta($this->denormalizer->denormalize($data['meta'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\PaginatedResultShortTransactionMeta', 'json', $context));
+            $object->setMeta($this->denormalizer->denormalize($data['meta'], 'RevoTale\\CheckboxUA\\Model\\PaginatedResultShortTransactionMeta', 'json', $context));
             unset($data['meta']);
         }
         if (array_key_exists('results', $data)) {
             $values = [];
             foreach ($data['results'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ShortTransaction', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\ShortTransaction', 'json', $context);
             }
             $object->setResults($values);
             unset($data['results']);
@@ -85,6 +85,6 @@ class PaginatedResultShortTransactionNormalizer implements DenormalizerInterface
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\PaginatedResultShortTransaction' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\PaginatedResultShortTransaction' => false];
     }
 }

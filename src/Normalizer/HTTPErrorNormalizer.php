@@ -21,12 +21,12 @@ class HTTPErrorNormalizer implements DenormalizerInterface, NormalizerInterface,
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPError' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\HTTPError' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPError' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\HTTPError' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -72,6 +72,6 @@ class HTTPErrorNormalizer implements DenormalizerInterface, NormalizerInterface,
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\HTTPError' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\HTTPError' => false];
     }
 }

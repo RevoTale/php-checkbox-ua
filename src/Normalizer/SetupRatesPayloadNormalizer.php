@@ -21,12 +21,12 @@ class SetupRatesPayloadNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\SetupRatesPayload' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\SetupRatesPayload' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\SetupRatesPayload' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\SetupRatesPayload' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -44,7 +44,7 @@ class SetupRatesPayloadNormalizer implements DenormalizerInterface, NormalizerIn
         if (array_key_exists('rates', $data)) {
             $values = [];
             foreach ($data['rates'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CurrencyRatePayload', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\CurrencyRatePayload', 'json', $context);
             }
             $object->setRates($values);
             unset($data['rates']);
@@ -80,6 +80,6 @@ class SetupRatesPayloadNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\SetupRatesPayload' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\SetupRatesPayload' => false];
     }
 }

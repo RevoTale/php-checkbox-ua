@@ -22,12 +22,12 @@ class CloseShiftPayloadNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CloseShiftPayload' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\CloseShiftPayload' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CloseShiftPayload' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\CloseShiftPayload' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -47,7 +47,7 @@ class CloseShiftPayloadNormalizer implements DenormalizerInterface, NormalizerIn
             unset($data['skip_client_name_check']);
         }
         if (array_key_exists('report', $data)) {
-            $object->setReport($this->denormalizer->denormalize($data['report'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CloseShiftPayloadReport', 'json', $context));
+            $object->setReport($this->denormalizer->denormalize($data['report'], 'RevoTale\\CheckboxUA\\Model\\CloseShiftPayloadReport', 'json', $context));
             unset($data['report']);
         }
         if (array_key_exists('fiscal_code', $data)) {
@@ -96,6 +96,6 @@ class CloseShiftPayloadNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\CloseShiftPayload' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\CloseShiftPayload' => false];
     }
 }

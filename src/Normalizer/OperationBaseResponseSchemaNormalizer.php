@@ -21,12 +21,12 @@ class OperationBaseResponseSchemaNormalizer implements DenormalizerInterface, No
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\OperationBaseResponseSchema' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\OperationBaseResponseSchema' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\OperationBaseResponseSchema' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\OperationBaseResponseSchema' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -77,6 +77,6 @@ class OperationBaseResponseSchemaNormalizer implements DenormalizerInterface, No
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\OperationBaseResponseSchema' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\OperationBaseResponseSchema' => false];
     }
 }

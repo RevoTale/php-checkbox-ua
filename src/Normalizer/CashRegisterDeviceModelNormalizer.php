@@ -22,12 +22,12 @@ class CashRegisterDeviceModelNormalizer implements DenormalizerInterface, Normal
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CashRegisterDeviceModel' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\CashRegisterDeviceModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CashRegisterDeviceModel' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\CashRegisterDeviceModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -87,7 +87,7 @@ class CashRegisterDeviceModelNormalizer implements DenormalizerInterface, Normal
             unset($data['has_shift']);
         }
         if (array_key_exists('documents_state', $data)) {
-            $object->setDocumentsState($this->denormalizer->denormalize($data['documents_state'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\DocumentsStateModel', 'json', $context));
+            $object->setDocumentsState($this->denormalizer->denormalize($data['documents_state'], 'RevoTale\\CheckboxUA\\Model\\DocumentsStateModel', 'json', $context));
             unset($data['documents_state']);
         }
         if (array_key_exists('emergency_date', $data)) {
@@ -158,6 +158,6 @@ class CashRegisterDeviceModelNormalizer implements DenormalizerInterface, Normal
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\CashRegisterDeviceModel' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\CashRegisterDeviceModel' => false];
     }
 }

@@ -22,12 +22,12 @@ class GoodModelBaseNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\GoodModelBase' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\GoodModelBase' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\GoodModelBase' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\GoodModelBase' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -69,7 +69,7 @@ class GoodModelBaseNormalizer implements DenormalizerInterface, NormalizerInterf
         if (array_key_exists('taxes', $data)) {
             $values = [];
             foreach ($data['taxes'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\TaxModel', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\TaxModel', 'json', $context);
             }
             $object->setTaxes($values);
             unset($data['taxes']);
@@ -148,6 +148,6 @@ class GoodModelBaseNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\GoodModelBase' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\GoodModelBase' => false];
     }
 }

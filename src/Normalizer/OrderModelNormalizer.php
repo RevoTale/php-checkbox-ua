@@ -22,12 +22,12 @@ class OrderModelNormalizer implements DenormalizerInterface, NormalizerInterface
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\OrderModel' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\OrderModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\OrderModel' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\OrderModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -67,11 +67,11 @@ class OrderModelNormalizer implements DenormalizerInterface, NormalizerInterface
             unset($data['payment_method']);
         }
         if (array_key_exists('receipt_draft', $data)) {
-            $object->setReceiptDraft($this->denormalizer->denormalize($data['receipt_draft'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\OrderReceiptModel', 'json', $context));
+            $object->setReceiptDraft($this->denormalizer->denormalize($data['receipt_draft'], 'RevoTale\\CheckboxUA\\Model\\OrderReceiptModel', 'json', $context));
             unset($data['receipt_draft']);
         }
         if (array_key_exists('delivery_details', $data)) {
-            $object->setDeliveryDetails($this->denormalizer->denormalize($data['delivery_details'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\OrderDeliveryDetailsModel', 'json', $context));
+            $object->setDeliveryDetails($this->denormalizer->denormalize($data['delivery_details'], 'RevoTale\\CheckboxUA\\Model\\OrderDeliveryDetailsModel', 'json', $context));
             unset($data['delivery_details']);
         }
         if (array_key_exists('created_at', $data)) {
@@ -142,6 +142,6 @@ class OrderModelNormalizer implements DenormalizerInterface, NormalizerInterface
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\OrderModel' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\OrderModel' => false];
     }
 }

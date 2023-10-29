@@ -22,12 +22,12 @@ class SrsoSchemaReceiptSchemaGoodModelNormalizer implements DenormalizerInterfac
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\SrsoSchemaReceiptSchemaGoodModel' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\SrsoSchemaReceiptSchemaGoodModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\SrsoSchemaReceiptSchemaGoodModel' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\SrsoSchemaReceiptSchemaGoodModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -126,6 +126,6 @@ class SrsoSchemaReceiptSchemaGoodModelNormalizer implements DenormalizerInterfac
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\SrsoSchemaReceiptSchemaGoodModel' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\SrsoSchemaReceiptSchemaGoodModel' => false];
     }
 }

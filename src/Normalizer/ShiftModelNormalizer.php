@@ -23,12 +23,12 @@ class ShiftModelNormalizer implements DenormalizerInterface, NormalizerInterface
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ShiftModel' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\ShiftModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ShiftModel' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\ShiftModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -56,7 +56,7 @@ class ShiftModelNormalizer implements DenormalizerInterface, NormalizerInterface
             unset($data['status']);
         }
         if (array_key_exists('z_report', $data)) {
-            $object->setZReport($this->denormalizer->denormalize($data['z_report'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReportModel', 'json', $context));
+            $object->setZReport($this->denormalizer->denormalize($data['z_report'], 'RevoTale\\CheckboxUA\\Model\\ReportModel', 'json', $context));
             unset($data['z_report']);
         }
         if (array_key_exists('opened_at', $data)) {
@@ -68,11 +68,11 @@ class ShiftModelNormalizer implements DenormalizerInterface, NormalizerInterface
             unset($data['closed_at']);
         }
         if (array_key_exists('initial_transaction', $data)) {
-            $object->setInitialTransaction($this->denormalizer->denormalize($data['initial_transaction'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ShortTransaction', 'json', $context));
+            $object->setInitialTransaction($this->denormalizer->denormalize($data['initial_transaction'], 'RevoTale\\CheckboxUA\\Model\\ShortTransaction', 'json', $context));
             unset($data['initial_transaction']);
         }
         if (array_key_exists('closing_transaction', $data)) {
-            $object->setClosingTransaction($this->denormalizer->denormalize($data['closing_transaction'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ShortTransaction', 'json', $context));
+            $object->setClosingTransaction($this->denormalizer->denormalize($data['closing_transaction'], 'RevoTale\\CheckboxUA\\Model\\ShortTransaction', 'json', $context));
             unset($data['closing_transaction']);
         }
         if (array_key_exists('created_at', $data)) {
@@ -84,13 +84,13 @@ class ShiftModelNormalizer implements DenormalizerInterface, NormalizerInterface
             unset($data['updated_at']);
         }
         if (array_key_exists('balance', $data)) {
-            $object->setBalance($this->denormalizer->denormalize($data['balance'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\BalanceModel', 'json', $context));
+            $object->setBalance($this->denormalizer->denormalize($data['balance'], 'RevoTale\\CheckboxUA\\Model\\BalanceModel', 'json', $context));
             unset($data['balance']);
         }
         if (array_key_exists('taxes', $data)) {
             $values = [];
             foreach ($data['taxes'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ShiftTaxModel', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\ShiftTaxModel', 'json', $context);
             }
             $object->setTaxes($values);
             unset($data['taxes']);
@@ -165,6 +165,6 @@ class ShiftModelNormalizer implements DenormalizerInterface, NormalizerInterface
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\ShiftModel' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\ShiftModel' => false];
     }
 }

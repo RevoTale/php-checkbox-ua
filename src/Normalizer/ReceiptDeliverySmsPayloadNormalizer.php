@@ -21,12 +21,12 @@ class ReceiptDeliverySmsPayloadNormalizer implements DenormalizerInterface, Norm
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReceiptDeliverySmsPayload' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\ReceiptDeliverySmsPayload' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReceiptDeliverySmsPayload' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\ReceiptDeliverySmsPayload' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -72,6 +72,6 @@ class ReceiptDeliverySmsPayloadNormalizer implements DenormalizerInterface, Norm
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\ReceiptDeliverySmsPayload' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\ReceiptDeliverySmsPayload' => false];
     }
 }

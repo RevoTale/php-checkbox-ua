@@ -21,12 +21,12 @@ class GoodItemModelNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\GoodItemModel' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\GoodItemModel' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\GoodItemModel' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\GoodItemModel' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -42,7 +42,7 @@ class GoodItemModelNormalizer implements DenormalizerInterface, NormalizerInterf
             return $object;
         }
         if (array_key_exists('good', $data)) {
-            $object->setGood($this->denormalizer->denormalize($data['good'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\SrsoSchemaReceiptSchemaGoodModel', 'json', $context));
+            $object->setGood($this->denormalizer->denormalize($data['good'], 'RevoTale\\CheckboxUA\\Model\\SrsoSchemaReceiptSchemaGoodModel', 'json', $context));
             unset($data['good']);
         }
         if (array_key_exists('good_id', $data)) {
@@ -64,7 +64,7 @@ class GoodItemModelNormalizer implements DenormalizerInterface, NormalizerInterf
         if (array_key_exists('taxes', $data)) {
             $values = [];
             foreach ($data['taxes'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\GoodTax', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, 'RevoTale\\CheckboxUA\\Model\\GoodTax', 'json', $context);
             }
             $object->setTaxes($values);
             unset($data['taxes']);
@@ -72,7 +72,7 @@ class GoodItemModelNormalizer implements DenormalizerInterface, NormalizerInterf
         if (array_key_exists('discounts', $data)) {
             $values_1 = [];
             foreach ($data['discounts'] as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\DiscountModel', 'json', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, 'RevoTale\\CheckboxUA\\Model\\DiscountModel', 'json', $context);
             }
             $object->setDiscounts($values_1);
             unset($data['discounts']);
@@ -122,6 +122,6 @@ class GoodItemModelNormalizer implements DenormalizerInterface, NormalizerInterf
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\GoodItemModel' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\GoodItemModel' => false];
     }
 }

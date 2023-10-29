@@ -22,12 +22,12 @@ class CurrencySchemaNormalizer implements DenormalizerInterface, NormalizerInter
 
     public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
-        return 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CurrencySchema' === $type;
+        return 'RevoTale\\CheckboxUA\\Model\\CurrencySchema' === $type;
     }
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CurrencySchema' === get_class($data);
+        return is_object($data) && 'RevoTale\\CheckboxUA\\Model\\CurrencySchema' === get_class($data);
     }
 
     public function denormalize($data, $class, $format = null, array $context = [])
@@ -54,7 +54,7 @@ class CurrencySchemaNormalizer implements DenormalizerInterface, NormalizerInter
             unset($data['value']);
         }
         if (array_key_exists('rate', $data)) {
-            $object->setRate($this->denormalizer->denormalize($data['rate'], 'Vendor\\Library\\Generated\\CheckboxUA\\Model\\CurrencyRateModel', 'json', $context));
+            $object->setRate($this->denormalizer->denormalize($data['rate'], 'RevoTale\\CheckboxUA\\Model\\CurrencyRateModel', 'json', $context));
             unset($data['rate']);
         }
         foreach ($data as $key => $value) {
@@ -88,6 +88,6 @@ class CurrencySchemaNormalizer implements DenormalizerInterface, NormalizerInter
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Vendor\\Library\\Generated\\CheckboxUA\\Model\\CurrencySchema' => false];
+        return ['RevoTale\\CheckboxUA\\Model\\CurrencySchema' => false];
     }
 }
