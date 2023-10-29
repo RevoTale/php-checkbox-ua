@@ -16,7 +16,8 @@
     },
     "require-dev": {
         "jane-php/open-api-3": "^7.5",
-        "phpstan/phpstan": "^1.10"
+        "phpstan/phpstan": "^1.10",
+        "friendsofphp/php-cs-fixer": "*"
     },
     "authors": [
         {
@@ -25,7 +26,8 @@
         }
     ],
     "scripts": {
-        "phpstan": "vendor/bin/phpstan analyse -c phpstan.neon"
+        "test": "vendor/bin/phpstan analyse -c phpstan.neon",
+        "fix": "vendor/bin/php-cs-fixer fix src"
     },
     "config": {
         "allow-plugins": {
