@@ -22,8 +22,9 @@ Example with [signing in cashier with pin code and licence key](https://api.chec
 ```php
 <?php
 declare(strict_types=1)
-
-$client = Client::create();
+use RevoTale\CheckboxUA\ClientFactory;
+use RevoTale\CheckboxUA\Model\CashierSignInPinCode;
+$client = ClientFactory::createClient();//You can provide a token in case of secure API endpoint
 $payload = new CashierSignInPinCode();
 $payload->setPinCode($pinCode);
 $client->signInCashierApiV1CashierSigninPost()

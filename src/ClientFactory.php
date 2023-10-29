@@ -12,7 +12,7 @@ use Jane\Component\OpenApiRuntime\Client\Plugin\AuthenticationRegistry;
 
 final readonly class ClientFactory
 {
-    public static function create(string $token = null): Client
+    public static function createClient(string $token = null): Client
     {
         $plugins = [];
         if (null !== $token) {
