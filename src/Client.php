@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace RevoTale\CheckboxUA;
 
-class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
+final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
 {
     /**
      * Вхід користувача (касира) за допомогою логіна та паролю.
@@ -2353,6 +2353,6 @@ class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
         }
         $serializer = new \Symfony\Component\Serializer\Serializer($normalizers, [new \Symfony\Component\Serializer\Encoder\JsonEncoder(new \Symfony\Component\Serializer\Encoder\JsonEncode(), new \Symfony\Component\Serializer\Encoder\JsonDecode(['json_decode_associative' => true]))]);
 
-        return new static($httpClient, $requestFactory, $serializer, $streamFactory);
+        return new self($httpClient, $requestFactory, $serializer, $streamFactory);
     }
 }
