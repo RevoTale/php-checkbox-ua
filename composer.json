@@ -8,10 +8,6 @@
       "RevoTale\\CheckboxUA\\": "src/"
     }
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/RevoTale/php-checkbox-ua.git"
-  },
   "require": {
     "php": "^8.2",
     "jane-php/open-api-runtime": "^7.5",
