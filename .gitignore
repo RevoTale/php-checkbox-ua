@@ -1,4 +1,4 @@
 /vendor/
 .idea
 .php-cs-fixer.cache
-composer-lock.json
+composer.lock
