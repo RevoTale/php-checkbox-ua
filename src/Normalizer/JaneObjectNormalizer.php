@@ -42,7 +42,7 @@ class JaneObjectNormalizer implements DenormalizerInterface, NormalizerInterface
         return $normalizer->normalize($object, $format, $context);
     }
 
-    public function denormalize($data, $class, $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $denormalizerClass = $this->normalizers[$class];
         $denormalizer = $this->getNormalizer($denormalizerClass);
