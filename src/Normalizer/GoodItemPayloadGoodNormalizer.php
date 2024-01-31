@@ -98,7 +98,7 @@ class GoodItemPayloadGoodNormalizer implements DenormalizerInterface, Normalizer
     /**
      * @return array|string|int|float|bool|ArrayObject|null
      */
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $data = [];
         $data['code'] = $object->getCode();

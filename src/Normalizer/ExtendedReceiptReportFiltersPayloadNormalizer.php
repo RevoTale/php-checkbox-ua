@@ -83,7 +83,7 @@ class ExtendedReceiptReportFiltersPayloadNormalizer implements DenormalizerInter
     /**
      * @return array|string|int|float|bool|ArrayObject|null
      */
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $data = [];
         $data['from_date'] = $object->getFromDate()->format('Y-m-d\\TH:i:s.uP');
