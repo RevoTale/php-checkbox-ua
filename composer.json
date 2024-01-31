@@ -10,11 +10,11 @@
   },
   "require": {
     "php": "^8.2",
-    "jane-php/open-api-runtime": "^7.5",
+    "jane-php/open-api-runtime": "^7.6",
     "guzzlehttp/guzzle": "^7.8"
   },
   "require-dev": {
-    "jane-php/open-api-3": "^7.5",
+    "jane-php/open-api-3": "^7.6",
     "phpstan/phpstan": "^1.10",
     "friendsofphp/php-cs-fixer": "*"
   },
