@@ -68,7 +68,8 @@ class CashierModelNormalizer implements DenormalizerInterface, NormalizerInterfa
             unset($data['permissions']);
         }
         if (array_key_exists('created_at', $data)) {
-            $object->setCreatedAt(null === $data['created_at'] ? null : DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['created_at']));
+            $createdAt = DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['created_at']);
+            $object->setCreatedAt($createdAt === false? new DateTime() :$createdAt);
             unset($data['created_at']);
         }
         if (array_key_exists('updated_at', $data)) {
