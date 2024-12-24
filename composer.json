@@ -15,7 +15,7 @@
   },
   "require-dev": {
     "jane-php/open-api-3": "^7.6",
-    "phpstan/phpstan": "^1.10",
+    "phpstan/phpstan": "^1.10 || ^2.0",
     "php-cs-fixer/shim": "^3.51"
 
   },
