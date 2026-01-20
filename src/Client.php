@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace RevoTale\CheckboxUA;
 
-final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
+final class Client extends Runtime\Client\Client
 {
     /**
      * Вхід користувача (касира) за допомогою логіна та паролю.
@@ -19,15 +19,15 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\CashierAccessTokenResponseModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\CashierAccessTokenResponseModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\SignInCashierApiV1CashierSigninPostForbiddenException
-     * @throws \RevoTale\CheckboxUA\Exception\SignInCashierApiV1CashierSigninPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\SignInCashierApiV1CashierSigninPostForbiddenException
+     * @throws Exception\SignInCashierApiV1CashierSigninPostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function signInCashierApiV1CashierSigninPost(Model\CashierSignIn $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\SignInCashierApiV1CashierSigninPost($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\SignInCashierApiV1CashierSigninPost($requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -44,15 +44,15 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\CashierAccessTokenResponseModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\CashierAccessTokenResponseModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\SignInCashierViaPinCodeApiV1CashierSigninPinCodePostForbiddenException
-     * @throws \RevoTale\CheckboxUA\Exception\SignInCashierViaPinCodeApiV1CashierSigninPinCodePostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\SignInCashierViaPinCodeApiV1CashierSigninPinCodePostForbiddenException
+     * @throws Exception\SignInCashierViaPinCodeApiV1CashierSigninPinCodePostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function signInCashierViaPinCodeApiV1CashierSigninPinCodePost(Model\CashierSignInPinCode $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\SignInCashierViaPinCodeApiV1CashierSigninPinCodePost($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\SignInCashierViaPinCodeApiV1CashierSigninPinCodePost($requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -70,12 +70,12 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      *
-     * @throws \RevoTale\CheckboxUA\Exception\SignOutCashierApiV1CashierSignoutPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\SignOutCashierApiV1CashierSignoutPostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function signOutCashierApiV1CashierSignoutPost(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\SignOutCashierApiV1CashierSignoutPost($headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\SignOutCashierApiV1CashierSignoutPost($headerParameters), $fetch);
     }
 
     /**
@@ -91,14 +91,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\DetailedCashierModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\DetailedCashierModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetCashierProfileApiV1CashierMeGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetCashierProfileApiV1CashierMeGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getCashierProfileApiV1CashierMeGet(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetCashierProfileApiV1CashierMeGet($headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetCashierProfileApiV1CashierMeGet($headerParameters), $fetch);
     }
 
     /**
@@ -114,14 +114,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\ShiftWithCashRegisterModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\ShiftWithCashRegisterModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetCashierShiftApiV1CashierShiftGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetCashierShiftApiV1CashierShiftGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getCashierShiftApiV1CashierShiftGet(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetCashierShiftApiV1CashierShiftGet($headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetCashierShiftApiV1CashierShiftGet($headerParameters), $fetch);
     }
 
     /**
@@ -134,14 +134,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\CashierSignatureStatus|\Psr\Http\Message\ResponseInterface
+     * @return Model\CashierSignatureStatus|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\CheckSignatureApiV1CashierCheckSignatureGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\CheckSignatureApiV1CashierCheckSignatureGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function checkSignatureApiV1CashierCheckSignatureGet(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\CheckSignatureApiV1CashierCheckSignatureGet($headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\CheckSignatureApiV1CashierCheckSignatureGet($headerParameters), $fetch);
     }
 
     /**
@@ -154,14 +154,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\OrganizationReceiptConfigSchema|\Psr\Http\Message\ResponseInterface
+     * @return Model\OrganizationReceiptConfigSchema|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetCurrentOrganizationReceiptSettingsApiV1OrganizationReceiptConfigGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetCurrentOrganizationReceiptSettingsApiV1OrganizationReceiptConfigGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getCurrentOrganizationReceiptSettingsApiV1OrganizationReceiptConfigGet(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetCurrentOrganizationReceiptSettingsApiV1OrganizationReceiptConfigGet($headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetCurrentOrganizationReceiptSettingsApiV1OrganizationReceiptConfigGet($headerParameters), $fetch);
     }
 
     /**
@@ -177,12 +177,12 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetCurrentOrganizationLogoApiV1OrganizationLogoPngGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetCurrentOrganizationLogoApiV1OrganizationLogoPngGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getCurrentOrganizationLogoApiV1OrganizationLogoPngGet(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetCurrentOrganizationLogoApiV1OrganizationLogoPngGet($headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetCurrentOrganizationLogoApiV1OrganizationLogoPngGet($headerParameters), $fetch);
     }
 
     /**
@@ -198,12 +198,12 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetCurrentOrganizationTextLogoApiV1OrganizationTextLogoPngGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetCurrentOrganizationTextLogoApiV1OrganizationTextLogoPngGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getCurrentOrganizationTextLogoApiV1OrganizationTextLogoPngGet(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetCurrentOrganizationTextLogoApiV1OrganizationTextLogoPngGet($headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetCurrentOrganizationTextLogoApiV1OrganizationTextLogoPngGet($headerParameters), $fetch);
     }
 
     /**
@@ -216,14 +216,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\OrganizationBillingSchema|\Psr\Http\Message\ResponseInterface
+     * @return Model\OrganizationBillingSchema|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetCurrentOrganizationSmsBillingBalanceApiV1OrganizationSmsBillingGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetCurrentOrganizationSmsBillingBalanceApiV1OrganizationSmsBillingGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getCurrentOrganizationSmsBillingBalanceApiV1OrganizationSmsBillingGet(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetCurrentOrganizationSmsBillingBalanceApiV1OrganizationSmsBillingGet($headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetCurrentOrganizationSmsBillingBalanceApiV1OrganizationSmsBillingGet($headerParameters), $fetch);
     }
 
     /**
@@ -244,12 +244,12 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GoOnlineActionApiV1CashRegistersGoOnlinePostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GoOnlineActionApiV1CashRegistersGoOnlinePostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function goOnlineActionApiV1CashRegistersGoOnlinePost(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GoOnlineActionApiV1CashRegistersGoOnlinePost($headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GoOnlineActionApiV1CashRegistersGoOnlinePost($headerParameters), $fetch);
     }
 
     /**
@@ -270,12 +270,12 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GoOfflineActionApiV1CashRegistersGoOfflinePostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GoOfflineActionApiV1CashRegistersGoOfflinePostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function goOfflineActionApiV1CashRegistersGoOfflinePost(?Model\GoOfflinePayload $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GoOfflineActionApiV1CashRegistersGoOfflinePost($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GoOfflineActionApiV1CashRegistersGoOfflinePost($requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -293,12 +293,12 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      *
-     * @throws \RevoTale\CheckboxUA\Exception\PingTaxServiceActionApiV1CashRegistersPingTaxServicePostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\PingTaxServiceActionApiV1CashRegistersPingTaxServicePostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function pingTaxServiceActionApiV1CashRegistersPingTaxServicePost(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\PingTaxServiceActionApiV1CashRegistersPingTaxServicePost($headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\PingTaxServiceActionApiV1CashRegistersPingTaxServicePost($headerParameters), $fetch);
     }
 
     /**
@@ -333,12 +333,12 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      *
-     * @throws \RevoTale\CheckboxUA\Exception\AskOfflineCodesApiV1CashRegistersAskOfflineCodesGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\AskOfflineCodesApiV1CashRegistersAskOfflineCodesGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function askOfflineCodesApiV1CashRegistersAskOfflineCodesGet(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\AskOfflineCodesApiV1CashRegistersAskOfflineCodesGet($queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\AskOfflineCodesApiV1CashRegistersAskOfflineCodesGet($queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -363,14 +363,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\DetailedOfflineFiscalCodeModel[]|\Psr\Http\Message\ResponseInterface
+     * @return Model\DetailedOfflineFiscalCodeModel[]|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetOfflineCodesApiV1CashRegistersGetOfflineCodesGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetOfflineCodesApiV1CashRegistersGetOfflineCodesGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getOfflineCodesApiV1CashRegistersGetOfflineCodesGet(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetOfflineCodesApiV1CashRegistersGetOfflineCodesGet($queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetOfflineCodesApiV1CashRegistersGetOfflineCodesGet($queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -386,14 +386,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\OfflineCodesCountSchema|\Psr\Http\Message\ResponseInterface
+     * @return Model\OfflineCodesCountSchema|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetOfflineCodesCountApiV1CashRegistersGetOfflineCodesCountGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetOfflineCodesCountApiV1CashRegistersGetOfflineCodesCountGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getOfflineCodesCountApiV1CashRegistersGetOfflineCodesCountGet(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetOfflineCodesCountApiV1CashRegistersGetOfflineCodesCountGet($headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetOfflineCodesCountApiV1CashRegistersGetOfflineCodesCountGet($headerParameters), $fetch);
     }
 
     /**
@@ -413,14 +413,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\CashRegisterOfflineTime|\Psr\Http\Message\ResponseInterface
+     * @return Model\CashRegisterOfflineTime|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetOfflineTimeApiV1CashRegistersGetOfflineTimeGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetOfflineTimeApiV1CashRegistersGetOfflineTimeGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getOfflineTimeApiV1CashRegistersGetOfflineTimeGet(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetOfflineTimeApiV1CashRegistersGetOfflineTimeGet($queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetOfflineTimeApiV1CashRegistersGetOfflineTimeGet($queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -443,14 +443,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\PaginatedResultDetailedCashRegisterModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\PaginatedResultDetailedCashRegisterModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetCashRegistersApiV1CashRegistersGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetCashRegistersApiV1CashRegistersGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getCashRegistersApiV1CashRegistersGet(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetCashRegistersApiV1CashRegistersGet($queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetCashRegistersApiV1CashRegistersGet($queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -466,14 +466,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\CashRegisterDeviceModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\CashRegisterDeviceModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetCashRegisterInfoApiV1CashRegistersInfoGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetCashRegisterInfoApiV1CashRegistersInfoGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getCashRegisterInfoApiV1CashRegistersInfoGet(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetCashRegisterInfoApiV1CashRegistersInfoGet($headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetCashRegisterInfoApiV1CashRegistersInfoGet($headerParameters), $fetch);
     }
 
     /**
@@ -497,14 +497,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\PaginatedResultShiftModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\PaginatedResultShiftModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetCashRegisterShiftsApiV1CashRegistersShiftsGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetCashRegisterShiftsApiV1CashRegistersShiftsGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getCashRegisterShiftsApiV1CashRegistersShiftsGet(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetCashRegisterShiftsApiV1CashRegistersShiftsGet($queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetCashRegisterShiftsApiV1CashRegistersShiftsGet($queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -519,14 +519,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\DetailedCashRegisterModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\DetailedCashRegisterModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetCashRegisterApiV1CashRegistersCashRegisterIdGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetCashRegisterApiV1CashRegistersCashRegisterIdGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getCashRegisterApiV1CashRegistersCashRegisterIdGet(string $cashRegisterId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetCashRegisterApiV1CashRegistersCashRegisterIdGet($cashRegisterId, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetCashRegisterApiV1CashRegistersCashRegisterIdGet($cashRegisterId, $headerParameters), $fetch);
     }
 
     /**
@@ -551,14 +551,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\PaginatedResultShiftWithCashRegisterModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\PaginatedResultShiftWithCashRegisterModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetShiftsApiV1ShiftsGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetShiftsApiV1ShiftsGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getShiftsApiV1ShiftsGet(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetShiftsApiV1ShiftsGet($queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetShiftsApiV1ShiftsGet($queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -593,14 +593,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\ShiftWithCashierAndCashRegister|\Psr\Http\Message\ResponseInterface
+     * @return Model\ShiftWithCashierAndCashRegister|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\CreateShiftApiV1ShiftsPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\CreateShiftApiV1ShiftsPostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function createShiftApiV1ShiftsPost(?Model\CreateShiftPayload $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\CreateShiftApiV1ShiftsPost($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\CreateShiftApiV1ShiftsPost($requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -615,14 +615,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\ShiftWithCashierAndCashRegister|\Psr\Http\Message\ResponseInterface
+     * @return Model\ShiftWithCashierAndCashRegister|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetShiftApiV1ShiftsShiftIdGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetShiftApiV1ShiftsShiftIdGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getShiftApiV1ShiftsShiftIdGet(string $shiftId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetShiftApiV1ShiftsShiftIdGet($shiftId, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetShiftApiV1ShiftsShiftIdGet($shiftId, $headerParameters), $fetch);
     }
 
     /**
@@ -638,14 +638,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\ShiftWithCashierAndCashRegister|\Psr\Http\Message\ResponseInterface
+     * @return Model\ShiftWithCashierAndCashRegister|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\CloseShiftBySeniorCashierApiV1ShiftsShiftIdClosePostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\CloseShiftBySeniorCashierApiV1ShiftsShiftIdClosePostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
-    public function closeShiftBySeniorCashierApiV1ShiftsShiftIdClosePost(string $shiftId,?Model\ShortCloseShiftPayload $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function closeShiftBySeniorCashierApiV1ShiftsShiftIdClosePost(string $shiftId, ?Model\ShortCloseShiftPayload $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\CloseShiftBySeniorCashierApiV1ShiftsShiftIdClosePost($shiftId, $requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\CloseShiftBySeniorCashierApiV1ShiftsShiftIdClosePost($shiftId, $requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -676,14 +676,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\ShiftWithCashierAndCashRegister|\Psr\Http\Message\ResponseInterface
+     * @return Model\ShiftWithCashierAndCashRegister|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\CloseShiftApiV1ShiftsClosePostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\CloseShiftApiV1ShiftsClosePostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function closeShiftApiV1ShiftsClosePost(?Model\CloseShiftPayload $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\CloseShiftApiV1ShiftsClosePost($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\CloseShiftApiV1ShiftsClosePost($requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -712,14 +712,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\PaginatedResultReceiptModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\PaginatedResultReceiptModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetReceiptsApiV1ReceiptsGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetReceiptsApiV1ReceiptsGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getReceiptsApiV1ReceiptsGet(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetReceiptsApiV1ReceiptsGet($queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetReceiptsApiV1ReceiptsGet($queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -750,14 +750,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\PaginatedResultReceiptModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\PaginatedResultReceiptModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetReceiptsSearchApiV1ReceiptsSearchGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetReceiptsSearchApiV1ReceiptsSearchGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getReceiptsSearchApiV1ReceiptsSearchGet(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetReceiptsSearchApiV1ReceiptsSearchGet($queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetReceiptsSearchApiV1ReceiptsSearchGet($queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -772,14 +772,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\ReceiptModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\ReceiptModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetReceiptApiV1ReceiptsReceiptIdGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetReceiptApiV1ReceiptsReceiptIdGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getReceiptApiV1ReceiptsReceiptIdGet(string $receiptId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetReceiptApiV1ReceiptsReceiptIdGet($receiptId, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetReceiptApiV1ReceiptsReceiptIdGet($receiptId, $headerParameters), $fetch);
     }
 
     /**
@@ -795,14 +795,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\ReceiptModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\ReceiptModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\CreateReceiptApiV1ReceiptsSellPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\CreateReceiptApiV1ReceiptsSellPostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function createReceiptApiV1ReceiptsSellPost(Model\ReceiptSellPayload $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\CreateReceiptApiV1ReceiptsSellPost($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\CreateReceiptApiV1ReceiptsSellPost($requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -818,14 +818,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\ReceiptModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\ReceiptModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\CreateOfflineReceiptApiV1ReceiptsSellOfflinePostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\CreateOfflineReceiptApiV1ReceiptsSellOfflinePostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function createOfflineReceiptApiV1ReceiptsSellOfflinePost(Model\OfflineReceiptSellPayload $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\CreateOfflineReceiptApiV1ReceiptsSellOfflinePost($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\CreateOfflineReceiptApiV1ReceiptsSellOfflinePost($requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -843,14 +843,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\ReceiptModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\ReceiptModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\AddExternalReceiptApiV1ReceiptsAddExternalPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\AddExternalReceiptApiV1ReceiptsAddExternalPostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function addExternalReceiptApiV1ReceiptsAddExternalPost(Model\CalculatedReceiptSellPayload $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\AddExternalReceiptApiV1ReceiptsAddExternalPost($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\AddExternalReceiptApiV1ReceiptsAddExternalPost($requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -868,14 +868,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\ReceiptModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\ReceiptModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\CreateServiceReceiptApiV1ReceiptsServicePostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\CreateServiceReceiptApiV1ReceiptsServicePostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function createServiceReceiptApiV1ReceiptsServicePost(Model\ReceiptServicePayload $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\CreateServiceReceiptApiV1ReceiptsServicePost($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\CreateServiceReceiptApiV1ReceiptsServicePost($requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -892,14 +892,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\ReceiptModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\ReceiptModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\CreateServiceCurrencyReceiptApiV1ReceiptsServiceCurrencyPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\CreateServiceCurrencyReceiptApiV1ReceiptsServiceCurrencyPostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function createServiceCurrencyReceiptApiV1ReceiptsServiceCurrencyPost(Model\ServiceCurrencyPayload $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\CreateServiceCurrencyReceiptApiV1ReceiptsServiceCurrencyPost($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\CreateServiceCurrencyReceiptApiV1ReceiptsServiceCurrencyPost($requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -914,14 +914,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\ReceiptModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\ReceiptModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\ExchangeApiV1ReceiptsCurrencyExchangePostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\ExchangeApiV1ReceiptsCurrencyExchangePostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function exchangeApiV1ReceiptsCurrencyExchangePost(Model\CurrencyExchangePayload $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\ExchangeApiV1ReceiptsCurrencyExchangePost($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\ExchangeApiV1ReceiptsCurrencyExchangePost($requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -937,14 +937,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\ReceiptModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\ReceiptModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\CashWithdrawalApiV1ReceiptsCashWithdrawalPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\CashWithdrawalApiV1ReceiptsCashWithdrawalPostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function cashWithdrawalApiV1ReceiptsCashWithdrawalPost(Model\CashWithdrawalReceiptPayload $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\CashWithdrawalApiV1ReceiptsCashWithdrawalPost($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\CashWithdrawalApiV1ReceiptsCashWithdrawalPost($requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -969,12 +969,12 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @return \Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetReceiptHtmlApiV1ReceiptsReceiptIdHtmlGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetReceiptHtmlApiV1ReceiptsReceiptIdHtmlGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getReceiptHtmlApiV1ReceiptsReceiptIdHtmlGet(string $receiptId, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT, array $accept = [])
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetReceiptHtmlApiV1ReceiptsReceiptIdHtmlGet($receiptId, $queryParameters, $headerParameters, $accept), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetReceiptHtmlApiV1ReceiptsReceiptIdHtmlGet($receiptId, $queryParameters, $headerParameters, $accept), $fetch);
     }
 
     /**
@@ -996,12 +996,12 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetReceiptPdfApiV1ReceiptsReceiptIdPdfGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetReceiptPdfApiV1ReceiptsReceiptIdPdfGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getReceiptPdfApiV1ReceiptsReceiptIdPdfGet(string $receiptId, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetReceiptPdfApiV1ReceiptsReceiptIdPdfGet($receiptId, $queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetReceiptPdfApiV1ReceiptsReceiptIdPdfGet($receiptId, $queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -1024,12 +1024,12 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @return \Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetReceiptTextApiV1ReceiptsReceiptIdTextGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetReceiptTextApiV1ReceiptsReceiptIdTextGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getReceiptTextApiV1ReceiptsReceiptIdTextGet(string $receiptId, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT, array $accept = [])
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetReceiptTextApiV1ReceiptsReceiptIdTextGet($receiptId, $queryParameters, $headerParameters, $accept), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetReceiptTextApiV1ReceiptsReceiptIdTextGet($receiptId, $queryParameters, $headerParameters, $accept), $fetch);
     }
 
     /**
@@ -1053,12 +1053,12 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetReceiptPngApiV1ReceiptsReceiptIdPngGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetReceiptPngApiV1ReceiptsReceiptIdPngGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getReceiptPngApiV1ReceiptsReceiptIdPngGet(string $receiptId, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetReceiptPngApiV1ReceiptsReceiptIdPngGet($receiptId, $queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetReceiptPngApiV1ReceiptsReceiptIdPngGet($receiptId, $queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -1075,12 +1075,12 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetReceiptQrCodeImageApiV1ReceiptsReceiptIdQrcodeGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetReceiptQrCodeImageApiV1ReceiptsReceiptIdQrcodeGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getReceiptQrCodeImageApiV1ReceiptsReceiptIdQrcodeGet(string $receiptId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetReceiptQrCodeImageApiV1ReceiptsReceiptIdQrcodeGet($receiptId, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetReceiptQrCodeImageApiV1ReceiptsReceiptIdQrcodeGet($receiptId, $headerParameters), $fetch);
     }
 
     /**
@@ -1097,12 +1097,12 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetReceiptXmlApiV1ReceiptsReceiptIdXmlGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetReceiptXmlApiV1ReceiptsReceiptIdXmlGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getReceiptXmlApiV1ReceiptsReceiptIdXmlGet(string $receiptId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetReceiptXmlApiV1ReceiptsReceiptIdXmlGet($receiptId, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetReceiptXmlApiV1ReceiptsReceiptIdXmlGet($receiptId, $headerParameters), $fetch);
     }
 
     /**
@@ -1118,12 +1118,12 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      *
-     * @throws \RevoTale\CheckboxUA\Exception\SendReceiptToEmailApiV1ReceiptsReceiptIdEmailPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\SendReceiptToEmailApiV1ReceiptsReceiptIdEmailPostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function sendReceiptToEmailApiV1ReceiptsReceiptIdEmailPost(string $receiptId, array $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\SendReceiptToEmailApiV1ReceiptsReceiptIdEmailPost($receiptId, $requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\SendReceiptToEmailApiV1ReceiptsReceiptIdEmailPost($receiptId, $requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -1142,12 +1142,12 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      *
-     * @throws \RevoTale\CheckboxUA\Exception\SendReceiptViaSmsApiV1ReceiptsReceiptIdSmsPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\SendReceiptViaSmsApiV1ReceiptsReceiptIdSmsPostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function sendReceiptViaSmsApiV1ReceiptsReceiptIdSmsPost(string $receiptId, Model\ReceiptDeliverySmsPayload $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\SendReceiptViaSmsApiV1ReceiptsReceiptIdSmsPost($receiptId, $requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\SendReceiptViaSmsApiV1ReceiptsReceiptIdSmsPost($receiptId, $requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -1172,12 +1172,12 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @return \Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetPeriodicalReportApiV1ReportsPeriodicalGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetPeriodicalReportApiV1ReportsPeriodicalGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getPeriodicalReportApiV1ReportsPeriodicalGet(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT, array $accept = [])
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetPeriodicalReportApiV1ReportsPeriodicalGet($queryParameters, $headerParameters, $accept), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetPeriodicalReportApiV1ReportsPeriodicalGet($queryParameters, $headerParameters, $accept), $fetch);
     }
 
     /**
@@ -1204,14 +1204,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\PaginatedResultReportModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\PaginatedResultReportModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetReportsApiV1ReportsGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetReportsApiV1ReportsGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getReportsApiV1ReportsGet(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetReportsApiV1ReportsGet($queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetReportsApiV1ReportsGet($queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -1226,14 +1226,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\ReportModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\ReportModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\CreateXReportApiV1ReportsPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\CreateXReportApiV1ReportsPostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function createXReportApiV1ReportsPost(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\CreateXReportApiV1ReportsPost($headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\CreateXReportApiV1ReportsPost($headerParameters), $fetch);
     }
 
     /**
@@ -1261,14 +1261,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\PaginatedResultReportModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\PaginatedResultReportModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetSearchReportsApiV1ReportsSearchGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetSearchReportsApiV1ReportsSearchGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getSearchReportsApiV1ReportsSearchGet(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetSearchReportsApiV1ReportsSearchGet($queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetSearchReportsApiV1ReportsSearchGet($queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -1283,14 +1283,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\ReportModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\ReportModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\AddExternalReportApiV1ReportsAddExternalPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\AddExternalReportApiV1ReportsAddExternalPostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function addExternalReportApiV1ReportsAddExternalPost(Model\ReportPayload $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\AddExternalReportApiV1ReportsAddExternalPost($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\AddExternalReportApiV1ReportsAddExternalPost($requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -1305,14 +1305,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\ReportModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\ReportModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetReportApiV1ReportsReportIdGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetReportApiV1ReportsReportIdGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getReportApiV1ReportsReportIdGet(string $reportId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetReportApiV1ReportsReportIdGet($reportId, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetReportApiV1ReportsReportIdGet($reportId, $headerParameters), $fetch);
     }
 
     /**
@@ -1335,12 +1335,12 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @return \Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetReportTextApiV1ReportsReportIdTextGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetReportTextApiV1ReportsReportIdTextGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getReportTextApiV1ReportsReportIdTextGet(string $reportId, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT, array $accept = [])
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetReportTextApiV1ReportsReportIdTextGet($reportId, $queryParameters, $headerParameters, $accept), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetReportTextApiV1ReportsReportIdTextGet($reportId, $queryParameters, $headerParameters, $accept), $fetch);
     }
 
     /**
@@ -1363,12 +1363,12 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetReportPngApiV1ReportsReportIdPngGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetReportPngApiV1ReportsReportIdPngGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getReportPngApiV1ReportsReportIdPngGet(string $reportId, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetReportPngApiV1ReportsReportIdPngGet($reportId, $queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetReportPngApiV1ReportsReportIdPngGet($reportId, $queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -1381,14 +1381,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\PublicReportTaskSchema|\Psr\Http\Message\ResponseInterface
+     * @return Model\PublicReportTaskSchema|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GoodsReportApiV1ExtendedReportsGoodsPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GoodsReportApiV1ExtendedReportsGoodsPostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function goodsReportApiV1ExtendedReportsGoodsPost(Model\ExtendedReportFiltersPayload $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GoodsReportApiV1ExtendedReportsGoodsPost($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GoodsReportApiV1ExtendedReportsGoodsPost($requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -1401,14 +1401,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\PublicReportTaskSchema|\Psr\Http\Message\ResponseInterface
+     * @return Model\PublicReportTaskSchema|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\CreateZReportApiV1ExtendedReportsZPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\CreateZReportApiV1ExtendedReportsZPostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function createZReportApiV1ExtendedReportsZPost(Model\ReportWithExtensionPayloadShort $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\CreateZReportApiV1ExtendedReportsZPost($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\CreateZReportApiV1ExtendedReportsZPost($requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -1421,14 +1421,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\ReportTaskSchema|\Psr\Http\Message\ResponseInterface
+     * @return Model\ReportTaskSchema|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\CreateActualRevenueReportApiV1ExtendedReportsActualRevenuePostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\CreateActualRevenueReportApiV1ExtendedReportsActualRevenuePostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function createActualRevenueReportApiV1ExtendedReportsActualRevenuePost(Model\ExtendedReportPayloadShort $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\CreateActualRevenueReportApiV1ExtendedReportsActualRevenuePost($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\CreateActualRevenueReportApiV1ExtendedReportsActualRevenuePost($requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -1441,14 +1441,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\ReportTaskSchema|\Psr\Http\Message\ResponseInterface
+     * @return Model\ReportTaskSchema|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\CreateNetTurnoverReportApiV1ExtendedReportsNetTurnoverPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\CreateNetTurnoverReportApiV1ExtendedReportsNetTurnoverPostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function createNetTurnoverReportApiV1ExtendedReportsNetTurnoverPost(Model\ExtendedReportPayloadShort $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\CreateNetTurnoverReportApiV1ExtendedReportsNetTurnoverPost($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\CreateNetTurnoverReportApiV1ExtendedReportsNetTurnoverPost($requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -1461,14 +1461,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\ReportTaskSchema|\Psr\Http\Message\ResponseInterface
+     * @return Model\ReportTaskSchema|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\CreateBookkeeperZReportApiV1ExtendedReportsBookkeeperZReportPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\CreateBookkeeperZReportApiV1ExtendedReportsBookkeeperZReportPostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function createBookkeeperZReportApiV1ExtendedReportsBookkeeperZReportPost(Model\ExtendedReportPayloadShort $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\CreateBookkeeperZReportApiV1ExtendedReportsBookkeeperZReportPost($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\CreateBookkeeperZReportApiV1ExtendedReportsBookkeeperZReportPost($requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -1481,14 +1481,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\ReportTaskSchema|\Psr\Http\Message\ResponseInterface
+     * @return Model\ReportTaskSchema|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\CreateDailyCashFlowReportApiV1ExtendedReportsDailyCashFlowPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\CreateDailyCashFlowReportApiV1ExtendedReportsDailyCashFlowPostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function createDailyCashFlowReportApiV1ExtendedReportsDailyCashFlowPost(Model\DailyCashFlowPayload $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\CreateDailyCashFlowReportApiV1ExtendedReportsDailyCashFlowPost($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\CreateDailyCashFlowReportApiV1ExtendedReportsDailyCashFlowPost($requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -1501,14 +1501,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\ReportTaskSchema|\Psr\Http\Message\ResponseInterface
+     * @return Model\ReportTaskSchema|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\CreateReceiptReportApiV1ExtendedReportsReceiptPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\CreateReceiptReportApiV1ExtendedReportsReceiptPostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function createReceiptReportApiV1ExtendedReportsReceiptPost(Model\ExtendedReceiptReportFiltersPayload $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\CreateReceiptReportApiV1ExtendedReportsReceiptPost($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\CreateReceiptReportApiV1ExtendedReportsReceiptPost($requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -1521,14 +1521,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\PublicReportTaskSchema|\Psr\Http\Message\ResponseInterface
+     * @return Model\PublicReportTaskSchema|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetReportTaskByIdApiV1ExtendedReportsReportTaskIdGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetReportTaskByIdApiV1ExtendedReportsReportTaskIdGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getReportTaskByIdApiV1ExtendedReportsReportTaskIdGet(string $reportTaskId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetReportTaskByIdApiV1ExtendedReportsReportTaskIdGet($reportTaskId, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetReportTaskByIdApiV1ExtendedReportsReportTaskIdGet($reportTaskId, $headerParameters), $fetch);
     }
 
     /**
@@ -1541,14 +1541,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\PublicReportTaskSchema|\Psr\Http\Message\ResponseInterface
+     * @return Model\PublicReportTaskSchema|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetReportXlsxByIdApiV1ExtendedReportsReportTaskIdReportXlsxGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetReportXlsxByIdApiV1ExtendedReportsReportTaskIdReportXlsxGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getReportXlsxByIdApiV1ExtendedReportsReportTaskIdReportXlsxGet(string $reportTaskId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetReportXlsxByIdApiV1ExtendedReportsReportTaskIdReportXlsxGet($reportTaskId, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetReportXlsxByIdApiV1ExtendedReportsReportTaskIdReportXlsxGet($reportTaskId, $headerParameters), $fetch);
     }
 
     /**
@@ -1561,14 +1561,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\PublicReportTaskSchema|\Psr\Http\Message\ResponseInterface
+     * @return Model\PublicReportTaskSchema|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetReportJsonByIdApiV1ExtendedReportsReportTaskIdReportJsonGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetReportJsonByIdApiV1ExtendedReportsReportTaskIdReportJsonGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getReportJsonByIdApiV1ExtendedReportsReportTaskIdReportJsonGet(string $reportTaskId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetReportJsonByIdApiV1ExtendedReportsReportTaskIdReportJsonGet($reportTaskId, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetReportJsonByIdApiV1ExtendedReportsReportTaskIdReportJsonGet($reportTaskId, $headerParameters), $fetch);
     }
 
     /**
@@ -1590,14 +1590,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\PaginatedResultShortTransaction|\Psr\Http\Message\ResponseInterface
+     * @return Model\PaginatedResultShortTransaction|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetTransactionsApiV1TransactionsGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetTransactionsApiV1TransactionsGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getTransactionsApiV1TransactionsGet(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetTransactionsApiV1TransactionsGet($queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetTransactionsApiV1TransactionsGet($queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -1610,14 +1610,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\TransactionModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\TransactionModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetTransactionApiV1TransactionsTransactionIdGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetTransactionApiV1TransactionsTransactionIdGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getTransactionApiV1TransactionsTransactionIdGet(string $transactionId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetTransactionApiV1TransactionsTransactionIdGet($transactionId, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetTransactionApiV1TransactionsTransactionIdGet($transactionId, $headerParameters), $fetch);
     }
 
     /**
@@ -1632,14 +1632,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\TransactionModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\TransactionModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\UpdateTransactionApiV1TransactionsTransactionIdPatchUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\UpdateTransactionApiV1TransactionsTransactionIdPatchUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function updateTransactionApiV1TransactionsTransactionIdPatch(string $transactionId, Model\UpdateTransactionPayload $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\UpdateTransactionApiV1TransactionsTransactionIdPatch($transactionId, $requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\UpdateTransactionApiV1TransactionsTransactionIdPatch($transactionId, $requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -1655,14 +1655,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\ExtendedTaxModel[]|\Psr\Http\Message\ResponseInterface
+     * @return Model\ExtendedTaxModel[]|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetAllTaxesApiV1TaxGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetAllTaxesApiV1TaxGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getAllTaxesApiV1TaxGet(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetAllTaxesApiV1TaxGet($headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetAllTaxesApiV1TaxGet($headerParameters), $fetch);
     }
 
     /**
@@ -1690,14 +1690,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\PaginatedResultGoodModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\PaginatedResultGoodModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetGoodsApiV1GoodsGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetGoodsApiV1GoodsGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getGoodsApiV1GoodsGet(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetGoodsApiV1GoodsGet($queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetGoodsApiV1GoodsGet($queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -1712,14 +1712,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\SrsoSchemaGoodSchemaGoodModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\SrsoSchemaGoodSchemaGoodModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetGoodApiV1GoodsGoodIdGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetGoodApiV1GoodsGoodIdGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getGoodApiV1GoodsGoodIdGet(string $goodId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetGoodApiV1GoodsGoodIdGet($goodId, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetGoodApiV1GoodsGoodIdGet($goodId, $headerParameters), $fetch);
     }
 
     /**
@@ -1735,14 +1735,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\OperationBaseResponseSchema|\Psr\Http\Message\ResponseInterface
+     * @return Model\OperationBaseResponseSchema|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\ExportGoodsApiV1GoodsExportExportExtensionGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\ExportGoodsApiV1GoodsExportExportExtensionGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function exportGoodsApiV1GoodsExportExportExtensionGet(string $exportExtension, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\ExportGoodsApiV1GoodsExportExportExtensionGet($exportExtension, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\ExportGoodsApiV1GoodsExportExportExtensionGet($exportExtension, $headerParameters), $fetch);
     }
 
     /**
@@ -1757,14 +1757,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\CheckStatusResponseSchema|\Psr\Http\Message\ResponseInterface
+     * @return Model\CheckStatusResponseSchema|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\ExportGoodsTaskStatusApiV1GoodsExportTaskStatusTaskIdGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\ExportGoodsTaskStatusApiV1GoodsExportTaskStatusTaskIdGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function exportGoodsTaskStatusApiV1GoodsExportTaskStatusTaskIdGet(string $taskId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\ExportGoodsTaskStatusApiV1GoodsExportTaskStatusTaskIdGet($taskId, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\ExportGoodsTaskStatusApiV1GoodsExportTaskStatusTaskIdGet($taskId, $headerParameters), $fetch);
     }
 
     /**
@@ -1786,12 +1786,12 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      *
-     * @throws \RevoTale\CheckboxUA\Exception\ExportGoodsFileApiV1GoodsExportFileTaskIdGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\ExportGoodsFileApiV1GoodsExportFileTaskIdGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function exportGoodsFileApiV1GoodsExportFileTaskIdGet(string $taskId, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\ExportGoodsFileApiV1GoodsExportFileTaskIdGet($taskId, $queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\ExportGoodsFileApiV1GoodsExportFileTaskIdGet($taskId, $queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -1812,14 +1812,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\OperationBaseResponseSchema|\Psr\Http\Message\ResponseInterface
+     * @return Model\OperationBaseResponseSchema|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\ImportGoodsFromFileApiV1GoodsImportUploadPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\ImportGoodsFromFileApiV1GoodsImportUploadPostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function importGoodsFromFileApiV1GoodsImportUploadPost(Model\BodyImportGoodsFromFileApiV1GoodsImportUploadPost $requestBody, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\ImportGoodsFromFileApiV1GoodsImportUploadPost($requestBody, $queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\ImportGoodsFromFileApiV1GoodsImportUploadPost($requestBody, $queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -1834,14 +1834,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\CheckStatusResponseSchema|\Psr\Http\Message\ResponseInterface
+     * @return Model\CheckStatusResponseSchema|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\ImportGoodsTaskStatusApiV1GoodsImportTaskStatusTaskIdGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\ImportGoodsTaskStatusApiV1GoodsImportTaskStatusTaskIdGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function importGoodsTaskStatusApiV1GoodsImportTaskStatusTaskIdGet(string $taskId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\ImportGoodsTaskStatusApiV1GoodsImportTaskStatusTaskIdGet($taskId, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\ImportGoodsTaskStatusApiV1GoodsImportTaskStatusTaskIdGet($taskId, $headerParameters), $fetch);
     }
 
     /**
@@ -1856,14 +1856,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\OperationBaseResponseSchema|\Psr\Http\Message\ResponseInterface
+     * @return Model\OperationBaseResponseSchema|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\ImportGoodsApplyChangesApiV1GoodsImportApplyChangesTaskIdPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\ImportGoodsApplyChangesApiV1GoodsImportApplyChangesTaskIdPostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function importGoodsApplyChangesApiV1GoodsImportApplyChangesTaskIdPost(string $taskId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\ImportGoodsApplyChangesApiV1GoodsImportApplyChangesTaskIdPost($taskId, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\ImportGoodsApplyChangesApiV1GoodsImportApplyChangesTaskIdPost($taskId, $headerParameters), $fetch);
     }
 
     /**
@@ -1878,12 +1878,12 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      *
-     * @throws \RevoTale\CheckboxUA\Exception\RunOrdersSynchronizationApiV1OrdersSyncPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\RunOrdersSynchronizationApiV1OrdersSyncPostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function runOrdersSynchronizationApiV1OrdersSyncPost(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\RunOrdersSynchronizationApiV1OrdersSyncPost($headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\RunOrdersSynchronizationApiV1OrdersSyncPost($headerParameters), $fetch);
     }
 
     /**
@@ -1908,14 +1908,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\PaginatedResultOrderModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\PaginatedResultOrderModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetOrdersApiV1OrdersGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetOrdersApiV1OrdersGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getOrdersApiV1OrdersGet(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetOrdersApiV1OrdersGet($queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetOrdersApiV1OrdersGet($queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -1934,12 +1934,12 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @return \Psr\Http\Message\ResponseInterface|null
      *
-     * @throws \RevoTale\CheckboxUA\Exception\AddOrdersApiV1OrdersPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\AddOrdersApiV1OrdersPostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function addOrdersApiV1OrdersPost($requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\AddOrdersApiV1OrdersPost($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\AddOrdersApiV1OrdersPost($requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -1954,14 +1954,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\DeleteIntegrationSchema|\Psr\Http\Message\ResponseInterface
+     * @return Model\DeleteIntegrationSchema|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\DeleteIntegrationApiV1OrdersIntegrationDeleteUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\DeleteIntegrationApiV1OrdersIntegrationDeleteUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function deleteIntegrationApiV1OrdersIntegrationDelete(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\DeleteIntegrationApiV1OrdersIntegrationDelete($headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\DeleteIntegrationApiV1OrdersIntegrationDelete($headerParameters), $fetch);
     }
 
     /**
@@ -1976,14 +1976,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\IntegrationInfoSchema|\Psr\Http\Message\ResponseInterface
+     * @return Model\IntegrationInfoSchema|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetIntegrationApiV1OrdersIntegrationGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetIntegrationApiV1OrdersIntegrationGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getIntegrationApiV1OrdersIntegrationGet(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetIntegrationApiV1OrdersIntegrationGet($headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetIntegrationApiV1OrdersIntegrationGet($headerParameters), $fetch);
     }
 
     /**
@@ -2027,14 +2027,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\IntegrationInfoResponseSchema|\Psr\Http\Message\ResponseInterface
+     * @return Model\IntegrationInfoResponseSchema|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\SetIntegrationApiV1OrdersIntegrationPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\SetIntegrationApiV1OrdersIntegrationPostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function setIntegrationApiV1OrdersIntegrationPost(Model\SetIntegrationPayload $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\SetIntegrationApiV1OrdersIntegrationPost($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\SetIntegrationApiV1OrdersIntegrationPost($requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -2052,14 +2052,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\OrderModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\OrderModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetOrderApiV1OrdersOrderIdGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetOrderApiV1OrdersOrderIdGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getOrderApiV1OrdersOrderIdGet(string $orderId, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetOrderApiV1OrdersOrderIdGet($orderId, $queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetOrderApiV1OrdersOrderIdGet($orderId, $queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -2074,14 +2074,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\OrderModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\OrderModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\CancelOrderApiV1OrdersOrderIdPatchUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\CancelOrderApiV1OrdersOrderIdPatchUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function cancelOrderApiV1OrdersOrderIdPatch(string $orderId, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\CancelOrderApiV1OrdersOrderIdPatch($orderId, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\CancelOrderApiV1OrdersOrderIdPatch($orderId, $headerParameters), $fetch);
     }
 
     /**
@@ -2104,14 +2104,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\OrderModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\OrderModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\CloseNotFiscalizeOrderApiV1OrdersClosePatchUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\CloseNotFiscalizeOrderApiV1OrdersClosePatchUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function closeNotFiscalizeOrderApiV1OrdersClosePatch(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\CloseNotFiscalizeOrderApiV1OrdersClosePatch($queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\CloseNotFiscalizeOrderApiV1OrdersClosePatch($queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -2126,14 +2126,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\IntegrationEditOrderReceiptSchema|\Psr\Http\Message\ResponseInterface
+     * @return Model\IntegrationEditOrderReceiptSchema|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\EditOrderApiV1OrdersIntegrationEditOrderPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\EditOrderApiV1OrdersIntegrationEditOrderPostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function editOrderApiV1OrdersIntegrationEditOrderPost(Model\IntegrationEditOrderReceiptSchema $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\EditOrderApiV1OrdersIntegrationEditOrderPost($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\EditOrderApiV1OrdersIntegrationEditOrderPost($requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -2151,14 +2151,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\OrderModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\OrderModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\UpdateCustomOrderStatusApiV1OrdersCustomStatusOrderIdPatchUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\UpdateCustomOrderStatusApiV1OrdersCustomStatusOrderIdPatchUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function updateCustomOrderStatusApiV1OrdersCustomStatusOrderIdPatch(string $orderId, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\UpdateCustomOrderStatusApiV1OrdersCustomStatusOrderIdPatch($orderId, $queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\UpdateCustomOrderStatusApiV1OrdersCustomStatusOrderIdPatch($orderId, $queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -2178,14 +2178,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\CurrencyRateModel[]|\Psr\Http\Message\ResponseInterface
+     * @return Model\CurrencyRateModel[]|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetCurrencyRatesApiV1CurrencyRateGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetCurrencyRatesApiV1CurrencyRateGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getCurrencyRatesApiV1CurrencyRateGet(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetCurrencyRatesApiV1CurrencyRateGet($queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetCurrencyRatesApiV1CurrencyRateGet($queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -2202,14 +2202,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\CurrencyRateModel[]|\Psr\Http\Message\ResponseInterface
+     * @return Model\CurrencyRateModel[]|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\SetupCurrencyRatesApiV1CurrencyRateSetupPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\SetupCurrencyRatesApiV1CurrencyRateSetupPostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function setupCurrencyRatesApiV1CurrencyRateSetupPost(Model\SetupRatesPayload $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\SetupCurrencyRatesApiV1CurrencyRateSetupPost($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\SetupCurrencyRatesApiV1CurrencyRateSetupPost($requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -2224,14 +2224,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\CurrencyRateModel|\Psr\Http\Message\ResponseInterface
+     * @return Model\CurrencyRateModel|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetCurrencyRateApiV1CurrencyRateCurrencyCodeGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetCurrencyRateApiV1CurrencyRateCurrencyCodeGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getCurrencyRateApiV1CurrencyRateCurrencyCodeGet(string $currencyCode, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetCurrencyRateApiV1CurrencyRateCurrencyCodeGet($currencyCode, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetCurrencyRateApiV1CurrencyRateCurrencyCodeGet($currencyCode, $headerParameters), $fetch);
     }
 
     /**
@@ -2247,14 +2247,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\DeleteWebhookSchema|\Psr\Http\Message\ResponseInterface
+     * @return Model\DeleteWebhookSchema|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\DeleteWebhookApiV1WebhookDeleteUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\DeleteWebhookApiV1WebhookDeleteUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function deleteWebhookApiV1WebhookDelete(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\DeleteWebhookApiV1WebhookDelete($headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\DeleteWebhookApiV1WebhookDelete($headerParameters), $fetch);
     }
 
     /**
@@ -2270,14 +2270,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\WebhookInfoSchema|\Psr\Http\Message\ResponseInterface
+     * @return Model\WebhookInfoSchema|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\GetWebhookInfoApiV1WebhookGetUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\GetWebhookInfoApiV1WebhookGetUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function getWebhookInfoApiV1WebhookGet(array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GetWebhookInfoApiV1WebhookGet($headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\GetWebhookInfoApiV1WebhookGet($headerParameters), $fetch);
     }
 
     /**
@@ -2325,14 +2325,14 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return \RevoTale\CheckboxUA\Model\WebhookInfoResponseSchema|\Psr\Http\Message\ResponseInterface
+     * @return Model\WebhookInfoResponseSchema|\Psr\Http\Message\ResponseInterface
      *
-     * @throws \RevoTale\CheckboxUA\Exception\SetWebhookApiV1WebhookPostUnprocessableEntityException
-     * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
+     * @throws Exception\SetWebhookApiV1WebhookPostUnprocessableEntityException
+     * @throws Exception\UnexpectedStatusCodeException
      */
     public function setWebhookApiV1WebhookPost(Model\SetWebhookPayload $requestBody, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\SetWebhookApiV1WebhookPost($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\SetWebhookApiV1WebhookPost($requestBody, $headerParameters), $fetch);
     }
 
     public static function create($httpClient = null, array $additionalPlugins = [], array $additionalNormalizers = [])
@@ -2347,7 +2347,7 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
         }
         $requestFactory = \Http\Discovery\Psr17FactoryDiscovery::findRequestFactory();
         $streamFactory = \Http\Discovery\Psr17FactoryDiscovery::findStreamFactory();
-        $normalizers = [new \Symfony\Component\Serializer\Normalizer\ArrayDenormalizer(), new \RevoTale\CheckboxUA\Normalizer\JaneObjectNormalizer()];
+        $normalizers = [new \Symfony\Component\Serializer\Normalizer\ArrayDenormalizer(), new Normalizer\JaneObjectNormalizer()];
         if (count($additionalNormalizers) > 0) {
             $normalizers = array_merge($normalizers, $additionalNormalizers);
         }

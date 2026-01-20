@@ -61,7 +61,7 @@ class GetReportApiV1ReportsReportIdGet extends \RevoTale\CheckboxUA\Runtime\Clie
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\ReportModel
+     * @return ReportModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\GetReportApiV1ReportsReportIdGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

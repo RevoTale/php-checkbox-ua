@@ -82,7 +82,7 @@ class GetTransactionsApiV1TransactionsGet extends \RevoTale\CheckboxUA\Runtime\C
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\PaginatedResultShortTransaction
+     * @return PaginatedResultShortTransaction
      *
      * @throws \RevoTale\CheckboxUA\Exception\GetTransactionsApiV1TransactionsGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

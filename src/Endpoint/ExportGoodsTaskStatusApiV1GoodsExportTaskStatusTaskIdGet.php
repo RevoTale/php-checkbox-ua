@@ -61,7 +61,7 @@ class ExportGoodsTaskStatusApiV1GoodsExportTaskStatusTaskIdGet extends \RevoTale
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\CheckStatusResponseSchema
+     * @return CheckStatusResponseSchema
      *
      * @throws \RevoTale\CheckboxUA\Exception\ExportGoodsTaskStatusApiV1GoodsExportTaskStatusTaskIdGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

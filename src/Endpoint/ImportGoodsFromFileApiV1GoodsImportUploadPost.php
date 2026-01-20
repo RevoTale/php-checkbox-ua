@@ -90,7 +90,7 @@ class ImportGoodsFromFileApiV1GoodsImportUploadPost extends \RevoTale\CheckboxUA
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\OperationBaseResponseSchema
+     * @return OperationBaseResponseSchema
      *
      * @throws \RevoTale\CheckboxUA\Exception\ImportGoodsFromFileApiV1GoodsImportUploadPostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

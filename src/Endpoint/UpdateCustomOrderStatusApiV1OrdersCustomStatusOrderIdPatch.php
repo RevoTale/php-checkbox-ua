@@ -75,7 +75,7 @@ class UpdateCustomOrderStatusApiV1OrdersCustomStatusOrderIdPatch extends \RevoTa
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\OrderModel
+     * @return OrderModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\UpdateCustomOrderStatusApiV1OrdersCustomStatusOrderIdPatchUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

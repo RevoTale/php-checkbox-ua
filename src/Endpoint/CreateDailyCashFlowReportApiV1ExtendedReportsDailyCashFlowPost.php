@@ -62,7 +62,7 @@ class CreateDailyCashFlowReportApiV1ExtendedReportsDailyCashFlowPost extends \Re
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\ReportTaskSchema
+     * @return ReportTaskSchema
      *
      * @throws \RevoTale\CheckboxUA\Exception\CreateDailyCashFlowReportApiV1ExtendedReportsDailyCashFlowPostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

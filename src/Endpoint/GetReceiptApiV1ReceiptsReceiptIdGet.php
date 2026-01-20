@@ -61,7 +61,7 @@ class GetReceiptApiV1ReceiptsReceiptIdGet extends \RevoTale\CheckboxUA\Runtime\C
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\ReceiptModel
+     * @return ReceiptModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\GetReceiptApiV1ReceiptsReceiptIdGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

@@ -61,7 +61,7 @@ class GetShiftApiV1ShiftsShiftIdGet extends \RevoTale\CheckboxUA\Runtime\Client\
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\ShiftWithCashierAndCashRegister
+     * @return ShiftWithCashierAndCashRegister
      *
      * @throws \RevoTale\CheckboxUA\Exception\GetShiftApiV1ShiftsShiftIdGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

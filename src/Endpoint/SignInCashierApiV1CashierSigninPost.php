@@ -66,7 +66,7 @@ class SignInCashierApiV1CashierSigninPost extends \RevoTale\CheckboxUA\Runtime\C
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\CashierAccessTokenResponseModel
+     * @return CashierAccessTokenResponseModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\SignInCashierApiV1CashierSigninPostForbiddenException
      * @throws \RevoTale\CheckboxUA\Exception\SignInCashierApiV1CashierSigninPostUnprocessableEntityException

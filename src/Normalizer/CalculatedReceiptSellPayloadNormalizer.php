@@ -28,7 +28,7 @@ class CalculatedReceiptSellPayloadNormalizer implements DenormalizerInterface, N
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\CalculatedReceiptSellPayload;
+        return is_object($data) && $data instanceof CalculatedReceiptSellPayload;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -39,7 +39,7 @@ class CalculatedReceiptSellPayloadNormalizer implements DenormalizerInterface, N
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\CalculatedReceiptSellPayload();
+        $object = new CalculatedReceiptSellPayload();
         if (array_key_exists('total_payment', $data) && is_int($data['total_payment'])) {
             $data['total_payment'] = (float) $data['total_payment'];
         }
@@ -184,10 +184,7 @@ class CalculatedReceiptSellPayloadNormalizer implements DenormalizerInterface, N
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         if ($object->isInitialized('id') && null !== $object->getId()) {

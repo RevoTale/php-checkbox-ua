@@ -61,7 +61,7 @@ class ImportGoodsApplyChangesApiV1GoodsImportApplyChangesTaskIdPost extends \Rev
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\OperationBaseResponseSchema
+     * @return OperationBaseResponseSchema
      *
      * @throws \RevoTale\CheckboxUA\Exception\ImportGoodsApplyChangesApiV1GoodsImportApplyChangesTaskIdPostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

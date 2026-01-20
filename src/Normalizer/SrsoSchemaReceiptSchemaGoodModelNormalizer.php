@@ -27,7 +27,7 @@ class SrsoSchemaReceiptSchemaGoodModelNormalizer implements DenormalizerInterfac
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\SrsoSchemaReceiptSchemaGoodModel;
+        return is_object($data) && $data instanceof SrsoSchemaReceiptSchemaGoodModel;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -87,10 +87,7 @@ class SrsoSchemaReceiptSchemaGoodModelNormalizer implements DenormalizerInterfac
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         $data['code'] = $object->getCode();

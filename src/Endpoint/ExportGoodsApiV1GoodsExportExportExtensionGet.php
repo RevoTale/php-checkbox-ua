@@ -62,7 +62,7 @@ class ExportGoodsApiV1GoodsExportExportExtensionGet extends \RevoTale\CheckboxUA
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\OperationBaseResponseSchema
+     * @return OperationBaseResponseSchema
      *
      * @throws \RevoTale\CheckboxUA\Exception\ExportGoodsApiV1GoodsExportExportExtensionGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

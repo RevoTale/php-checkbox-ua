@@ -27,7 +27,7 @@ class PaginatedResultShiftWithCashRegisterModelNormalizer implements Denormalize
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\PaginatedResultShiftWithCashRegisterModel;
+        return is_object($data) && $data instanceof PaginatedResultShiftWithCashRegisterModel;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -38,7 +38,7 @@ class PaginatedResultShiftWithCashRegisterModelNormalizer implements Denormalize
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\PaginatedResultShiftWithCashRegisterModel();
+        $object = new PaginatedResultShiftWithCashRegisterModel();
         if (null === $data || false === is_array($data)) {
             return $object;
         }
@@ -63,10 +63,7 @@ class PaginatedResultShiftWithCashRegisterModelNormalizer implements Denormalize
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         $data['meta'] = $this->normalizer->normalize($object->getMeta(), 'json', $context);

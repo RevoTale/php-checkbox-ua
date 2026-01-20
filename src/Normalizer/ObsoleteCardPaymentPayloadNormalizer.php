@@ -27,7 +27,7 @@ class ObsoleteCardPaymentPayloadNormalizer implements DenormalizerInterface, Nor
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\ObsoleteCardPaymentPayload;
+        return is_object($data) && $data instanceof ObsoleteCardPaymentPayload;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -38,7 +38,7 @@ class ObsoleteCardPaymentPayloadNormalizer implements DenormalizerInterface, Nor
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\ObsoleteCardPaymentPayload();
+        $object = new ObsoleteCardPaymentPayload();
         if (null === $data || false === is_array($data)) {
             return $object;
         }
@@ -127,10 +127,7 @@ class ObsoleteCardPaymentPayloadNormalizer implements DenormalizerInterface, Nor
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         if ($object->isInitialized('type') && null !== $object->getType()) {

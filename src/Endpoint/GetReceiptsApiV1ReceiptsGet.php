@@ -89,7 +89,7 @@ class GetReceiptsApiV1ReceiptsGet extends \RevoTale\CheckboxUA\Runtime\Client\Ba
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\PaginatedResultReceiptModel
+     * @return PaginatedResultReceiptModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\GetReceiptsApiV1ReceiptsGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

@@ -57,7 +57,7 @@ class GetCurrentOrganizationSmsBillingBalanceApiV1OrganizationSmsBillingGet exte
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\OrganizationBillingSchema
+     * @return OrganizationBillingSchema
      *
      * @throws \RevoTale\CheckboxUA\Exception\GetCurrentOrganizationSmsBillingBalanceApiV1OrganizationSmsBillingGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

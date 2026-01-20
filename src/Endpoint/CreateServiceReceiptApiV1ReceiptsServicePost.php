@@ -68,7 +68,7 @@ class CreateServiceReceiptApiV1ReceiptsServicePost extends \RevoTale\CheckboxUA\
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\ReceiptModel
+     * @return ReceiptModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\CreateServiceReceiptApiV1ReceiptsServicePostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

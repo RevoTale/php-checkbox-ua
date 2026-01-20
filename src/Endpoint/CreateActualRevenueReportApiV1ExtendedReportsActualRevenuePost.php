@@ -62,7 +62,7 @@ class CreateActualRevenueReportApiV1ExtendedReportsActualRevenuePost extends \Re
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\ReportTaskSchema
+     * @return ReportTaskSchema
      *
      * @throws \RevoTale\CheckboxUA\Exception\CreateActualRevenueReportApiV1ExtendedReportsActualRevenuePostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

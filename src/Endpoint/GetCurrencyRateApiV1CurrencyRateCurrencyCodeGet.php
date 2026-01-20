@@ -61,7 +61,7 @@ class GetCurrencyRateApiV1CurrencyRateCurrencyCodeGet extends \RevoTale\Checkbox
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\CurrencyRateModel
+     * @return CurrencyRateModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\GetCurrencyRateApiV1CurrencyRateCurrencyCodeGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

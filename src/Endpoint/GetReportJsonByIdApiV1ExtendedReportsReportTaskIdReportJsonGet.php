@@ -59,7 +59,7 @@ class GetReportJsonByIdApiV1ExtendedReportsReportTaskIdReportJsonGet extends \Re
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\PublicReportTaskSchema
+     * @return PublicReportTaskSchema
      *
      * @throws \RevoTale\CheckboxUA\Exception\GetReportJsonByIdApiV1ExtendedReportsReportTaskIdReportJsonGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

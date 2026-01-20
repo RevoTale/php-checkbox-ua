@@ -38,7 +38,7 @@ class EditOrderApiV1OrdersIntegrationEditOrderPost extends \RevoTale\CheckboxUA\
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
-        if ($this->body instanceof \RevoTale\CheckboxUA\Model\IntegrationEditOrderReceiptSchema) {
+        if ($this->body instanceof IntegrationEditOrderReceiptSchema) {
             return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
         }
 
@@ -64,7 +64,7 @@ class EditOrderApiV1OrdersIntegrationEditOrderPost extends \RevoTale\CheckboxUA\
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\IntegrationEditOrderReceiptSchema
+     * @return IntegrationEditOrderReceiptSchema
      *
      * @throws \RevoTale\CheckboxUA\Exception\EditOrderApiV1OrdersIntegrationEditOrderPostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

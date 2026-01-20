@@ -61,7 +61,7 @@ class GetCashierProfileApiV1CashierMeGet extends \RevoTale\CheckboxUA\Runtime\Cl
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\DetailedCashierModel
+     * @return DetailedCashierModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\GetCashierProfileApiV1CashierMeGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

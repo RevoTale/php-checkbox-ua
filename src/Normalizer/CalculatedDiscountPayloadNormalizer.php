@@ -28,7 +28,7 @@ class CalculatedDiscountPayloadNormalizer implements DenormalizerInterface, Norm
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\CalculatedDiscountPayload;
+        return is_object($data) && $data instanceof CalculatedDiscountPayload;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -39,7 +39,7 @@ class CalculatedDiscountPayloadNormalizer implements DenormalizerInterface, Norm
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\CalculatedDiscountPayload();
+        $object = new CalculatedDiscountPayload();
         if (array_key_exists('value', $data) && is_int($data['value'])) {
             $data['value'] = (float) $data['value'];
         }
@@ -90,10 +90,7 @@ class CalculatedDiscountPayloadNormalizer implements DenormalizerInterface, Norm
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         $data['type'] = $object->getType();

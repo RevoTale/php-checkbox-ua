@@ -60,7 +60,7 @@ class DeleteWebhookApiV1WebhookDelete extends \RevoTale\CheckboxUA\Runtime\Clien
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\DeleteWebhookSchema
+     * @return DeleteWebhookSchema
      *
      * @throws \RevoTale\CheckboxUA\Exception\DeleteWebhookApiV1WebhookDeleteUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

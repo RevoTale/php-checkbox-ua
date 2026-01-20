@@ -66,7 +66,7 @@ class CreateOfflineReceiptApiV1ReceiptsSellOfflinePost extends \RevoTale\Checkbo
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\ReceiptModel
+     * @return ReceiptModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\CreateOfflineReceiptApiV1ReceiptsSellOfflinePostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

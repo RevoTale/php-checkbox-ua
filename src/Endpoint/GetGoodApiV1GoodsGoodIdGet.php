@@ -61,7 +61,7 @@ class GetGoodApiV1GoodsGoodIdGet extends \RevoTale\CheckboxUA\Runtime\Client\Bas
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\SrsoSchemaGoodSchemaGoodModel
+     * @return SrsoSchemaGoodSchemaGoodModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\GetGoodApiV1GoodsGoodIdGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

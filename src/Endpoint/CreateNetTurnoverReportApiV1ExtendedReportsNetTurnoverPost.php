@@ -62,7 +62,7 @@ class CreateNetTurnoverReportApiV1ExtendedReportsNetTurnoverPost extends \RevoTa
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\ReportTaskSchema
+     * @return ReportTaskSchema
      *
      * @throws \RevoTale\CheckboxUA\Exception\CreateNetTurnoverReportApiV1ExtendedReportsNetTurnoverPostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

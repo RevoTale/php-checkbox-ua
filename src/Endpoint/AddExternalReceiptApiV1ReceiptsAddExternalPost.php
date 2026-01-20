@@ -68,7 +68,7 @@ class AddExternalReceiptApiV1ReceiptsAddExternalPost extends \RevoTale\CheckboxU
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\ReceiptModel
+     * @return ReceiptModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\AddExternalReceiptApiV1ReceiptsAddExternalPostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

@@ -67,7 +67,7 @@ class SignInCashierViaPinCodeApiV1CashierSigninPinCodePost extends \RevoTale\Che
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\CashierAccessTokenResponseModel
+     * @return CashierAccessTokenResponseModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\SignInCashierViaPinCodeApiV1CashierSigninPinCodePostForbiddenException
      * @throws \RevoTale\CheckboxUA\Exception\SignInCashierViaPinCodeApiV1CashierSigninPinCodePostUnprocessableEntityException

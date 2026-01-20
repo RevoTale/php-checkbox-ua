@@ -87,7 +87,7 @@ class GetOrdersApiV1OrdersGet extends \RevoTale\CheckboxUA\Runtime\Client\BaseEn
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\PaginatedResultOrderModel
+     * @return PaginatedResultOrderModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\GetOrdersApiV1OrdersGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

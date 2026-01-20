@@ -62,7 +62,7 @@ class GoodsReportApiV1ExtendedReportsGoodsPost extends \RevoTale\CheckboxUA\Runt
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\PublicReportTaskSchema
+     * @return PublicReportTaskSchema
      *
      * @throws \RevoTale\CheckboxUA\Exception\GoodsReportApiV1ExtendedReportsGoodsPostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

@@ -27,7 +27,7 @@ class ShortCloseShiftPayloadNormalizer implements DenormalizerInterface, Normali
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\ShortCloseShiftPayload;
+        return is_object($data) && $data instanceof ShortCloseShiftPayload;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -38,7 +38,7 @@ class ShortCloseShiftPayloadNormalizer implements DenormalizerInterface, Normali
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\ShortCloseShiftPayload();
+        $object = new ShortCloseShiftPayload();
         if (null === $data || false === is_array($data)) {
             return $object;
         }
@@ -59,10 +59,7 @@ class ShortCloseShiftPayloadNormalizer implements DenormalizerInterface, Normali
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         if ($object->isInitialized('skipClientNameCheck') && null !== $object->getSkipClientNameCheck()) {

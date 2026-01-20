@@ -29,7 +29,7 @@ class ReportTaskSchemaNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\ReportTaskSchema;
+        return is_object($data) && $data instanceof ReportTaskSchema;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -40,7 +40,7 @@ class ReportTaskSchemaNormalizer implements DenormalizerInterface, NormalizerInt
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\ReportTaskSchema();
+        $object = new ReportTaskSchema();
         if (array_key_exists('execution_time', $data) && is_int($data['execution_time'])) {
             $data['execution_time'] = (float) $data['execution_time'];
         }
@@ -96,10 +96,7 @@ class ReportTaskSchemaNormalizer implements DenormalizerInterface, NormalizerInt
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         $data['id'] = $object->getId();

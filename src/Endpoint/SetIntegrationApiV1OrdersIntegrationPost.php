@@ -93,7 +93,7 @@ class SetIntegrationApiV1OrdersIntegrationPost extends \RevoTale\CheckboxUA\Runt
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\IntegrationInfoResponseSchema
+     * @return IntegrationInfoResponseSchema
      *
      * @throws \RevoTale\CheckboxUA\Exception\SetIntegrationApiV1OrdersIntegrationPostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

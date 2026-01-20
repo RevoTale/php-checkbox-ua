@@ -67,7 +67,7 @@ class CloseShiftBySeniorCashierApiV1ShiftsShiftIdClosePost extends \RevoTale\Che
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\ShiftWithCashierAndCashRegister
+     * @return ShiftWithCashierAndCashRegister
      *
      * @throws \RevoTale\CheckboxUA\Exception\CloseShiftBySeniorCashierApiV1ShiftsShiftIdClosePostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

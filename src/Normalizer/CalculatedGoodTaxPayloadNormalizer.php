@@ -29,7 +29,7 @@ class CalculatedGoodTaxPayloadNormalizer implements DenormalizerInterface, Norma
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\CalculatedGoodTaxPayload;
+        return is_object($data) && $data instanceof CalculatedGoodTaxPayload;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -40,7 +40,7 @@ class CalculatedGoodTaxPayloadNormalizer implements DenormalizerInterface, Norma
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\CalculatedGoodTaxPayload();
+        $object = new CalculatedGoodTaxPayload();
         if (array_key_exists('rate', $data) && is_int($data['rate'])) {
             $data['rate'] = (float) $data['rate'];
         }
@@ -101,10 +101,7 @@ class CalculatedGoodTaxPayloadNormalizer implements DenormalizerInterface, Norma
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         $data['code'] = $object->getCode();

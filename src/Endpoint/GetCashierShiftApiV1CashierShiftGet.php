@@ -61,7 +61,7 @@ class GetCashierShiftApiV1CashierShiftGet extends \RevoTale\CheckboxUA\Runtime\C
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\ShiftWithCashRegisterModel
+     * @return ShiftWithCashRegisterModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\GetCashierShiftApiV1CashierShiftGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

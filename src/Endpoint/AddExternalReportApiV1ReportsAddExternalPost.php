@@ -64,7 +64,7 @@ class AddExternalReportApiV1ReportsAddExternalPost extends \RevoTale\CheckboxUA\
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\ReportModel
+     * @return ReportModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\AddExternalReportApiV1ReportsAddExternalPostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

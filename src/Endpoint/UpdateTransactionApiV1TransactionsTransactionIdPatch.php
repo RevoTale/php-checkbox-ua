@@ -66,7 +66,7 @@ class UpdateTransactionApiV1TransactionsTransactionIdPatch extends \RevoTale\Che
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\TransactionModel
+     * @return TransactionModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\UpdateTransactionApiV1TransactionsTransactionIdPatchUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

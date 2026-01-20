@@ -28,7 +28,7 @@ class ReportWithExtensionPayloadShortNormalizer implements DenormalizerInterface
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\ReportWithExtensionPayloadShort;
+        return is_object($data) && $data instanceof ReportWithExtensionPayloadShort;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -39,7 +39,7 @@ class ReportWithExtensionPayloadShortNormalizer implements DenormalizerInterface
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\ReportWithExtensionPayloadShort();
+        $object = new ReportWithExtensionPayloadShort();
         if (null === $data || false === is_array($data)) {
             return $object;
         }
@@ -84,10 +84,7 @@ class ReportWithExtensionPayloadShortNormalizer implements DenormalizerInterface
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         $data['from_date'] = $object->getFromDate()->format('Y-m-d\\TH:i:s.uP');

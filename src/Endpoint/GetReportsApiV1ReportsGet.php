@@ -90,7 +90,7 @@ class GetReportsApiV1ReportsGet extends \RevoTale\CheckboxUA\Runtime\Client\Base
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\PaginatedResultReportModel
+     * @return PaginatedResultReportModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\GetReportsApiV1ReportsGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

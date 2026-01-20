@@ -60,7 +60,7 @@ class GetOfflineCodesCountApiV1CashRegistersGetOfflineCodesCountGet extends \Rev
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\OfflineCodesCountSchema
+     * @return OfflineCodesCountSchema
      *
      * @throws \RevoTale\CheckboxUA\Exception\GetOfflineCodesCountApiV1CashRegistersGetOfflineCodesCountGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

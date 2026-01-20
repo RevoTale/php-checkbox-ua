@@ -77,7 +77,7 @@ class GetOfflineTimeApiV1CashRegistersGetOfflineTimeGet extends \RevoTale\Checkb
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\CashRegisterOfflineTime
+     * @return CashRegisterOfflineTime
      *
      * @throws \RevoTale\CheckboxUA\Exception\GetOfflineTimeApiV1CashRegistersGetOfflineTimeGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

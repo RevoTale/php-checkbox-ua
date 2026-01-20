@@ -27,7 +27,7 @@ class CashierSignInPinCodeNormalizer implements DenormalizerInterface, Normalize
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\CashierSignInPinCode;
+        return is_object($data) && $data instanceof CashierSignInPinCode;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -38,7 +38,7 @@ class CashierSignInPinCodeNormalizer implements DenormalizerInterface, Normalize
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\CashierSignInPinCode();
+        $object = new CashierSignInPinCode();
         if (null === $data || false === is_array($data)) {
             return $object;
         }
@@ -55,10 +55,7 @@ class CashierSignInPinCodeNormalizer implements DenormalizerInterface, Normalize
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         $data['pin_code'] = $object->getPinCode();

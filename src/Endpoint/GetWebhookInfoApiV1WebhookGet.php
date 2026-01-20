@@ -60,7 +60,7 @@ class GetWebhookInfoApiV1WebhookGet extends \RevoTale\CheckboxUA\Runtime\Client\
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\WebhookInfoSchema
+     * @return WebhookInfoSchema
      *
      * @throws \RevoTale\CheckboxUA\Exception\GetWebhookInfoApiV1WebhookGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

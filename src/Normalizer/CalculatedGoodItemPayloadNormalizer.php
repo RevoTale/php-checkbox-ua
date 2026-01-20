@@ -27,7 +27,7 @@ class CalculatedGoodItemPayloadNormalizer implements DenormalizerInterface, Norm
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\CalculatedGoodItemPayload;
+        return is_object($data) && $data instanceof CalculatedGoodItemPayload;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -38,7 +38,7 @@ class CalculatedGoodItemPayloadNormalizer implements DenormalizerInterface, Norm
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\CalculatedGoodItemPayload();
+        $object = new CalculatedGoodItemPayload();
         if (null === $data || false === is_array($data)) {
             return $object;
         }
@@ -91,10 +91,7 @@ class CalculatedGoodItemPayloadNormalizer implements DenormalizerInterface, Norm
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         $data['good'] = $this->normalizer->normalize($object->getGood(), 'json', $context);

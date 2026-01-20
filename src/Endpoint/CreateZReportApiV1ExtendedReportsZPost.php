@@ -62,7 +62,7 @@ class CreateZReportApiV1ExtendedReportsZPost extends \RevoTale\CheckboxUA\Runtim
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\PublicReportTaskSchema
+     * @return PublicReportTaskSchema
      *
      * @throws \RevoTale\CheckboxUA\Exception\CreateZReportApiV1ExtendedReportsZPostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

@@ -27,7 +27,7 @@ class CashRegisterOfflineTimeNormalizer implements DenormalizerInterface, Normal
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\CashRegisterOfflineTime;
+        return is_object($data) && $data instanceof CashRegisterOfflineTime;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -38,7 +38,7 @@ class CashRegisterOfflineTimeNormalizer implements DenormalizerInterface, Normal
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\CashRegisterOfflineTime();
+        $object = new CashRegisterOfflineTime();
         if (null === $data || false === is_array($data)) {
             return $object;
         }
@@ -63,10 +63,7 @@ class CashRegisterOfflineTimeNormalizer implements DenormalizerInterface, Normal
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         if ($object->isInitialized('status') && null !== $object->getStatus()) {

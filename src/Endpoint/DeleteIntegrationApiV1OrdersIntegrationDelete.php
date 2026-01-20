@@ -59,7 +59,7 @@ class DeleteIntegrationApiV1OrdersIntegrationDelete extends \RevoTale\CheckboxUA
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\DeleteIntegrationSchema
+     * @return DeleteIntegrationSchema
      *
      * @throws \RevoTale\CheckboxUA\Exception\DeleteIntegrationApiV1OrdersIntegrationDeleteUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

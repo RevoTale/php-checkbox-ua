@@ -59,7 +59,7 @@ class GetReportXlsxByIdApiV1ExtendedReportsReportTaskIdReportXlsxGet extends \Re
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\PublicReportTaskSchema
+     * @return PublicReportTaskSchema
      *
      * @throws \RevoTale\CheckboxUA\Exception\GetReportXlsxByIdApiV1ExtendedReportsReportTaskIdReportXlsxGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

@@ -27,7 +27,7 @@ class OrderUpdateSchemaNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\OrderUpdateSchema;
+        return is_object($data) && $data instanceof OrderUpdateSchema;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -38,7 +38,7 @@ class OrderUpdateSchemaNormalizer implements DenormalizerInterface, NormalizerIn
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\OrderUpdateSchema();
+        $object = new OrderUpdateSchema();
         if (null === $data || false === is_array($data)) {
             return $object;
         }
@@ -55,10 +55,7 @@ class OrderUpdateSchemaNormalizer implements DenormalizerInterface, NormalizerIn
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         $data['order'] = $this->normalizer->normalize($object->getOrder(), 'json', $context);

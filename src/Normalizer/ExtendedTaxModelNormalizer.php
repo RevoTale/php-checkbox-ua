@@ -29,7 +29,7 @@ class ExtendedTaxModelNormalizer implements DenormalizerInterface, NormalizerInt
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\ExtendedTaxModel;
+        return is_object($data) && $data instanceof ExtendedTaxModel;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -40,7 +40,7 @@ class ExtendedTaxModelNormalizer implements DenormalizerInterface, NormalizerInt
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\ExtendedTaxModel();
+        $object = new ExtendedTaxModel();
         if (array_key_exists('rate', $data) && is_int($data['rate'])) {
             $data['rate'] = (float) $data['rate'];
         }
@@ -117,10 +117,7 @@ class ExtendedTaxModelNormalizer implements DenormalizerInterface, NormalizerInt
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         $data['id'] = $object->getId();

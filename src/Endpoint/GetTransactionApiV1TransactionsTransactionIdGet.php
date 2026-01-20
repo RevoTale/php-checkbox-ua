@@ -59,7 +59,7 @@ class GetTransactionApiV1TransactionsTransactionIdGet extends \RevoTale\Checkbox
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\TransactionModel
+     * @return TransactionModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\GetTransactionApiV1TransactionsTransactionIdGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

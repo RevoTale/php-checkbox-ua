@@ -60,7 +60,7 @@ class GetCashRegisterInfoApiV1CashRegistersInfoGet extends \RevoTale\CheckboxUA\
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\CashRegisterDeviceModel
+     * @return CashRegisterDeviceModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\GetCashRegisterInfoApiV1CashRegistersInfoGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

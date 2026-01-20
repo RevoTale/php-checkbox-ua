@@ -15,18 +15,15 @@ use UnexpectedValueException;
 
 final readonly class ClientFactory
 {
-
     public static function createClient(
-        /**
+        /*
          * Sunce recent time, client name is required.
          */
-        string $clientName ,
+        string $clientName,
         string $clientVersion = '',
-        ?string                          $token = null,
-        null| HttpAsyncClient|ClientInterface $client = null,
-
-    ): Client
-    {
+        ?string $token = null,
+        HttpAsyncClient|ClientInterface|null $client = null,
+    ): Client {
         $plugins = [];
         if (null !== $token) {
             $plugins[] = new AuthenticationRegistry([new BearerAuthentication($token)]);
@@ -37,7 +34,7 @@ final readonly class ClientFactory
         $plugins[] = new AddHostPlugin(new Uri('https://api.checkbox.in.ua'), ['replace' => true]);
         $plugins[] = new ClientNamePlugin($clientName, $clientVersion);
 
-        $pluginClient = new PluginClient($client??Psr18ClientDiscovery::find(), $plugins);
+        $pluginClient = new PluginClient($client ?? Psr18ClientDiscovery::find(), $plugins);
 
         return Client::create($pluginClient);
     }

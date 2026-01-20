@@ -59,7 +59,7 @@ class CreateXReportApiV1ReportsPost extends \RevoTale\CheckboxUA\Runtime\Client\
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\ReportModel
+     * @return ReportModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\CreateXReportApiV1ReportsPostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException

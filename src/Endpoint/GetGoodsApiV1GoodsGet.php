@@ -89,7 +89,7 @@ class GetGoodsApiV1GoodsGet extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndp
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\PaginatedResultGoodModel
+     * @return PaginatedResultGoodModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\GetGoodsApiV1GoodsGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
