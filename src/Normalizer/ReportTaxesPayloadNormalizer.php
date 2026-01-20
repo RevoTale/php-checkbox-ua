@@ -157,7 +157,7 @@ class ReportTaxesPayloadNormalizer implements DenormalizerInterface, NormalizerI
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [ReportTaxesPayload::class => false];
     }

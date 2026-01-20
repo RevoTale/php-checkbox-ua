@@ -94,7 +94,7 @@ class GetGoodsApiV1GoodsGet extends \RevoTale\CheckboxUA\Runtime\Client\BaseEndp
      * @throws \RevoTale\CheckboxUA\Exception\GetGoodsApiV1GoodsGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
-    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();

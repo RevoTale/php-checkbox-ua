@@ -65,7 +65,7 @@ class DeleteWebhookApiV1WebhookDelete extends \RevoTale\CheckboxUA\Runtime\Clien
      * @throws \RevoTale\CheckboxUA\Exception\DeleteWebhookApiV1WebhookDeleteUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
-    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();

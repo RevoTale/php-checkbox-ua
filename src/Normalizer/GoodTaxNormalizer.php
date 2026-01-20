@@ -140,7 +140,7 @@ class GoodTaxNormalizer implements DenormalizerInterface, NormalizerInterface, D
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [GoodTax::class => false];
     }

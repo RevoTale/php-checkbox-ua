@@ -84,7 +84,7 @@ class PaginatedResultShiftWithCashRegisterModelNormalizer implements Denormalize
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [PaginatedResultShiftWithCashRegisterModel::class => false];
     }

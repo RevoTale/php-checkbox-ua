@@ -14,8 +14,8 @@ use Psr\Http\Client\ClientInterface;
 
 final readonly class ClientFactory
 {
-    public static function createClient(string                          $token = null,
-                                        HttpAsyncClient|ClientInterface $client = null): Client
+    public static function createClient(?string                          $token = null,
+                                       null| HttpAsyncClient|ClientInterface $client = null): Client
     {
         $plugins = [];
         if (null !== $token) {

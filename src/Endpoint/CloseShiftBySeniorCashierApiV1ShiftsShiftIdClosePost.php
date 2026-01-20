@@ -22,7 +22,7 @@ class CloseShiftBySeniorCashierApiV1ShiftsShiftIdClosePost extends \RevoTale\Che
      * @var string $X-License-Key
      *             }
      */
-    public function __construct(string $shiftId, \RevoTale\CheckboxUA\Model\ShortCloseShiftPayload $requestBody = null, array $headerParameters = [])
+    public function __construct(string $shiftId, ?\RevoTale\CheckboxUA\Model\ShortCloseShiftPayload $requestBody = null, array $headerParameters = [])
     {
         $this->shift_id = $shiftId;
         $this->body = $requestBody;
@@ -72,7 +72,7 @@ class CloseShiftBySeniorCashierApiV1ShiftsShiftIdClosePost extends \RevoTale\Che
      * @throws \RevoTale\CheckboxUA\Exception\CloseShiftBySeniorCashierApiV1ShiftsShiftIdClosePostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
-    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();

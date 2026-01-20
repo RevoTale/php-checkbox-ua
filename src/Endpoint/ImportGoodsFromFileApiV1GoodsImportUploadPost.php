@@ -95,7 +95,7 @@ class ImportGoodsFromFileApiV1GoodsImportUploadPost extends \RevoTale\CheckboxUA
      * @throws \RevoTale\CheckboxUA\Exception\ImportGoodsFromFileApiV1GoodsImportUploadPostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
-    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();

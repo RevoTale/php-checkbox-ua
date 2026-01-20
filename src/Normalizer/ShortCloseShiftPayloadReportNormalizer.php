@@ -190,7 +190,7 @@ class ShortCloseShiftPayloadReportNormalizer implements DenormalizerInterface, N
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [ShortCloseShiftPayloadReport::class => false];
     }

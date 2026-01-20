@@ -133,7 +133,7 @@ class CashierModelNormalizer implements DenormalizerInterface, NormalizerInterfa
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [CashierModel::class => false];
     }

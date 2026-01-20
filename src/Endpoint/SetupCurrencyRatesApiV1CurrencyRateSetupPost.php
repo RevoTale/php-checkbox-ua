@@ -71,7 +71,7 @@ class SetupCurrencyRatesApiV1CurrencyRateSetupPost extends \RevoTale\CheckboxUA\
      * @throws \RevoTale\CheckboxUA\Exception\SetupCurrencyRatesApiV1CurrencyRateSetupPostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
-    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();

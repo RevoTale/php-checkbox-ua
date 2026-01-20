@@ -273,7 +273,7 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      * @throws \RevoTale\CheckboxUA\Exception\GoOfflineActionApiV1CashRegistersGoOfflinePostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
-    public function goOfflineActionApiV1CashRegistersGoOfflinePost(Model\GoOfflinePayload $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function goOfflineActionApiV1CashRegistersGoOfflinePost(?Model\GoOfflinePayload $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
         return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\GoOfflineActionApiV1CashRegistersGoOfflinePost($requestBody, $headerParameters), $fetch);
     }
@@ -598,7 +598,7 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      * @throws \RevoTale\CheckboxUA\Exception\CreateShiftApiV1ShiftsPostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
-    public function createShiftApiV1ShiftsPost(Model\CreateShiftPayload $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function createShiftApiV1ShiftsPost(?Model\CreateShiftPayload $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
         return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\CreateShiftApiV1ShiftsPost($requestBody, $headerParameters), $fetch);
     }
@@ -643,7 +643,7 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      * @throws \RevoTale\CheckboxUA\Exception\CloseShiftBySeniorCashierApiV1ShiftsShiftIdClosePostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
-    public function closeShiftBySeniorCashierApiV1ShiftsShiftIdClosePost(string $shiftId, Model\ShortCloseShiftPayload $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function closeShiftBySeniorCashierApiV1ShiftsShiftIdClosePost(string $shiftId,?Model\ShortCloseShiftPayload $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
         return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\CloseShiftBySeniorCashierApiV1ShiftsShiftIdClosePost($shiftId, $requestBody, $headerParameters), $fetch);
     }
@@ -681,7 +681,7 @@ final class Client extends \RevoTale\CheckboxUA\Runtime\Client\Client
      * @throws \RevoTale\CheckboxUA\Exception\CloseShiftApiV1ShiftsClosePostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
-    public function closeShiftApiV1ShiftsClosePost(Model\CloseShiftPayload $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function closeShiftApiV1ShiftsClosePost(?Model\CloseShiftPayload $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
         return $this->executeEndpoint(new \RevoTale\CheckboxUA\Endpoint\CloseShiftApiV1ShiftsClosePost($requestBody, $headerParameters), $fetch);
     }

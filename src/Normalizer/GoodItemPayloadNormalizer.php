@@ -119,7 +119,7 @@ class GoodItemPayloadNormalizer implements DenormalizerInterface, NormalizerInte
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [GoodItemPayload::class => false];
     }

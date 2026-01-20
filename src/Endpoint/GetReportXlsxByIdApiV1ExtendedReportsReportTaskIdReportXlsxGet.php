@@ -64,7 +64,7 @@ class GetReportXlsxByIdApiV1ExtendedReportsReportTaskIdReportXlsxGet extends \Re
      * @throws \RevoTale\CheckboxUA\Exception\GetReportXlsxByIdApiV1ExtendedReportsReportTaskIdReportXlsxGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
-    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();

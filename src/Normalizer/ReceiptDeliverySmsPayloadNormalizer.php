@@ -71,7 +71,7 @@ class ReceiptDeliverySmsPayloadNormalizer implements DenormalizerInterface, Norm
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [ReceiptDeliverySmsPayload::class => false];
     }

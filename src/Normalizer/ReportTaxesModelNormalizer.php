@@ -140,7 +140,7 @@ class ReportTaxesModelNormalizer implements DenormalizerInterface, NormalizerInt
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [ReportTaxesModel::class => false];
     }

@@ -24,7 +24,7 @@ class GoOfflineActionApiV1CashRegistersGoOfflinePost extends \RevoTale\CheckboxU
      * @var string $X-License-Key
      *             }
      */
-    public function __construct(\RevoTale\CheckboxUA\Model\GoOfflinePayload $requestBody = null, array $headerParameters = [])
+    public function __construct(?\RevoTale\CheckboxUA\Model\GoOfflinePayload $requestBody = null, array $headerParameters = [])
     {
         $this->body = $requestBody;
         $this->headerParameters = $headerParameters;
@@ -74,7 +74,7 @@ class GoOfflineActionApiV1CashRegistersGoOfflinePost extends \RevoTale\CheckboxU
      * @throws \RevoTale\CheckboxUA\Exception\GoOfflineActionApiV1CashRegistersGoOfflinePostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
-    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();

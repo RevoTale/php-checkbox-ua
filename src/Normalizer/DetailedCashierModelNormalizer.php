@@ -130,7 +130,7 @@ class DetailedCashierModelNormalizer implements DenormalizerInterface, Normalize
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [DetailedCashierModel::class => false];
     }

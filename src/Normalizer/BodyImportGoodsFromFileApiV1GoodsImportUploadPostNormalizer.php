@@ -71,7 +71,7 @@ class BodyImportGoodsFromFileApiV1GoodsImportUploadPostNormalizer implements Den
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [BodyImportGoodsFromFileApiV1GoodsImportUploadPost::class => false];
     }

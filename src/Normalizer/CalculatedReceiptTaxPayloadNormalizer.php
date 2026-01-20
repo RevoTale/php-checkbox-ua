@@ -161,7 +161,7 @@ class CalculatedReceiptTaxPayloadNormalizer implements DenormalizerInterface, No
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [CalculatedReceiptTaxPayload::class => false];
     }

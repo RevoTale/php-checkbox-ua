@@ -124,7 +124,7 @@ class ReportPaymentsPayloadNormalizer implements DenormalizerInterface, Normaliz
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [ReportPaymentsPayload::class => false];
     }
