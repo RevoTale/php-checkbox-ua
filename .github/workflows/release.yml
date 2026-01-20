@@ -24,5 +24,4 @@ jobs:
         id: release
         with:
           release-type: simple
-        env:
-          GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
