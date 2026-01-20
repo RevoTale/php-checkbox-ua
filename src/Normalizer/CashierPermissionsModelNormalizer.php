@@ -27,7 +27,7 @@ class CashierPermissionsModelNormalizer implements DenormalizerInterface, Normal
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\CashierPermissionsModel;
+        return is_object($data) && $data instanceof CashierPermissionsModel;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -38,7 +38,7 @@ class CashierPermissionsModelNormalizer implements DenormalizerInterface, Normal
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\CashierPermissionsModel();
+        $object = new CashierPermissionsModel();
         if (null === $data || false === is_array($data)) {
             return $object;
         }
@@ -123,10 +123,7 @@ class CashierPermissionsModelNormalizer implements DenormalizerInterface, Normal
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         if ($object->isInitialized('orders') && null !== $object->getOrders()) {
@@ -192,7 +189,7 @@ class CashierPermissionsModelNormalizer implements DenormalizerInterface, Normal
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [CashierPermissionsModel::class => false];
     }

@@ -27,7 +27,7 @@ class OrderGoodDetailsModelNormalizer implements DenormalizerInterface, Normaliz
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\OrderGoodDetailsModel;
+        return is_object($data) && $data instanceof OrderGoodDetailsModel;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -38,7 +38,7 @@ class OrderGoodDetailsModelNormalizer implements DenormalizerInterface, Normaliz
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\OrderGoodDetailsModel();
+        $object = new OrderGoodDetailsModel();
         if (null === $data || false === is_array($data)) {
             return $object;
         }
@@ -95,10 +95,7 @@ class OrderGoodDetailsModelNormalizer implements DenormalizerInterface, Normaliz
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         $data['code'] = $object->getCode();
@@ -138,7 +135,7 @@ class OrderGoodDetailsModelNormalizer implements DenormalizerInterface, Normaliz
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [OrderGoodDetailsModel::class => false];
     }

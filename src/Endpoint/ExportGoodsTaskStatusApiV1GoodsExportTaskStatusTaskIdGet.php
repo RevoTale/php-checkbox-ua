@@ -61,12 +61,12 @@ class ExportGoodsTaskStatusApiV1GoodsExportTaskStatusTaskIdGet extends \RevoTale
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\CheckStatusResponseSchema
+     * @return CheckStatusResponseSchema
      *
      * @throws \RevoTale\CheckboxUA\Exception\ExportGoodsTaskStatusApiV1GoodsExportTaskStatusTaskIdGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
-    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();

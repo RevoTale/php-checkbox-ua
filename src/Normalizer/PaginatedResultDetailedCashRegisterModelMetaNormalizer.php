@@ -27,7 +27,7 @@ class PaginatedResultDetailedCashRegisterModelMetaNormalizer implements Denormal
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\PaginatedResultDetailedCashRegisterModelMeta;
+        return is_object($data) && $data instanceof PaginatedResultDetailedCashRegisterModelMeta;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -38,7 +38,7 @@ class PaginatedResultDetailedCashRegisterModelMetaNormalizer implements Denormal
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\PaginatedResultDetailedCashRegisterModelMeta();
+        $object = new PaginatedResultDetailedCashRegisterModelMeta();
         if (null === $data || false === is_array($data)) {
             return $object;
         }
@@ -59,10 +59,7 @@ class PaginatedResultDetailedCashRegisterModelMetaNormalizer implements Denormal
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         $data['limit'] = $object->getLimit();
@@ -76,7 +73,7 @@ class PaginatedResultDetailedCashRegisterModelMetaNormalizer implements Denormal
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [PaginatedResultDetailedCashRegisterModelMeta::class => false];
     }

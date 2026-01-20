@@ -61,12 +61,12 @@ class GetReportApiV1ReportsReportIdGet extends \RevoTale\CheckboxUA\Runtime\Clie
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\ReportModel
+     * @return ReportModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\GetReportApiV1ReportsReportIdGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
-    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();

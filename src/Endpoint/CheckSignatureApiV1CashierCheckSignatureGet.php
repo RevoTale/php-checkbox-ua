@@ -57,12 +57,12 @@ class CheckSignatureApiV1CashierCheckSignatureGet extends \RevoTale\CheckboxUA\R
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\CashierSignatureStatus
+     * @return CashierSignatureStatus
      *
      * @throws \RevoTale\CheckboxUA\Exception\CheckSignatureApiV1CashierCheckSignatureGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
-    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();

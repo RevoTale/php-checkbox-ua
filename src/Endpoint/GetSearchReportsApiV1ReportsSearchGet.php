@@ -92,12 +92,12 @@ class GetSearchReportsApiV1ReportsSearchGet extends \RevoTale\CheckboxUA\Runtime
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\PaginatedResultReportModel
+     * @return PaginatedResultReportModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\GetSearchReportsApiV1ReportsSearchGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
-    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();

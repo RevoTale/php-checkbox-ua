@@ -27,7 +27,7 @@ class DocumentsStateModelNormalizer implements DenormalizerInterface, Normalizer
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\DocumentsStateModel;
+        return is_object($data) && $data instanceof DocumentsStateModel;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -38,7 +38,7 @@ class DocumentsStateModelNormalizer implements DenormalizerInterface, Normalizer
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\DocumentsStateModel();
+        $object = new DocumentsStateModel();
         if (null === $data || false === is_array($data)) {
             return $object;
         }
@@ -63,10 +63,7 @@ class DocumentsStateModelNormalizer implements DenormalizerInterface, Normalizer
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         $data['last_receipt_code'] = $object->getLastReceiptCode();
@@ -81,7 +78,7 @@ class DocumentsStateModelNormalizer implements DenormalizerInterface, Normalizer
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [DocumentsStateModel::class => false];
     }

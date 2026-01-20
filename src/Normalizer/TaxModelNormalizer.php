@@ -28,7 +28,7 @@ class TaxModelNormalizer implements DenormalizerInterface, NormalizerInterface, 
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\TaxModel;
+        return is_object($data) && $data instanceof TaxModel;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -96,10 +96,7 @@ class TaxModelNormalizer implements DenormalizerInterface, NormalizerInterface, 
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         $data['id'] = $object->getId();
@@ -130,7 +127,7 @@ class TaxModelNormalizer implements DenormalizerInterface, NormalizerInterface, 
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [TaxModel::class => false];
     }

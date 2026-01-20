@@ -28,7 +28,7 @@ class CloseShiftPayloadReportNormalizer implements DenormalizerInterface, Normal
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\CloseShiftPayloadReport;
+        return is_object($data) && $data instanceof CloseShiftPayloadReport;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -128,10 +128,7 @@ class CloseShiftPayloadReportNormalizer implements DenormalizerInterface, Normal
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         if ($object->isInitialized('id') && null !== $object->getId()) {
@@ -190,7 +187,7 @@ class CloseShiftPayloadReportNormalizer implements DenormalizerInterface, Normal
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [CloseShiftPayloadReport::class => false];
     }

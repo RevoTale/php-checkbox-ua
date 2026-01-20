@@ -29,7 +29,7 @@ class ReportTaxesPayloadNormalizer implements DenormalizerInterface, NormalizerI
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\ReportTaxesPayload;
+        return is_object($data) && $data instanceof ReportTaxesPayload;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -40,7 +40,7 @@ class ReportTaxesPayloadNormalizer implements DenormalizerInterface, NormalizerI
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\ReportTaxesPayload();
+        $object = new ReportTaxesPayload();
         if (array_key_exists('rate', $data) && is_int($data['rate'])) {
             $data['rate'] = (float) $data['rate'];
         }
@@ -123,10 +123,7 @@ class ReportTaxesPayloadNormalizer implements DenormalizerInterface, NormalizerI
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         $data['code'] = $object->getCode();
@@ -157,7 +154,7 @@ class ReportTaxesPayloadNormalizer implements DenormalizerInterface, NormalizerI
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [ReportTaxesPayload::class => false];
     }

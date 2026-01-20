@@ -28,7 +28,7 @@ class OrderDeliveryDetailsModelNormalizer implements DenormalizerInterface, Norm
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\OrderDeliveryDetailsModel;
+        return is_object($data) && $data instanceof OrderDeliveryDetailsModel;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -39,7 +39,7 @@ class OrderDeliveryDetailsModelNormalizer implements DenormalizerInterface, Norm
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\OrderDeliveryDetailsModel();
+        $object = new OrderDeliveryDetailsModel();
         if (null === $data || false === is_array($data)) {
             return $object;
         }
@@ -84,10 +84,7 @@ class OrderDeliveryDetailsModelNormalizer implements DenormalizerInterface, Norm
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         $data['address'] = $this->normalizer->normalize($object->getAddress(), 'json', $context);
@@ -110,7 +107,7 @@ class OrderDeliveryDetailsModelNormalizer implements DenormalizerInterface, Norm
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [OrderDeliveryDetailsModel::class => false];
     }

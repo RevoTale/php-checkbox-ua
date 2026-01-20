@@ -59,12 +59,12 @@ class GetTransactionApiV1TransactionsTransactionIdGet extends \RevoTale\Checkbox
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\TransactionModel
+     * @return TransactionModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\GetTransactionApiV1TransactionsTransactionIdGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
-    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();

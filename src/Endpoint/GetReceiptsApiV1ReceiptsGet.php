@@ -89,12 +89,12 @@ class GetReceiptsApiV1ReceiptsGet extends \RevoTale\CheckboxUA\Runtime\Client\Ba
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\PaginatedResultReceiptModel
+     * @return PaginatedResultReceiptModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\GetReceiptsApiV1ReceiptsGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
-    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();

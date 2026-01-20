@@ -27,7 +27,7 @@ class GoodItemPayloadNormalizer implements DenormalizerInterface, NormalizerInte
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\GoodItemPayload;
+        return is_object($data) && $data instanceof GoodItemPayload;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -38,7 +38,7 @@ class GoodItemPayloadNormalizer implements DenormalizerInterface, NormalizerInte
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\GoodItemPayload();
+        $object = new GoodItemPayload();
         if (null === $data || false === is_array($data)) {
             return $object;
         }
@@ -83,10 +83,7 @@ class GoodItemPayloadNormalizer implements DenormalizerInterface, NormalizerInte
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         $data['good'] = $this->normalizer->normalize($object->getGood(), 'json', $context);
@@ -119,7 +116,7 @@ class GoodItemPayloadNormalizer implements DenormalizerInterface, NormalizerInte
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [GoodItemPayload::class => false];
     }

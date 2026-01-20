@@ -29,7 +29,7 @@ class CurrencyExchangePayloadNormalizer implements DenormalizerInterface, Normal
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\CurrencyExchangePayload;
+        return is_object($data) && $data instanceof CurrencyExchangePayload;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -40,7 +40,7 @@ class CurrencyExchangePayloadNormalizer implements DenormalizerInterface, Normal
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\CurrencyExchangePayload();
+        $object = new CurrencyExchangePayload();
         if (array_key_exists('commission', $data) && is_int($data['commission'])) {
             $data['commission'] = (float) $data['commission'];
         }
@@ -104,10 +104,7 @@ class CurrencyExchangePayloadNormalizer implements DenormalizerInterface, Normal
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         if ($object->isInitialized('id') && null !== $object->getId()) {
@@ -153,7 +150,7 @@ class CurrencyExchangePayloadNormalizer implements DenormalizerInterface, Normal
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [CurrencyExchangePayload::class => false];
     }

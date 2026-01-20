@@ -97,12 +97,12 @@ class SetWebhookApiV1WebhookPost extends \RevoTale\CheckboxUA\Runtime\Client\Bas
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\WebhookInfoResponseSchema
+     * @return WebhookInfoResponseSchema
      *
      * @throws \RevoTale\CheckboxUA\Exception\SetWebhookApiV1WebhookPostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
-    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();

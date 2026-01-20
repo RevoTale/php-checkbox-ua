@@ -27,7 +27,7 @@ class NotificationPayloadNormalizer implements DenormalizerInterface, Normalizer
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\NotificationPayload;
+        return is_object($data) && $data instanceof NotificationPayload;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -38,7 +38,7 @@ class NotificationPayloadNormalizer implements DenormalizerInterface, Normalizer
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\NotificationPayload();
+        $object = new NotificationPayload();
         if (null === $data || false === is_array($data)) {
             return $object;
         }
@@ -55,10 +55,7 @@ class NotificationPayloadNormalizer implements DenormalizerInterface, Normalizer
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         $data['ok'] = $object->getOk();
@@ -71,7 +68,7 @@ class NotificationPayloadNormalizer implements DenormalizerInterface, Normalizer
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [NotificationPayload::class => false];
     }

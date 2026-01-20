@@ -27,7 +27,7 @@ class CardPaymentPayloadNormalizer implements DenormalizerInterface, NormalizerI
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\CardPaymentPayload;
+        return is_object($data) && $data instanceof CardPaymentPayload;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -38,7 +38,7 @@ class CardPaymentPayloadNormalizer implements DenormalizerInterface, NormalizerI
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\CardPaymentPayload();
+        $object = new CardPaymentPayload();
         if (null === $data || false === is_array($data)) {
             return $object;
         }
@@ -127,10 +127,7 @@ class CardPaymentPayloadNormalizer implements DenormalizerInterface, NormalizerI
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         if ($object->isInitialized('type') && null !== $object->getType()) {
@@ -197,7 +194,7 @@ class CardPaymentPayloadNormalizer implements DenormalizerInterface, NormalizerI
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [CardPaymentPayload::class => false];
     }

@@ -27,7 +27,7 @@ class OrganizationReceiptConfigSchemaNormalizer implements DenormalizerInterface
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\OrganizationReceiptConfigSchema;
+        return is_object($data) && $data instanceof OrganizationReceiptConfigSchema;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -38,7 +38,7 @@ class OrganizationReceiptConfigSchemaNormalizer implements DenormalizerInterface
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\OrganizationReceiptConfigSchema();
+        $object = new OrganizationReceiptConfigSchema();
         if (null === $data || false === is_array($data)) {
             return $object;
         }
@@ -95,10 +95,7 @@ class OrganizationReceiptConfigSchemaNormalizer implements DenormalizerInterface
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         if ($object->isInitialized('textGlobalHeader') && null !== $object->getTextGlobalHeader()) {
@@ -141,7 +138,7 @@ class OrganizationReceiptConfigSchemaNormalizer implements DenormalizerInterface
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [OrganizationReceiptConfigSchema::class => false];
     }

@@ -62,12 +62,12 @@ class CreateDailyCashFlowReportApiV1ExtendedReportsDailyCashFlowPost extends \Re
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\ReportTaskSchema
+     * @return ReportTaskSchema
      *
      * @throws \RevoTale\CheckboxUA\Exception\CreateDailyCashFlowReportApiV1ExtendedReportsDailyCashFlowPostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
-    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();

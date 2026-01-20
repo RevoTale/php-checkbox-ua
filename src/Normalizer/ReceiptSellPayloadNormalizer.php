@@ -26,7 +26,7 @@ class ReceiptSellPayloadNormalizer implements DenormalizerInterface, NormalizerI
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\ReceiptSellPayload;
+        return is_object($data) && $data instanceof ReceiptSellPayload;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -37,7 +37,7 @@ class ReceiptSellPayloadNormalizer implements DenormalizerInterface, NormalizerI
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\ReceiptSellPayload();
+        $object = new ReceiptSellPayload();
         if (null === $data || false === \is_array($data)) {
             return $object;
         }
@@ -158,10 +158,7 @@ class ReceiptSellPayloadNormalizer implements DenormalizerInterface, NormalizerI
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         if ($object->isInitialized('id') && null !== $object->getId()) {
@@ -259,7 +256,7 @@ class ReceiptSellPayloadNormalizer implements DenormalizerInterface, NormalizerI
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [ReceiptSellPayload::class => false];
     }

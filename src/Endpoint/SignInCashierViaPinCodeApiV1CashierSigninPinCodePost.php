@@ -67,13 +67,13 @@ class SignInCashierViaPinCodeApiV1CashierSigninPinCodePost extends \RevoTale\Che
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\CashierAccessTokenResponseModel
+     * @return CashierAccessTokenResponseModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\SignInCashierViaPinCodeApiV1CashierSigninPinCodePostForbiddenException
      * @throws \RevoTale\CheckboxUA\Exception\SignInCashierViaPinCodeApiV1CashierSigninPinCodePostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
-    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();

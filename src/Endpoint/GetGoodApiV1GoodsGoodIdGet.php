@@ -61,12 +61,12 @@ class GetGoodApiV1GoodsGoodIdGet extends \RevoTale\CheckboxUA\Runtime\Client\Bas
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\SrsoSchemaGoodSchemaGoodModel
+     * @return SrsoSchemaGoodSchemaGoodModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\GetGoodApiV1GoodsGoodIdGetUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
-    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();

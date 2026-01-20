@@ -28,7 +28,7 @@ class CashierModelNormalizer implements DenormalizerInterface, NormalizerInterfa
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\CashierModel;
+        return is_object($data) && $data instanceof CashierModel;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -69,14 +69,14 @@ class CashierModelNormalizer implements DenormalizerInterface, NormalizerInterfa
         }
         if (array_key_exists('created_at', $data)) {
             $createdAt = DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['created_at']);
-            $object->setCreatedAt($createdAt === false? new DateTime() :$createdAt);
+            $object->setCreatedAt(false === $createdAt ? new DateTime() : $createdAt);
             unset($data['created_at']);
         }
         if (array_key_exists('updated_at', $data)) {
             $updatedAt = null;
-            if ($data['updated_at'] !== null) {
+            if (null !== $data['updated_at']) {
                 $updatedAt = DateTime::createFromFormat('Y-m-d\\TH:i:s.uP', $data['updated_at']);
-                if ($updatedAt === false) {
+                if (false === $updatedAt) {
                     $updatedAt = null;
                 }
             }
@@ -100,10 +100,7 @@ class CashierModelNormalizer implements DenormalizerInterface, NormalizerInterfa
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         $data['id'] = $object->getId();
@@ -133,7 +130,7 @@ class CashierModelNormalizer implements DenormalizerInterface, NormalizerInterfa
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [CashierModel::class => false];
     }

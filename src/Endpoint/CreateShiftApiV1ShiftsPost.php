@@ -40,7 +40,7 @@ class CreateShiftApiV1ShiftsPost extends \RevoTale\CheckboxUA\Runtime\Client\Bas
      * @var string $X-License-Key
      *             }
      */
-    public function __construct(\RevoTale\CheckboxUA\Model\CreateShiftPayload $requestBody = null, array $headerParameters = [])
+    public function __construct(?\RevoTale\CheckboxUA\Model\CreateShiftPayload $requestBody = null, array $headerParameters = [])
     {
         $this->body = $requestBody;
         $this->headerParameters = $headerParameters;
@@ -85,12 +85,12 @@ class CreateShiftApiV1ShiftsPost extends \RevoTale\CheckboxUA\Runtime\Client\Bas
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\ShiftWithCashierAndCashRegister
+     * @return ShiftWithCashierAndCashRegister
      *
      * @throws \RevoTale\CheckboxUA\Exception\CreateShiftApiV1ShiftsPostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
-    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();

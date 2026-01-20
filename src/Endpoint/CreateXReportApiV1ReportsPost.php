@@ -59,12 +59,12 @@ class CreateXReportApiV1ReportsPost extends \RevoTale\CheckboxUA\Runtime\Client\
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\ReportModel
+     * @return ReportModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\CreateXReportApiV1ReportsPostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
-    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();

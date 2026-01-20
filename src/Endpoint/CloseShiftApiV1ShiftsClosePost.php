@@ -36,7 +36,7 @@ class CloseShiftApiV1ShiftsClosePost extends \RevoTale\CheckboxUA\Runtime\Client
      * @var string $X-Device-ID ID RRO Agent або мобільного пристрою каси (Для блокування дублікатів)
      *             }
      */
-    public function __construct(\RevoTale\CheckboxUA\Model\CloseShiftPayload $requestBody = null, array $headerParameters = [])
+    public function __construct(?\RevoTale\CheckboxUA\Model\CloseShiftPayload $requestBody = null, array $headerParameters = [])
     {
         $this->body = $requestBody;
         $this->headerParameters = $headerParameters;
@@ -81,12 +81,12 @@ class CloseShiftApiV1ShiftsClosePost extends \RevoTale\CheckboxUA\Runtime\Client
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\ShiftWithCashierAndCashRegister
+     * @return ShiftWithCashierAndCashRegister
      *
      * @throws \RevoTale\CheckboxUA\Exception\CloseShiftApiV1ShiftsClosePostUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
-    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();

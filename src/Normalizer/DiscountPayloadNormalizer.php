@@ -28,7 +28,7 @@ class DiscountPayloadNormalizer implements DenormalizerInterface, NormalizerInte
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\DiscountPayload;
+        return is_object($data) && $data instanceof DiscountPayload;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -39,7 +39,7 @@ class DiscountPayloadNormalizer implements DenormalizerInterface, NormalizerInte
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\DiscountPayload();
+        $object = new DiscountPayload();
         if (array_key_exists('value', $data) && is_int($data['value'])) {
             $data['value'] = (float) $data['value'];
         }
@@ -83,10 +83,7 @@ class DiscountPayloadNormalizer implements DenormalizerInterface, NormalizerInte
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         $data['type'] = $object->getType();
@@ -113,7 +110,7 @@ class DiscountPayloadNormalizer implements DenormalizerInterface, NormalizerInte
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [DiscountPayload::class => false];
     }

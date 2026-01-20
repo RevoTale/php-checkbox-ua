@@ -79,12 +79,12 @@ class CloseNotFiscalizeOrderApiV1OrdersClosePatch extends \RevoTale\CheckboxUA\R
     }
 
     /**
-     * @return \RevoTale\CheckboxUA\Model\OrderModel
+     * @return OrderModel
      *
      * @throws \RevoTale\CheckboxUA\Exception\CloseNotFiscalizeOrderApiV1OrdersClosePatchUnprocessableEntityException
      * @throws \RevoTale\CheckboxUA\Exception\UnexpectedStatusCodeException
      */
-    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();

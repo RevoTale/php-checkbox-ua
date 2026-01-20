@@ -28,7 +28,7 @@ class IntegrationInfoResponseSchemaNormalizer implements DenormalizerInterface, 
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\IntegrationInfoResponseSchema;
+        return is_object($data) && $data instanceof IntegrationInfoResponseSchema;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -39,7 +39,7 @@ class IntegrationInfoResponseSchemaNormalizer implements DenormalizerInterface, 
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \RevoTale\CheckboxUA\Model\IntegrationInfoResponseSchema();
+        $object = new IntegrationInfoResponseSchema();
         if (null === $data || false === is_array($data)) {
             return $object;
         }
@@ -76,10 +76,7 @@ class IntegrationInfoResponseSchemaNormalizer implements DenormalizerInterface, 
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         $data['url'] = $object->getUrl();
@@ -103,7 +100,7 @@ class IntegrationInfoResponseSchemaNormalizer implements DenormalizerInterface, 
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [IntegrationInfoResponseSchema::class => false];
     }

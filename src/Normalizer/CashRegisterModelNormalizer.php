@@ -28,7 +28,7 @@ class CashRegisterModelNormalizer implements DenormalizerInterface, NormalizerIn
 
     public function supportsNormalization($data, $format = null, array $context = []): bool
     {
-        return is_object($data) && $data instanceof \RevoTale\CheckboxUA\Model\CashRegisterModel;
+        return is_object($data) && $data instanceof CashRegisterModel;
     }
 
     public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
@@ -61,9 +61,9 @@ class CashRegisterModelNormalizer implements DenormalizerInterface, NormalizerIn
         }
         if (array_key_exists('updated_at', $data)) {
             $updatedAt = null;
-            if ($data['updated_at'] !== null) {
+            if (null !== $data['updated_at']) {
                 $updatedAt = DateTime::createFromFormat('Y-m-d\\TH:i:sP', $data['updated_at']);
-                if ($updatedAt === false) {
+                if (false === $updatedAt) {
                     $updatedAt = null;
                 }
             }
@@ -83,10 +83,7 @@ class CashRegisterModelNormalizer implements DenormalizerInterface, NormalizerIn
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|ArrayObject|null
-     */
-    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $object, ?string $format = null, array $context = []): array|string|int|float|bool|ArrayObject|null
     {
         $data = [];
         $data['id'] = $object->getId();
@@ -108,7 +105,7 @@ class CashRegisterModelNormalizer implements DenormalizerInterface, NormalizerIn
         return $data;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [CashRegisterModel::class => false];
     }
