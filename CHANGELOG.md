@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.1](https://github.com/RevoTale/php-checkbox-ua/compare/v0.1.0...v0.1.1) (2026-08-14)
+
+
+### Bug Fixes
+
+* **deps:** update dependency guzzlehttp/guzzle to v8 ([04476ec](https://github.com/RevoTale/php-checkbox-ua/commit/04476ec2fd59589291cf41983cfabb34ab40268c))
+* **deps:** update dependency guzzlehttp/guzzle to v8 ([1450d9e](https://github.com/RevoTale/php-checkbox-ua/commit/1450d9e26ebf865508bfbf24c158a95fff252a08))
+
 ## [0.1.0](https://github.com/RevoTale/php-checkbox-ua/compare/0.0.13...v0.1.0) (2026-01-20)
 
 
