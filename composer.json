@@ -11,7 +11,7 @@
   "require": {
     "php": "^8.2",
     "jane-php/open-api-runtime": "^7.6",
-    "guzzlehttp/guzzle": "^7.8"
+    "guzzlehttp/guzzle": "^8.0"
   },
   "require-dev": {
     "jane-php/open-api-3": "^7.6",
